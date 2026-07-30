@@ -26,7 +26,8 @@ module.exports = merge(common, {
         exclude: /\/node_modules\//,
       }),
       new MiniCssExtractPlugin({
-        filename: "[name].[hash:5].css",
+        filename: ({ chunk }) =>
+          chunk.name === "cms-preview" ? "[name].css" : "[name].[hash:5].css",
         chunkFilename: "[id].[hash:5].css"
       }),
       new CssMinimizerPlugin(),

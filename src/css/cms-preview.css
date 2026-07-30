@@ -1,0 +1,45 @@
+/* Tailwind v4 entry used by the Decap CMS preview iframe.
+   The previews folder is scanned for utility classes, so the same
+   design tokens defined in main.css (@theme) are picked up here. */
+@import "tailwindcss";
+
+@source "../../site/static/admin/previews/**/*.html";
+@source "../../site/static/admin/previews/**/*.css";
+@source "../../site/static/admin/previews/**/*.js";
+
+@theme {
+  --color-brand-50: #f3f6ee;
+  --color-brand-100: #e2ead4;
+  --color-brand-200: #c5d5a9;
+  --color-brand-300: #a2bb78;
+  --color-brand-400: #86a456;
+  --color-brand-500: #6f8d3f;
+  --color-brand-600: #5b7431;
+  --color-brand-700: #475b29;
+  --color-brand-800: #384825;
+  --color-brand-900: #2a3620;
+  --color-brand-950: #161e10;
+
+  --color-brand: #475b29;
+  --color-brand-dark: #2a3620;
+  --color-brand-light: #86a456;
+
+  --color-ink: #0f172a;
+  --color-ink-muted: #475569;
+  --color-cream: #f7f5ef;
+  --color-line: #e2e8f0;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-ink antialiased;
+    background: #ffffff;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}

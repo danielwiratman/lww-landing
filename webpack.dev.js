@@ -1,9 +1,22 @@
 const {merge} = require("webpack-merge");
 const path = require("path");
+const fs = require("fs");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const common = require("./webpack.common");
+
+class WriteCmsPreviewCss {
+  apply(compiler) {
+    compiler.hooks.afterEmit.tap("WriteCmsPreviewCss", () => {
+      const src = path.join(compiler.options.output.path, "cms-preview.css");
+      const dest = path.join(__dirname, "site", "static", "cms-preview.css");
+      if (fs.existsSync(src)) {
+        fs.copyFileSync(src, dest);
+      }
+    });
+  }
+}
 
 module.exports = merge(common, {
   mode: "development",
@@ -36,6 +49,8 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+
+    new WriteCmsPreviewCss()
   ]
 });
