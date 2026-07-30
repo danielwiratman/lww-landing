@@ -1,0 +1,51 @@
+---
+title: "Pelanggan"
+description: "Organisasi yang mempercayakan infrastruktur kritisnya kepada Limawira Wisesa."
+hero:
+  heading: "Dipercaya oleh organisasi terkemuka"
+  tagline: "Pelanggan"
+  image: "/img/customers-hero.jpg"
+groups:
+  - title: "Data Center"
+    customers:
+      - name: "Kementerian Pertanian"
+        industry: "Pemerintah"
+      - name: "Kementerian Keuangan (DJPb)"
+        industry: "Pemerintah"
+      - name: "Samakta Mitra"
+        industry: "Teknologi"
+  - title: "Solusi UPS"
+    customers:
+      - name: "Taspen (Persero)"
+        industry: "Keuangan"
+      - name: "BPOM"
+        industry: "Pemerintah"
+      - name: "Bank BTN"
+        industry: "Perbankan"
+      - name: "JICT"
+        industry: "Logistik"
+  - title: "Infrastruktur ICT"
+    customers:
+      - name: "Kementerian Keuangan (DJBC)"
+        industry: "Pemerintah"
+      - name: "Kementerian Dalam Negeri"
+        industry: "Pemerintah"
+      - name: "Pemprov DKI Jakarta"
+        industry: "Pemerintah"
+  - title: "Teknik Elektrikal"
+    customers:
+      - name: "Telkom Satelit Indonesia"
+        industry: "Telekomunikasi"
+      - name: "Asuransi Jiwa Manulife Indonesia"
+        industry: "Asuransi"
+      - name: "Bumi Serpong Damai"
+        industry: "Properti"
+  - title: "Pemeliharaan & Dukungan"
+    customers:
+      - name: "Astra Sedaya Finance"
+        industry: "Keuangan"
+      - name: "Bappenas"
+        industry: "Pemerintah"
+      - name: "LKBN Antara"
+        industry: "Media"
+---

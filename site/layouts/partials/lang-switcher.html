@@ -1,0 +1,83 @@
+{{/*
+  Language switcher partial. Renders a dropdown with flags for every
+  language declared in hugo.toml. Each option links to the current page
+  in the target language (via .AllTranslations), falling back to the
+  language home if no translation exists for the current page.
+
+  Usage: {{ partial "lang-switcher" . }}
+*/}}
+
+{{ $currentLang := .Site.Language.Lang }}
+{{ $currentPage := . }}
+
+{{/*
+  Canonical list of languages the switcher should show. Hugo exposes
+  language metadata, but the flag glyph and the display strings are
+  project-specific, so we keep the map here. To add a new language:
+  1. Add it to [languages] in site/hugo.toml.
+  2. Mirror content under site/content.<code>/.
+  3. Add an entry to $langMap below.
+*/}}
+{{ $langMap := dict
+  "en" (dict "flag" "us" "name" "English"         "sub"  "English")
+  "id" (dict "flag" "id" "name" "Bahasa Indonesia" "sub"  "Bahasa")
+}}
+
+{{ $currentMeta := index $langMap $currentLang }}
+
+<div class="relative" data-lang-switcher>
+  <button type="button"
+          data-lang-toggle
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-label="Select language"
+          class="lang-switcher-btn group inline-flex items-center gap-2 pl-1.5 pr-2.5 py-1.5 rounded-full border border-line bg-white hover:border-brand hover:bg-brand-50 transition text-sm font-semibold text-ink">
+    <span class="lang-flag-frame">
+      {{ partial "flag" (index $currentMeta "flag") }}
+    </span>
+    <span class="hidden sm:inline leading-none">{{ index $currentMeta "name" }}</span>
+    <svg class="w-3.5 h-3.5 text-ink-muted group-hover:text-brand transition lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </button>
+
+  <div data-lang-menu
+       role="listbox"
+       aria-label="Available languages"
+       class="lang-menu absolute right-0 mt-2 min-w-[200px] rounded-xl bg-white border border-line shadow-soft p-1.5 origin-top-right
+              opacity-0 -translate-y-1 pointer-events-none scale-95 transition-all duration-150 z-50">
+    {{ range $code, $meta := $langMap }}
+      {{ $isCurrent := eq $code $currentLang }}
+      {{ $url := "" }}
+      {{ if $isCurrent }}
+        {{ $url = $currentPage.RelPermalink }}
+      {{ else }}
+        {{ $found := "" }}
+        {{ range $currentPage.AllTranslations }}
+          {{ if eq .Language.Lang $code }}{{ $found = .RelPermalink }}{{ end }}
+        {{ end }}
+        {{ if not $found }}{{ $found = printf "/%s/" $code }}{{ end }}
+        {{ $url = $found }}
+      {{ end }}
+      <a href="{{ $url }}"
+         role="option"
+         aria-selected="{{ if $isCurrent }}true{{ else }}false{{ end }}"
+         {{ if $isCurrent }}aria-current="true"{{ end }}
+         class="lang-option flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                {{ if $isCurrent }}bg-brand-50 text-brand font-semibold cursor-default{{ else }}text-ink hover:bg-cream/60 transition{{ end }}">
+        <span class="lang-flag-frame">
+          {{ partial "flag" (index $meta "flag") }}
+        </span>
+        <span class="flex-1 leading-tight">
+          <span class="block font-semibold">{{ index $meta "name" }}</span>
+          <span class="block text-xs text-ink-muted">{{ index $meta "sub" }}</span>
+        </span>
+        {{ if $isCurrent }}
+          <svg class="w-4 h-4 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        {{ end }}
+      </a>
+    {{ end }}
+  </div>
+</div>

@@ -10,16 +10,18 @@
 
     <!-- Desktop nav -->
     <ul class="hidden lg:flex items-center gap-1 text-sm font-semibold text-ink">
-      <li><a href="/" class="px-3 py-2 rounded hover:text-brand transition">Home</a></li>
-      <li><a href="/solutions/" class="px-3 py-2 rounded hover:text-brand transition">Solutions</a></li>
-      <li><a href="/projects/" class="px-3 py-2 rounded hover:text-brand transition">Projects</a></li>
-      <li><a href="/industries/" class="px-3 py-2 rounded hover:text-brand transition">Industries</a></li>
-      <li><a href="/about/" class="px-3 py-2 rounded hover:text-brand transition">About Us</a></li>
-      <li><a href="/career/" class="px-3 py-2 rounded hover:text-brand transition">Career</a></li>
+      <li><a href="{{ .Site.Home.RelPermalink }}" class="px-3 py-2 rounded hover:text-brand transition">Home</a></li>
+      <li><a href="{{ (`/solutions/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Solutions</a></li>
+      <li><a href="{{ (`/projects/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Projects</a></li>
+      <li><a href="{{ (`/industries/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Industries</a></li>
+      <li><a href="{{ (`/about/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">About Us</a></li>
+      <li><a href="{{ (`/career/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Career</a></li>
     </ul>
 
-    <!-- Right side: phone + mobile menu -->
-    <div class="flex items-center gap-3">
+    <!-- Right side: language + phone + mobile menu -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      {{ partial "lang-switcher" . }}
+
       <a href="tel:{{ $site.phoneRaw }}"
          class="hidden md:inline-flex items-center gap-2 btn-primary !py-2.5">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -45,13 +47,16 @@
   <!-- Mobile menu (slide-down) -->
   <div class="mobile-menu-container lg:hidden border-t border-line bg-white">
     <ul class="container-x flex flex-col py-4 text-sm font-semibold text-ink">
-      <li><a href="/" class="block py-3 border-b border-line">Home</a></li>
-      <li><a href="/solutions/" class="block py-3 border-b border-line">Solutions</a></li>
-      <li><a href="/projects/" class="block py-3 border-b border-line">Projects</a></li>
-      <li><a href="/industries/" class="block py-3 border-b border-line">Industries</a></li>
-      <li><a href="/about/" class="block py-3 border-b border-line">About Us</a></li>
-      <li><a href="/career/" class="block py-3 border-b border-line">Career</a></li>
-      <li><a href="/contact/" class="block py-3">Contact</a></li>
+      <li><a href="{{ .Site.Home.RelPermalink }}" class="block py-3 border-b border-line">Home</a></li>
+      <li><a href="{{ (`/solutions/` | relLangURL) }}" class="block py-3 border-b border-line">Solutions</a></li>
+      <li><a href="{{ (`/projects/` | relLangURL) }}" class="block py-3 border-b border-line">Projects</a></li>
+      <li><a href="{{ (`/industries/` | relLangURL) }}" class="block py-3 border-b border-line">Industries</a></li>
+      <li><a href="{{ (`/about/` | relLangURL) }}" class="block py-3 border-b border-line">About Us</a></li>
+      <li><a href="{{ (`/career/` | relLangURL) }}" class="block py-3 border-b border-line">Career</a></li>
+      <li><a href="{{ (`/contact/` | relLangURL) }}" class="block py-3">Contact</a></li>
+      <li class="pt-3">
+        {{ partial "lang-switcher" . }}
+      </li>
       <li>
         <a href="tel:{{ $site.phoneRaw }}" class="mt-2 btn-primary w-full">{{ $site.phone }}</a>
       </li>

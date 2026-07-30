@@ -176,3 +176,53 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ------------------------------------------------------------------ */
+/* Language switcher                                                  */
+/* ------------------------------------------------------------------ */
+.lang-flag-frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.lang-flag {
+  display: block;
+  width: 22px;
+  height: 15px;
+}
+
+.lang-switcher-btn {
+  position: relative;
+}
+
+[data-lang-switcher][data-open="true"] .lang-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+[data-lang-switcher][data-open="true"] .lang-chevron {
+  transform: rotate(180deg);
+}
+
+.lang-chevron {
+  transition: transform 0.15s ease;
+}
+
+.lang-option {
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .lang-menu {
+    min-width: 180px;
+  }
+}

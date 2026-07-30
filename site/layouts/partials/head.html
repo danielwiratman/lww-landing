@@ -30,6 +30,19 @@
   {{ template "_internal/twitter_cards.html" . }}
   {{ template "_internal/schema.html" . }}
 
+  {{/*
+    hreflang alternate links. One <link rel="alternate"> per translation of
+    the current page (including the current page itself) plus an x-default
+    pointing at the canonical English URL.
+  */}}
+  {{ range .AllTranslations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink | absURL }}">
+  {{ end }}
+  {{ $defaultSite := index hugo.Sites 0 }}
+  {{ with $defaultSite.GetPage "/" }}
+    <link rel="alternate" hreflang="x-default" href="{{ .Permalink | absURL }}">
+  {{ end }}
+
   {{ if .IsHome }}
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {{ end }}

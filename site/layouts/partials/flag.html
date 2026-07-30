@@ -1,0 +1,61 @@
+{{/*
+  Renders an inline flag icon by country code (currently "us" and "id").
+  Usage: {{ partial "flag" "id" }}
+  Returns an SVG with proper colors, designed to be displayed at small sizes
+  (e.g. 20-24px). Flags are clipped to a rounded rectangle to match the
+  button's visual language and to make country identification unambiguous.
+*/}}
+{{ $name := . }}
+<svg class="lang-flag" viewBox="0 0 30 20" aria-hidden="true">
+  <defs>
+    <clipPath id="flagClipUs"><rect x="0" y="0" width="30" height="20" rx="3" ry="3"/></clipPath>
+    <clipPath id="flagClipId"><rect x="0" y="0" width="30" height="20" rx="3" ry="3"/></clipPath>
+  </defs>
+  {{ if eq $name "us" }}
+    <g clip-path="url(#flagClipUs)">
+      <rect x="0" y="0" width="30" height="20" fill="#B22234"/>
+      <g fill="#FFFFFF">
+        <rect x="0" y="2"  width="30" height="1.5"/>
+        <rect x="0" y="5"  width="30" height="1.5"/>
+        <rect x="0" y="8"  width="30" height="1.5"/>
+        <rect x="0" y="11" width="30" height="1.5"/>
+        <rect x="0" y="14" width="30" height="1.5"/>
+        <rect x="0" y="17" width="30" height="1.5"/>
+      </g>
+      <rect x="0" y="0" width="12" height="10" fill="#3C3B6E"/>
+      <g fill="#FFFFFF">
+        <circle cx="2.4" cy="2" r="0.45"/>
+        <circle cx="4.8" cy="2" r="0.45"/>
+        <circle cx="7.2" cy="2" r="0.45"/>
+        <circle cx="9.6" cy="2" r="0.45"/>
+        <circle cx="3.6" cy="3.5" r="0.45"/>
+        <circle cx="6"   cy="3.5" r="0.45"/>
+        <circle cx="8.4" cy="3.5" r="0.45"/>
+        <circle cx="10.8" cy="3.5" r="0.45"/>
+        <circle cx="2.4" cy="5" r="0.45"/>
+        <circle cx="4.8" cy="5" r="0.45"/>
+        <circle cx="7.2" cy="5" r="0.45"/>
+        <circle cx="9.6" cy="5" r="0.45"/>
+        <circle cx="3.6" cy="6.5" r="0.45"/>
+        <circle cx="6"   cy="6.5" r="0.45"/>
+        <circle cx="8.4" cy="6.5" r="0.45"/>
+        <circle cx="10.8" cy="6.5" r="0.45"/>
+        <circle cx="2.4" cy="8" r="0.45"/>
+        <circle cx="4.8" cy="8" r="0.45"/>
+        <circle cx="7.2" cy="8" r="0.45"/>
+        <circle cx="9.6" cy="8" r="0.45"/>
+      </g>
+    </g>
+  {{ else if eq $name "id" }}
+    <g clip-path="url(#flagClipId)">
+      <rect x="0" y="0"  width="30" height="10" fill="#E70011"/>
+      <rect x="0" y="10" width="30" height="10" fill="#FFFFFF"/>
+    </g>
+  {{ else }}
+    <g clip-path="url(#flagClipId)">
+      <rect x="0" y="0" width="30" height="20" fill="#E2E8F0"/>
+    </g>
+  {{ end }}
+  <rect x="0.25" y="0.25" width="29.5" height="19.5" rx="2.75" ry="2.75"
+        fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+</svg>
