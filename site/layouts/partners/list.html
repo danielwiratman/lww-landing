@@ -1,0 +1,32 @@
+{{/*
+  /partners/ — partner showcase
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default "Partners")
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.intro | default "")
+) }}
+
+<section class="container-x py-16">
+  <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {{ range .Params.partners }}
+      <li class="card p-6 flex flex-col items-center justify-center text-center h-32 hover:border-brand transition">
+        <p class="text-base font-bold">{{ .name }}</p>
+        <p class="text-xs text-ink-muted mt-1">{{ .category }}</p>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "cta" (dict
+  "eyebrow"     "Become a partner"
+  "heading"     "Interested in partnering with Limawira Wisesa?"
+  "text"        "We work with technology leaders, system integrators, and value-added resellers across Indonesia."
+  "primaryCta"  (dict "label" "Get in touch" "url" "/contact/")
+) }}
+
+{{ end }}

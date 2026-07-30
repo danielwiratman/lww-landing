@@ -1,10 +1,12 @@
 node_modules/
 dist/
 site/data/webpack.json
+site/resources/_gen/
 /npm-debug.log
 yarn-error.log
 .netlify/
 .hugo_build.lock
+.DS_Store
 
 cypress/videos
 cypress/screenshots

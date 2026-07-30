@@ -1,6 +1,22 @@
+{{/*
+  Generic single page (e.g. /solutions/data-center/).
+*/}}
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" "/img/7.jpg" "title" "This is where the heading goes" "subtitle" "This is where the subtitle goes") }}
-{{ .Content }}
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default .Title)
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.shortDescription | default .Params.description | default "")
+) }}
+
+{{ with .Content }}
+  <section class="container-x prose prose-lg max-w-3xl py-12">
+    {{ . }}
+  </section>
+{{ end }}
+
+{{ block "single_main" . }}{{ end }}
 
 {{ end }}

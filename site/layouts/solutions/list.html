@@ -1,0 +1,46 @@
+{{/*
+  /solutions/ listing — uses _default/list.html for hero, then adds
+  a custom main area via the section_main block.
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default "Solutions & Services")
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.intro | default "")
+) }}
+
+<section class="container-x py-12">
+  <div class="text-center max-w-2xl mx-auto mb-12">
+    <p class="text-ink-muted text-lg">{{ .Params.intro }}</p>
+  </div>
+
+  <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range (.RegularPages.ByParam "order") }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="group card p-7 h-full block hover:border-brand hover:-translate-y-1 transition-all">
+          <div class="w-14 h-14 rounded-lg bg-brand-50 text-brand flex items-center justify-center mb-5 group-hover:bg-brand group-hover:text-white transition">
+            {{ partial "icon" .Params.icon }}
+          </div>
+          <h3 class="text-lg font-bold mb-2 group-hover:text-brand transition">{{ .Title }}</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">{{ .Params.shortDescription }}</p>
+          <p class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+            Learn more {{ partial "icon" "arrow-right" }}
+          </p>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "cta" (dict
+  "eyebrow"     "Need help choosing?"
+  "heading"     "Not sure which solution fits your project?"
+  "text"        "Talk to our engineers — we'll recommend the right architecture based on your load, uptime, and compliance requirements."
+  "primaryCta"  (dict "label" "Request consultation" "url" "/contact/")
+  "secondaryCta" (dict "label" "Call +62 21 5890 3970" "url" "tel:+622158903970")
+) }}
+
+{{ end }}

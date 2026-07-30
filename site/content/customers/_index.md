@@ -1,0 +1,51 @@
+---
+title: "Customers"
+description: "Organisations that trust Limawira Wisesa for their critical infrastructure."
+hero:
+  heading: "Trusted by leading organisations"
+  tagline: "Customers"
+  image: "/img/customers-hero.jpg"
+groups:
+  - title: "Data Center"
+    customers:
+      - name: "Kementerian Pertanian"
+        industry: "Government"
+      - name: "Kementerian Keuangan (DJPb)"
+        industry: "Government"
+      - name: "Samakta Mitra"
+        industry: "Technology"
+  - title: "UPS Solution"
+    customers:
+      - name: "Taspen (Persero)"
+        industry: "Finance"
+      - name: "BPOM"
+        industry: "Government"
+      - name: "Bank BTN"
+        industry: "Banking"
+      - name: "JICT"
+        industry: "Logistics"
+  - title: "ICT Infrastructure"
+    customers:
+      - name: "Kementerian Keuangan (DJBC)"
+        industry: "Government"
+      - name: "Kementerian Dalam Negeri"
+        industry: "Government"
+      - name: "Pemprov DKI Jakarta"
+        industry: "Government"
+  - title: "Electrical Engineering"
+    customers:
+      - name: "Telkom Satelit Indonesia"
+        industry: "Telecommunications"
+      - name: "Asuransi Jiwa Manulife Indonesia"
+        industry: "Insurance"
+      - name: "Bumi Serpong Damai"
+        industry: "Real Estate"
+  - title: "Maintenance & Support"
+    customers:
+      - name: "Astra Sedaya Finance"
+        industry: "Finance"
+      - name: "Bappenas"
+        industry: "Government"
+      - name: "LKBN Antara"
+        industry: "Media"
+---

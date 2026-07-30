@@ -1,0 +1,115 @@
+{{/*
+  /solutions/<slug>/ single page
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default "Solution")
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.shortDescription | default "")
+) }}
+
+<!-- Description -->
+<section class="container-x py-12 max-w-3xl">
+  <p class="text-lg text-ink-muted leading-relaxed">{{ .Params.description }}</p>
+</section>
+
+<!-- Features -->
+{{ with .Params.features }}
+<section class="container-x py-8">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range . }}
+      <div class="card p-6">
+        <div class="w-12 h-12 rounded-md bg-brand-50 text-brand flex items-center justify-center mb-4">
+          {{ partial "icon" .icon }}
+        </div>
+        <h3 class="text-base font-bold mb-1.5">{{ .title }}</h3>
+        <p class="text-sm text-ink-muted leading-relaxed">{{ .description }}</p>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<!-- Specs -->
+{{ with .Params.specs }}
+<section class="container-x py-8">
+  <div class="rounded-2xl bg-cream/40 border border-line p-6 md:p-8">
+    <h2 class="text-2xl font-bold mb-6">At a glance</h2>
+    <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {{ range . }}
+        <div>
+          <dt class="text-xs font-semibold tracking-wider uppercase text-ink-muted mb-1">{{ .label }}</dt>
+          <dd class="text-base font-semibold text-ink">{{ .value }}</dd>
+        </div>
+      {{ end }}
+    </dl>
+  </div>
+</section>
+{{ end }}
+
+<!-- Customers -->
+{{ with .Params.customers }}
+<section class="container-x py-8">
+  <h2 class="text-2xl font-bold mb-6">Selected customers</h2>
+  <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {{ range . }}
+      <li class="card p-6 flex items-center justify-center text-center">
+        <div>
+          <p class="text-sm font-semibold">{{ .name }}</p>
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<!-- CTA -->
+{{ with .Params.cta }}
+  {{ partial "cta" (dict
+    "eyebrow"     "Talk to us"
+    "heading"     .label
+    "text"        ""
+    "primaryCta"  (dict "label" "Contact us" "url" .url)
+    "secondaryCta" nil
+  ) }}
+{{ end }}
+
+<!-- Prev/Next navigation between solutions -->
+{{ $solutionsPage := .Site.GetPage "/solutions" }}
+{{ $all := $solutionsPage.RegularPages.ByParam "order" }}
+{{ $currentIndex := 0 }}
+{{ range $i, $p := $all }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $currentIndex = $i }}{{ end }}{{ end }}
+{{ $prev := index $all (sub $currentIndex 1) }}
+{{ $next := index $all (add $currentIndex 1) }}
+
+<section class="container-x py-12 border-t border-line">
+  <div class="grid sm:grid-cols-2 gap-4">
+    {{ with $prev }}
+      <a href="{{ .RelPermalink }}" class="group card p-5 flex items-center gap-4 hover:border-brand">
+        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand flex items-center justify-center group-hover:bg-brand group-hover:text-white transition">
+          {{ partial "icon" "chevron-left" }}
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-wider text-ink-muted">Previous</p>
+          <p class="font-semibold">{{ .Title }}</p>
+        </div>
+      </a>
+    {{ end }}
+    {{ with $next }}
+      <a href="{{ .RelPermalink }}" class="group card p-5 flex items-center gap-4 hover:border-brand sm:justify-end sm:text-right">
+        <div>
+          <p class="text-xs uppercase tracking-wider text-ink-muted">Next</p>
+          <p class="font-semibold">{{ .Title }}</p>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand flex items-center justify-center group-hover:bg-brand group-hover:text-white transition">
+          {{ partial "icon" "chevron-right" }}
+        </div>
+      </a>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

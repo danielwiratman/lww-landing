@@ -1,12 +1,22 @@
 baseurl = "/"
-languageCode = "en-us"
-languageLang = "en"
-title = "Kaldi"
-
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
-# https://gohugo.io/getting-started/configuration/#toml-configuration
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+enableRobotsTXT = true
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    contentDir = "content"
+  [languages.id]
+    languageName = "Bahasa Indonesia"
+    weight = 2
+    contentDir = "content.id"
 
 [params]
-images = ["img/og-image.jpg"]
+  description = "PT Limawira Wisesa — Enterprise digital infrastructure and critical power solutions since 1985."
+  contactPhone = "+62 21 5890 3970"
+  contactEmail = "info@limawira.com"
+  contactAddress = "Jakarta, Indonesia"
+  defaultOgImage = "/img/og-image.jpg"

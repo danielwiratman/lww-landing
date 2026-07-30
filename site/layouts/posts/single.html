@@ -1,0 +1,26 @@
+{{/*
+  /posts/<slug>/ — single post page
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero | default (dict) }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default .Params.image | default "")
+  "eyebrow"     "Insights"
+  "heading"     .Title
+  "subheading"  ""
+) }}
+
+<article class="container-x max-w-3xl py-12">
+  <p class="text-sm text-ink-muted">{{ .Date.Format "Mon, Jan 2, 2006" }}{{ with .Params.author }} · {{ . }}{{ end }} · {{ .ReadingTime }} min read</p>
+
+  {{ with .Params.description }}
+    <p class="mt-4 text-xl text-ink-muted text-pretty">{{ . }}</p>
+  {{ end }}
+
+  <div class="prose prose-lg mt-10 max-w-none">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ end }}

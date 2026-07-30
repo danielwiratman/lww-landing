@@ -29,29 +29,18 @@ module.exports = {
         loader: "babel-loader",
         test: /\.js?$/,
         exclude: /node_modules/,
-        options: {cacheDirectory: true}
+        options: { cacheDirectory: true }
       },
       {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /node_modules/,
+        test: /\.css$/,
         use: [
-          "style-loader", 
+          "style-loader",
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              esModule: false
-            }
-          }, 
+            options: { esModule: false }
+          },
           "css-loader",
-          "postcss-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              sassOptions: {
-                outputStyle: "expanded",
-              },
-            },
-          }
+          "postcss-loader"
         ]
       }
     ]

@@ -1,0 +1,60 @@
+{
+  "site": {
+    "name": "PT Limawira Wisesa",
+    "tagline": "Enterprise Digital Infrastructure & Critical Power Solutions",
+    "shortDescription": "System integrator berpengalaman untuk solusi IT, Electrical, dan Power System yang andal, efisien, dan berkelanjutan.",
+    "since": "1985",
+    "phone": "+62 21 5890 3970",
+    "phoneRaw": "+622158903970",
+    "whatsapp": "6281234567890",
+    "whatsappDisplay": "+62 812 3456 7890",
+    "email": "info@limawira.com",
+    "address": "Jakarta, Indonesia"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/limawira-wisesa",
+    "instagram": "https://www.instagram.com/limawirawisesa",
+    "facebook": "https://www.facebook.com/limawirawisesa",
+    "youtube": ""
+  },
+  "footer": {
+    "blurb": "Mitra terpercaya Anda untuk infrastruktur digital dan critical power sejak 1985.",
+    "columns": [
+      {
+        "heading": "Perusahaan",
+        "links": [
+          { "label": "Tentang Kami", "url": "/about/" },
+          { "label": "Solutions", "url": "/solutions/" },
+          { "label": "Projects", "url": "/projects/" },
+          { "label": "Industries", "url": "/industries/" },
+          { "label": "Career", "url": "/career/" }
+        ]
+      },
+      {
+        "heading": "Layanan",
+        "links": [
+          { "label": "Data Center", "url": "/solutions/data-center/" },
+          { "label": "UPS Solution", "url": "/solutions/ups-solution/" },
+          { "label": "ICT Infrastructure", "url": "/solutions/ict-infrastructure/" },
+          { "label": "Electrical Engineering", "url": "/solutions/electrical-engineering/" },
+          { "label": "Maintenance & Support", "url": "/solutions/maintenance-support/" }
+        ]
+      },
+      {
+        "heading": "Hubungi Kami",
+        "links": [
+          { "label": "Kontak", "url": "/contact/" },
+          { "label": "Konsultasi Gratis", "url": "/contact/" },
+          { "label": "WhatsApp", "url": "https://wa.me/6281234567890" }
+        ]
+      }
+    ],
+    "certifications": [
+      { "label": "ISO 9001:2015", "icon": "badge" },
+      { "label": "ISO 14001:2015", "icon": "badge" },
+      { "label": "ISO 45001:2018", "icon": "badge" },
+      { "label": "ISO 27001:2022", "icon": "badge" },
+      { "label": "SMK3", "icon": "badge" }
+    ]
+  }
+}

@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{ page_title }} — Preview</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/admin/previews/styles.css" />
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Helper: get field from entry
+    function f(entry, path, fallback) {
+      if (!entry || !entry.data) return fallback;
+      const parts = path.split(".");
+      let v = entry.data;
+      for (const p of parts) {
+        if (v == null) return fallback;
+        v = v[p];
+      }
+      return v == null ? fallback : v;
+    }
+
+    // Render a generic page preview
+    function renderPage() {
+      const data = this.props.entry.get("data").toJS();
+      const title = data.title || "Untitled";
+      const hero = data.hero || {};
+      const heading = hero.heading || title;
+      const tagline = hero.tagline || "";
+      const image = hero.image || "";
+      const intro = data.intro || data.description || "";
+      const cta = data.cta || {};
+
+      let html = `
+        <header class="lw-header">
+          <img src="/img/logo.svg" alt="Limawira Wisesa" />
+          <h1>Limawira Wisesa</h1>
+          <span class="lw-badge">Page preview</span>
+        </header>
+
+        <section class="lw-section" style="background: linear-gradient(135deg, #384825 0%, #475b29 100%); color: #fff;">
+          <div style="padding: 2rem 1.5rem;">
+            ${tagline ? `<p class="lw-eyebrow" style="color:#a2bb78;">${tagline}</p>` : ""}
+            <h2 class="lw-h1" style="color:#fff;">${heading}</h2>
+            ${intro ? `<p class="lw-lead" style="color:rgba(255,255,255,0.85); margin-top:1rem; max-width:36rem;">${intro}</p>` : ""}
+          </div>
+        </section>
+      `;
+
+      // Solutions-style content
+      if (data.solutions && Array.isArray(data.solutions.items)) {
+        html += `
+          <section class="lw-section">
+            <p class="lw-eyebrow">${f({data},{solutions: {eyebrow: "Solutions"}}, "Solutions")}</p>
+            <h2 class="lw-h2">${f({data}, "solutions.title", "Our Solutions")}</h2>
+            <p class="lw-muted">${f({data}, "solutions.subtitle", "")}</p>
+            <div class="lw-grid lw-grid-3" style="margin-top:1.5rem;">
+              ${data.solutions.items.map(it => `
+                <div class="lw-card">
+                  <h3 class="lw-h3">${it.title || ""}</h3>
+                  <p class="lw-muted" style="font-size:0.875rem;">${it.description || ""}</p>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      // Stats
+      if (Array.isArray(data.stats)) {
+        html += `
+          <section class="lw-section" style="background:#475b29; color:#fff;">
+            <div class="lw-grid lw-grid-4">
+              ${data.stats.map(s => `
+                <div>
+                  <div class="lw-h1" style="color:#fff;">${s.value || ""}</div>
+                  <div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85;">${s.label || ""}</div>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      // CTA
+      if (cta.heading || cta.label) {
+        html += `
+          <section class="lw-section">
+            <div class="lw-cta">
+              ${cta.eyebrow ? `<p class="lw-eyebrow" style="color:#a2bb78;">${cta.eyebrow}</p>` : ""}
+              <h2 class="lw-h2" style="color:#fff;">${cta.heading || cta.label || ""}</h2>
+              ${cta.text ? `<p style="opacity:0.9;">${cta.text}</p>` : ""}
+            </div>
+          </section>
+        `;
+      }
+
+      document.getElementById("root").innerHTML = html;
+    }
+
+    // Render a solution entry
+    function renderSolution() {
+      const data = this.props.entry.get("data").toJS();
+      const title = data.title || "Solution";
+      const hero = data.hero || {};
+      const sd = data.shortDescription || "";
+
+      let html = `
+        <header class="lw-header">
+          <img src="/img/logo.svg" alt="Limawira Wisesa" />
+          <h1>Limawira Wisesa</h1>
+          <span class="lw-badge">Solution preview</span>
+        </header>
+
+        <section class="lw-section" style="background: linear-gradient(135deg, #384825 0%, #475b29 100%); color: #fff;">
+          <div style="padding: 2rem 1.5rem;">
+            ${hero.tagline ? `<p class="lw-eyebrow" style="color:#a2bb78;">${hero.tagline}</p>` : ""}
+            <h2 class="lw-h1" style="color:#fff;">${hero.heading || title}</h2>
+            ${sd ? `<p class="lw-lead" style="color:rgba(255,255,255,0.85); margin-top:1rem; max-width:36rem;">${sd}</p>` : ""}
+          </div>
+        </section>
+
+        <section class="lw-section">
+          <p class="lw-muted lw-lead">${data.description || ""}</p>
+        </section>
+      `;
+
+      if (Array.isArray(data.features)) {
+        html += `
+          <section class="lw-section">
+            <div class="lw-grid lw-grid-3">
+              ${data.features.map(f => `
+                <div class="lw-card">
+                  <h3 class="lw-h3">${f.title || ""}</h3>
+                  <p class="lw-muted" style="font-size:0.875rem;">${f.description || ""}</p>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      if (Array.isArray(data.specs)) {
+        html += `
+          <section class="lw-section">
+            <div class="lw-card" style="background:#f7f5ef;">
+              <h2 class="lw-h2" style="margin-bottom:1rem;">At a glance</h2>
+              <div class="lw-grid lw-grid-4">
+                ${data.specs.map(s => `
+                  <div>
+                    <div class="lw-muted" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">${s.label || ""}</div>
+                    <div style="font-weight:600;">${s.value || ""}</div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+        `;
+      }
+
+      document.getElementById("root").innerHTML = html;
+    }
+
+    // Render site settings
+    function renderSettings() {
+      const data = this.props.entry.get("data").toJS();
+      const site = data.site || {};
+      const social = data.social || {};
+      const footer = data.footer || {};
+
+      let html = `
+        <header class="lw-header">
+          <img src="/img/logo.svg" alt="Limawira Wisesa" />
+          <h1>Limawira Wisesa</h1>
+          <span class="lw-badge">Site settings preview</span>
+        </header>
+
+        <section class="lw-section">
+          <p class="lw-eyebrow">Brand</p>
+          <h2 class="lw-h2">${site.name || ""}</h2>
+          <p class="lw-muted">${site.tagline || ""}</p>
+          <p class="lw-muted" style="font-size:0.875rem;">${site.shortDescription || ""}</p>
+        </section>
+
+        <section class="lw-section">
+          <p class="lw-eyebrow">Contact</p>
+          <div class="lw-grid lw-grid-2">
+            <div class="lw-card">
+              <p class="lw-muted" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Phone</p>
+              <p style="font-weight:600;">${site.phone || ""}</p>
+            </div>
+            <div class="lw-card">
+              <p class="lw-muted" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">WhatsApp</p>
+              <p style="font-weight:600;">${site.whatsappDisplay || ""}</p>
+            </div>
+            <div class="lw-card">
+              <p class="lw-muted" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Email</p>
+              <p style="font-weight:600;">${site.email || ""}</p>
+            </div>
+            <div class="lw-card">
+              <p class="lw-muted" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Address</p>
+              <p style="font-weight:600;">${site.address || ""}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lw-section">
+          <p class="lw-eyebrow">Footer columns</p>
+          <div class="lw-grid lw-grid-3">
+            ${(footer.columns || []).map(col => `
+              <div class="lw-card">
+                <h3 class="lw-h3" style="text-transform:uppercase; letter-spacing:0.1em; font-size:0.75rem;">${col.heading || ""}</h3>
+                <ul style="list-style:none; padding:0; margin:0.5rem 0 0;">
+                  ${(col.links || []).map(l => `<li style="padding:0.25rem 0; font-size:0.875rem;">${l.label || ""}</li>`).join("")}
+                </ul>
+              </div>
+            `).join("")}
+          </div>
+        </section>
+
+        <section class="lw-section">
+          <p class="lw-eyebrow">Certifications</p>
+          <div>
+            ${(footer.certifications || []).map(c => `<span class="lw-pill">${c.label || ""}</span>`).join("")}
+          </div>
+        </section>
+
+        <section class="lw-section">
+          <p class="lw-eyebrow">Social</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            ${Object.entries(social).filter(([k, v]) => v).map(([k, v]) => `<li style="font-size:0.875rem; padding:0.25rem 0;">${k}: <a href="${v}">${v}</a></li>`).join("")}
+          </ul>
+        </section>
+      `;
+
+      document.getElementById("root").innerHTML = html;
+    }
+
+    // Render a generic post preview
+    function renderPost() {
+      const data = this.props.entry.get("data").toJS();
+      const title = data.title || "Untitled";
+      const date = data.date || "";
+      const description = data.description || "";
+      const image = data.image || "";
+      const body = data.body || "";
+
+      document.getElementById("root").innerHTML = `
+        <header class="lw-header">
+          <img src="/img/logo.svg" alt="Limawira Wisesa" />
+          <h1>Limawira Wisesa</h1>
+          <span class="lw-badge">Post preview</span>
+        </header>
+        <section class="lw-section">
+          <p class="lw-muted" style="font-size:0.8rem;">${date}</p>
+          <h2 class="lw-h1">${title}</h2>
+          <p class="lw-lead">${description}</p>
+          ${image ? `<img src="${image}" style="max-width:100%; border-radius:0.5rem; margin-top:1rem;" />` : ""}
+        </section>
+        <section class="lw-section">
+          <div class="lw-muted">${body}</div>
+        </section>
+      `;
+    }
+
+    // Register preview templates
+    CMS.registerPreviewTemplate("pages", renderPage);
+    CMS.registerPreviewTemplate("solutions", renderSolution);
+    CMS.registerPreviewTemplate("posts", renderPost);
+    CMS.registerPreviewTemplate("site_settings", renderSettings);
+  </script>
+</head>
+<body>
+  <div class="lw-preview" id="root">
+    <p style="padding:2rem; color:#475569;">Loading preview…</p>
+  </div>
+</body>
+</html>

@@ -1,13 +1,168 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+{{ $hero := .Params.hero }}
 
-{{ partial "short-text" .Params.blurb}}
+<!-- ============================== -->
+<!-- HERO                          -->
+<!-- ============================== -->
+<section class="relative overflow-hidden bg-white">
+  <div class="container-x grid lg:grid-cols-2 gap-12 items-center py-20 md:py-28">
+    <!-- Left: copy -->
+    <div data-reveal>
+      {{ with $hero.eyebrow }}
+        <p class="eyebrow mb-5">{{ . }}</p>
+      {{ end }}
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
+        {{ $hero.heading }}
+      </h1>
+      <p class="mt-6 text-lg text-ink-muted max-w-xl text-pretty">
+        {{ $hero.tagline }}
+      </p>
 
-{{ partial "2-up" .Params }}
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        {{ with $hero.primaryCta }}
+          <a href="{{ .url }}" class="btn-primary">
+            {{ .label }}
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        {{ end }}
+        {{ with $hero.secondaryCta }}
+          <a href="{{ .url }}" class="btn-secondary">
+            {{ partial "icon" "play" }}
+            {{ .label }}
+          </a>
+        {{ end }}
+      </div>
+    </div>
 
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
+    <!-- Right: image -->
+    <div class="relative" data-reveal>
+      <div class="absolute -inset-4 bg-brand/10 rounded-2xl -rotate-3"></div>
+      {{ with $hero.image }}
+        <img src="{{ . }}" alt="Limawira Wisesa — engineering in action"
+             class="relative rounded-2xl shadow-soft w-full aspect-[4/3] object-cover">
+      {{ else }}
+        <div class="relative rounded-2xl shadow-soft w-full aspect-[4/3] bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center text-white/40">
+          <span class="text-sm uppercase tracking-widest">Hero image</span>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
 
-{{ partial "blog" . }}
+<!-- ============================== -->
+<!-- QUICK ICONS                   -->
+<!-- ============================== -->
+{{ with .Params.quickIcons }}
+<section class="border-y border-line bg-cream/40">
+  <div class="container-x py-8">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-ink-muted text-center mb-6">{{ .title }}</p>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+      {{ range .items }}
+        <li>
+          <a href="{{ .url }}" class="group flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-white border border-line hover:border-brand hover:bg-brand-50 transition text-sm font-semibold text-ink">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand group-hover:scale-150 transition"></span>
+            <span>{{ .label }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
+
+<!-- ============================== -->
+<!-- STATS                         -->
+<!-- ============================== -->
+{{ with .Params.stats }}
+<section class="bg-brand text-white">
+  <div class="container-x py-12 md:py-14">
+    <ul class="grid grid-cols-2 lg:grid-cols-4 gap-y-8">
+      {{ range $i, $s := . }}
+        <li class="flex items-center gap-4 px-4 {{ if not (eq $i 0) }}lg:border-l lg:border-white/20{{ end }}">
+          <div class="shrink-0 text-brand-200">
+            {{ if eq $i 0 }}{{ partial "icon" "trophy" }}
+            {{ else if eq $i 1 }}{{ partial "icon" "box" }}
+            {{ else if eq $i 2 }}{{ partial "icon" "users" }}
+            {{ else }}{{ partial "icon" "shield" }}{{ end }}
+          </div>
+          <div>
+            <p class="text-3xl md:text-4xl font-bold leading-none">{{ $s.value }}</p>
+            <p class="text-xs md:text-sm text-brand-100/80 uppercase tracking-wider mt-1">{{ $s.label }}</p>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
+
+<!-- ============================== -->
+<!-- SOLUTIONS GRID                -->
+<!-- ============================== -->
+{{ with .Params.solutions }}
+<section class="container-x py-20 md:py-24" data-reveal>
+  <div class="text-center max-w-2xl mx-auto mb-12">
+    <p class="eyebrow justify-center mb-3">{{ .eyebrow }}</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-balance">{{ .title }}</h2>
+    <p class="mt-3 text-ink-muted">{{ .subtitle }}</p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ $solutionsPage := .Site.GetPage "/solutions" }}
+    {{ if $solutionsPage }}
+      {{ range ($solutionsPage.RegularPages.ByParam "order") }}
+        <a href="{{ .RelPermalink }}" class="group card p-7 hover:border-brand hover:-translate-y-1 transition-all">
+          <div class="w-14 h-14 rounded-lg bg-brand-50 text-brand flex items-center justify-center mb-5 group-hover:bg-brand group-hover:text-white transition">
+            {{ partial "icon" .Params.icon }}
+          </div>
+          <h3 class="text-lg font-bold mb-2 group-hover:text-brand transition">{{ .Title }}</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">{{ .Params.shortDescription }}</p>
+          <p class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+            Learn more
+            {{ partial "icon" "arrow-right" }}
+          </p>
+        </a>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<!-- ============================== -->
+<!-- PARTNERS STRIP                -->
+<!-- ============================== -->
+{{ with .Params.partners }}
+<section class="bg-cream/50 border-y border-line" data-reveal>
+  <div class="container-x py-12">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold text-balance">{{ .title }}</h2>
+        <p class="text-ink-muted mt-1">{{ .subtitle }}</p>
+      </div>
+      {{ with .cta }}
+        <a href="{{ .url }}" class="btn-ghost">{{ .label }} →</a>
+      {{ end }}
+    </div>
+
+    <ul class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+      {{ with .Site.GetPage "/partners/" }}
+        {{ with .Params.partners }}
+          {{ range first 8 . }}
+            <li class="flex items-center justify-center h-20 px-4 rounded-lg bg-white border border-line text-sm font-semibold text-ink-muted text-center">
+              {{ .name }}
+            </li>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
+
+<!-- ============================== -->
+<!-- CTA                           -->
+<!-- ============================== -->
+{{ partial "cta" .Params.cta }}
 
 {{ end }}

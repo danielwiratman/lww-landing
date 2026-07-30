@@ -1,20 +1,47 @@
 ---
-title: "Great coffee with a conscience"
-subtitle: Support sustainable farming while enjoying a cup
-image: /img/home-jumbotron.jpg
-blurb:
-    heading: Why Kaldi?
-    text: "Kaldi is the coffee store for everyone who believes that great coffee shouldn't just taste good, it should do good too. We source all of our beans directly from small scale sustainable farmers and make sure part of the profits are reinvested in their communities."
-intro:
-    heading: "What we offer"
-    text: "Kaldi is the ultimate spot for coffee lovers who want to learn about their java’s origin and support the farmers that grew it. We take coffee production, roasting and brewing seriously and we’re glad to pass that knowledge to anyone."
-products:
-    - image: img/illustrations-coffee.svg
-      text: "We sell green and roasted coffee beans that are sourced directly from independent farmers and farm cooperatives. We’re proud to offer a variety of coffee beans grown with great care for the environment and local communities. Check our post or contact us directly for current availability."
-    - image: /img/illustrations-coffee-gear.svg
-      text: "We offer a small, but carefully curated selection of brewing gear and tools for every taste and experience level. No matter if you roast your own beans or just bought your first french press, you’ll find a gadget to fall in love with in our shop."
-values:
-    heading: Our values
-    text: Coffee is an amazing part of human culture but it has a dark side too – one of colonialism and mindless abuse of natural resources and human lives. We want to turn this around and return the coffee trade to the drink’s exhilarating, empowering and unifying nature.
+title: "PT Limawira Wisesa"
+hero:
+  eyebrow: "Since 1985"
+  heading: "Enterprise Digital Infrastructure & Critical Power Solutions"
+  tagline: "System integrator berpengalaman untuk solusi IT, Electrical, dan Power System yang andal, efisien, dan berkelanjutan."
+  primaryCta:
+    label: "Request Consultation"
+    url: "/contact/"
+  secondaryCta:
+    label: "View Our Projects"
+    url: "/projects/"
+  image: "/img/home-hero.jpg"
+quickIcons:
+  title: "What we do, at a glance"
+  items:
+    - {label: "Data Center", url: "/solutions/data-center/"}
+    - {label: "UPS Solution", url: "/solutions/ups-solution/"}
+    - {label: "ICT Infrastructure", url: "/solutions/ict-infrastructure/"}
+    - {label: "Electrical Engineering", url: "/solutions/electrical-engineering/"}
+    - {label: "Maintenance & Support", url: "/solutions/maintenance-support/"}
+stats:
+  - {label: "Years Experience", value: "40+"}
+  - {label: "Projects Completed", value: "500+"}
+  - {label: "Satisfied Clients", value: "200+"}
+  - {label: "Support & Services", value: "24/7"}
+solutions:
+  eyebrow: "What we do"
+  title: "Our Solutions & Services"
+  subtitle: "End-to-end solutions across six practice areas — from design and build to long-term maintenance."
+partners:
+  title: "Our Partners"
+  subtitle: "Working with globally recognised technology leaders."
+  cta:
+    label: "See all partners"
+    url: "/partners/"
+cta:
+  eyebrow: "Ready to start?"
+  title: "Tell us about your project."
+  text: "Whether you are building a new facility or modernising an existing one, our engineers are ready to help."
+  primaryCta:
+    label: "Request consultation"
+    url: "/contact/"
+  secondaryCta:
+    label: "Call +62 21 5890 3970"
+    url: "tel:+622158903970"
 ---
-

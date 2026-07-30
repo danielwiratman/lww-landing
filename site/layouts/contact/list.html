@@ -1,0 +1,105 @@
+{{/*
+  /contact/ — contact page with channels, hours, and form
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default "Contact")
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.intro | default "")
+) }}
+
+{{ $site := .Site.Data.site }}
+
+<!-- Channels -->
+<section class="container-x py-12">
+  <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    {{ range .Params.channels }}
+      <li>
+        <a href="{{ .url }}" class="card p-6 h-full block hover:border-brand hover:-translate-y-1 transition-all">
+          <div class="w-12 h-12 rounded-md bg-brand-50 text-brand flex items-center justify-center mb-4">
+            {{ partial "icon" .icon }}
+          </div>
+          <p class="text-xs uppercase tracking-wider text-ink-muted mb-1">{{ .label }}</p>
+          <p class="font-semibold">{{ .value }}</p>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+<!-- Form + hours -->
+<section class="container-x py-12">
+  <div class="grid lg:grid-cols-3 gap-8">
+
+    <!-- Form -->
+    <div class="lg:col-span-2">
+      <div class="card p-6 md:p-8">
+        <h2 class="text-2xl font-bold mb-2">Send us a message</h2>
+        <p class="text-sm text-ink-muted mb-6">Tell us a little about your project and we'll get back to you within one business day.</p>
+
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you/" class="space-y-4">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            {{ range .Params.form.fields }}
+              {{ if eq .type "textarea" }}
+                <div class="sm:col-span-2">
+                  <label for="f-{{ .name }}" class="block text-sm font-semibold mb-1.5">{{ .label }} {{ if .required }}<span class="text-red-500">*</span>{{ end }}</label>
+                  <textarea id="f-{{ .name }}" name="{{ .name }}" rows="5" required="{{ .required }}" class="input resize-y"></textarea>
+                </div>
+              {{ else if eq .type "select" }}
+                <div class="sm:col-span-2">
+                  <label for="f-{{ .name }}" class="block text-sm font-semibold mb-1.5">{{ .label }} {{ if .required }}<span class="text-red-500">*</span>{{ end }}</label>
+                  <select id="f-{{ .name }}" name="{{ .name }}" required="{{ .required }}" class="input">
+                    <option value="">Please select…</option>
+                    {{ range .options }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+                  </select>
+                </div>
+              {{ else }}
+                <div>
+                  <label for="f-{{ .name }}" class="block text-sm font-semibold mb-1.5">{{ .label }} {{ if .required }}<span class="text-red-500">*</span>{{ end }}</label>
+                  <input id="f-{{ .name }}" type="{{ .type }}" name="{{ .name }}" required="{{ .required }}" class="input">
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+
+          <button type="submit" class="btn-primary mt-2">{{ .Params.form.submitLabel }} →</button>
+          <p class="text-xs text-ink-muted">By submitting this form you agree to be contacted regarding your enquiry. We never share your details with third parties.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sidebar: hours -->
+    <aside class="space-y-6">
+      <div class="card p-6">
+        <h3 class="text-base font-bold mb-4 flex items-center gap-2">
+          {{ partial "icon" "calendar" }}
+          Business hours
+        </h3>
+        <ul class="space-y-3 text-sm">
+          {{ range .Params.hours }}
+            <li class="flex items-start justify-between gap-3 pb-2 border-b border-line last:border-0 last:pb-0">
+              <span class="text-ink-muted">{{ .day }}</span>
+              <span class="font-semibold text-right">{{ .time }}</span>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="card p-6">
+        <h3 class="text-base font-bold mb-2">Need urgent help?</h3>
+        <p class="text-sm text-ink-muted mb-4">SLA customers can reach our 24/7 service desk.</p>
+        <a href="tel:{{ $site.phoneRaw }}" class="btn-primary w-full">{{ $site.phone }}</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{{ end }}

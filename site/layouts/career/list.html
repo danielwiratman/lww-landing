@@ -1,0 +1,56 @@
+{{/*
+  /career/ — career page with values & openings
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default "Career")
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.intro | default "")
+) }}
+
+<!-- Why join -->
+{{ with .Params.why }}
+<section class="container-x py-16">
+  <p class="eyebrow mb-3">{{ .title }}</p>
+  <h2 class="text-3xl md:text-4xl font-bold mb-10">What we offer.</h2>
+  <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {{ range .items }}
+      <li class="card p-6">
+        <h3 class="text-base font-bold mb-2">{{ .title }}</h3>
+        <p class="text-sm text-ink-muted leading-relaxed">{{ .description }}</p>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<!-- Openings -->
+{{ with .Params.openings }}
+<section class="container-x py-16">
+  <p class="eyebrow mb-3">Open positions</p>
+  <h2 class="text-3xl md:text-4xl font-bold mb-10">Current opportunities.</h2>
+
+  <ul class="space-y-4">
+    {{ range . }}
+      <li class="card p-6 hover:border-brand transition flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h3 class="text-lg font-bold">{{ .title }}</h3>
+          <p class="text-sm text-ink-muted mt-1">{{ .description }}</p>
+          <div class="mt-3 flex flex-wrap items-center gap-2">
+            <span class="badge">{{ .location }}</span>
+            <span class="badge bg-cream !text-ink-muted">{{ .type }}</span>
+          </div>
+        </div>
+        <a href="/contact/" class="btn-primary self-start sm:self-auto">Apply</a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ partial "cta" .Params.cta }}
+
+{{ end }}

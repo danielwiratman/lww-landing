@@ -1,0 +1,38 @@
+{{/*
+  Reusable CTA strip.
+  Usage:
+    {{ partial "cta" (dict
+        "eyebrow" "Ready to start?"
+        "heading"  "Tell us about your project."
+        "text"     "Whether you are..."
+        "primaryCta" (dict "label" "Contact us" "url" "/contact/")
+        "secondaryCta" (dict "label" "Call us" "url" "tel:...")
+    ) }}
+*/}}
+
+{{ $eyebrow := .eyebrow }}
+{{ $heading := .heading }}
+{{ $text := .text }}
+{{ $primary := .primaryCta }}
+{{ $secondary := .secondaryCta }}
+
+<section class="container-x my-24">
+  <div class="relative overflow-hidden rounded-2xl bg-brand text-white px-6 py-14 md:px-12 md:py-20">
+    <div class="absolute inset-0 dot-grid opacity-30"></div>
+    <div class="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-white/5 blur-3xl"></div>
+    <div class="relative max-w-2xl">
+      {{ with $eyebrow }}<p class="text-sm font-semibold tracking-[0.2em] uppercase text-brand-200 mb-3">{{ . }}</p>{{ end }}
+      {{ with $heading }}<h2 class="text-3xl md:text-4xl font-bold text-balance">{{ . }}</h2>{{ end }}
+      {{ with $text }}<p class="mt-4 text-brand-100/90 max-w-xl">{{ . }}</p>{{ end }}
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        {{ with $primary }}
+          <a href="{{ .url }}" class="btn bg-white text-brand hover:bg-cream">{{ .label }} →</a>
+        {{ end }}
+        {{ with $secondary }}
+          <a href="{{ .url }}" class="btn border border-white/30 text-white hover:bg-white/10">{{ .label }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

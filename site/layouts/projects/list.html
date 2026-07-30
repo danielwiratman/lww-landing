@@ -1,0 +1,38 @@
+{{/*
+  /projects/ — list of project case studies
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default "Projects")
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.intro | default "")
+) }}
+
+<section class="container-x py-16">
+  <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range .Params.projects }}
+      <li class="card p-7 flex flex-col h-full hover:border-brand transition">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wider text-brand font-semibold mb-3">
+          <span class="badge !py-0.5">{{ .solution }}</span>
+        </div>
+        <h3 class="text-lg font-bold mb-1">{{ .title }}</h3>
+        <p class="text-sm font-semibold text-ink-muted">{{ .client }}</p>
+        <p class="text-xs text-ink-muted mt-1">{{ .industry }} · {{ .year }}</p>
+        <p class="mt-4 text-sm text-ink-muted leading-relaxed flex-1">{{ .summary }}</p>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "cta" (dict
+  "eyebrow"     "Have a project in mind?"
+  "heading"     "Let's deliver it together."
+  "text"        "From feasibility to commissioning, our team partners with you end-to-end."
+  "primaryCta"  (dict "label" "Start a conversation" "url" "/contact/")
+  "secondaryCta" (dict "label" "View solutions" "url" "/solutions/")
+) }}
+
+{{ end }}

@@ -1,16 +1,23 @@
+{{/*
+  Generic section landing page.
+  Renders hero + intro + body, plus a customizable main area.
+*/}}
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" "/img/blog-index.jpg" "title" "Latest stories") }}
+{{ $hero := .Params.hero }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     ($hero.tagline | default .Title)
+  "heading"     ($hero.heading | default .Title)
+  "subheading"  (.Params.description | default .Params.intro | default "")
+) }}
 
-<div class="mw7 center">
-  <ul id="blog-list" class="flex-ns flex-wrap mhn1-ns pa3">
-      {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
-          <li class="w-50-ns ph1-ns flex">
-            {{ .Render "li"}}
-          </li>
-      {{ end }}
-  </ul>
-  {{ partial "pagination" . }}
-</div>
+{{ with .Content }}
+  <section class="container-x prose prose-lg max-w-3xl py-12">
+    {{ . }}
+  </section>
+{{ end }}
 
-{{end}}
+{{ block "section_main" . }}{{ end }}
+
+{{ end }}

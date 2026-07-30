@@ -1,106 +1,643 @@
+# ----------------------------------------------------------------------
+# Decap CMS configuration for PT Limawira Wisesa
+# ----------------------------------------------------------------------
+# This file is the single source of truth for what marketing content
+# is editable from /admin. Every field used in the Hugo templates has
+# a matching widget here. Anything not editable has a default in the
+# data files or templates.
+# ----------------------------------------------------------------------
+
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "site/static/img" # Folder where user uploaded files should go
+# Where uploaded media is committed in the repo
+media_folder: "site/static/img"
 public_folder: "img"
 
-collections: # A list of collections the CMS should be able to edit
-  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "site/content/post" # The path to the folder where the documents are stored
-    path: "{{slug}}/index" # Each document is inside a folder with the slug name.
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Intro Blurb", name: "description", widget: "text"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+# Use subfolders per media type so editors can find files
+# (Decap uses the public_folder above, the subfolder is just a UI hint)
+
+# Local backend is enabled by netlify.toml / proxy for local development
+local_backend: true
+
+# Friendly editor settings
+site_url: https://limawira.netlify.app
+display_url: https://limawira.com
+logo_url: /img/logo.svg
+
+# Allow editors to publish from a friendly UI
+publish_mode: editorial_workflow
+
+# Custom preview templates (render the page the way it will look on the site)
+preview_path: "previews/index.html"
+
+# ----------------------------------------------------------------------
+# Collections
+# ----------------------------------------------------------------------
+collections:
+
+  # ============================================================
+  # PAGES (top-level pages, edited as single files)
+  # ============================================================
   - name: "pages"
     label: "Pages"
+    label_singular: "Page"
+    description: "Top-level marketing pages: Home, About, Contact, Career, etc."
     files:
+
+      # ----------------------- HOME -----------------------
       - file: "site/content/_index.md"
         label: "Home Page"
         name: "home"
+        description: "Hero, quick links, stats, solutions overview, partners, CTA"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: "Blurb", name: blurb, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Intro", name: intro, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Products", name: products, widget: list, fields: [
-              {label: "Image", name: "image", widget: "image"},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Values", name: "values", widget: "object", fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Eyebrow (small label above heading)", name: "eyebrow", widget: "string", default: "Since 1985"}
+              - {label: "Main heading", name: "heading", widget: "string"}
+              - {label: "Tagline (subheading)", name: "tagline", widget: "text"}
+              - {label: "Hero image", name: "image", widget: "image", allow_multiple: false}
+              - label: "Primary CTA button"
+                name: "primaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Secondary CTA button"
+                name: "secondaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Quick icons row (below hero)"
+            name: "quickIcons"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", default: "What we do, at a glance"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Stats bar (green strip)"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.value}} — {{fields.label}}"
+            fields:
+              - {label: "Value (e.g. 40+)", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+
+          - label: "Solutions grid (six cards — read from the Solutions collection)"
+            name: "solutions"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow", name: "eyebrow", widget: "string", default: "What we do"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Hint", name: "body", widget: "hidden", default: "Cards are pulled from the Solutions collection; add or reorder solutions under /admin/#/collections/solutions"}
+
+          - label: "Partners strip"
+            name: "partners"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", default: "Our Partners"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Bottom CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow", name: "eyebrow", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "Primary button"
+                name: "primaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Secondary button"
+                name: "secondaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+      # ----------------------- ABOUT -----------------------
+      - file: "site/content/about/_index.md"
+        label: "About Page"
+        name: "about"
+        description: "Company story, vision, mission, values, stats"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow (tagline)", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro paragraph", name: "intro", widget: "text"}
+
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.value}} — {{fields.label}}"
+            fields:
+              - {label: "Value", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+
+          - label: "Story timeline"
+            name: "story"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - {label: "Year / period", name: "year", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - label: "Vision"
+            name: "vision"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", default: "Vision"}
+              - {label: "Text", name: "text", widget: "text"}
+
+          - label: "Mission"
+            name: "mission"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", default: "Mission"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Statement", name: "", widget: "string"}
+
+          - label: "Values"
+            name: "values"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - label: "Bottom CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "Button"
+                name: "label"
+                widget: "string"
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+      # ----------------------- CONTACT -----------------------
       - file: "site/content/contact/_index.md"
         label: "Contact Page"
         name: "contact"
+        description: "Channels, hours, and form definition"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Logo, name: logo, widget: image}
-          - {label: Body, name: body, widget: markdown}
-          - label: Contact Entries
-            name: contact_entries
-            widget: list
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
             fields:
-              - label: Heading
-                name: heading
-                widget: string
-              - label: Text
-                name: text
-                widget: text
-      - file: "site/content/products/_index.md"
-        label: "Products Page"
-        name: "products"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-      - file: "site/content/values/_index.md"
-        label: "Values Page"
-        name: "values"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - label: Values
-            name: values
-            widget: list
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Contact channels"
+            name: "channels"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.value}}"
             fields:
-              - {label: Heading, name: heading, widget: string}
-              - {label: Text, name: text, widget: text}
-              - {label: Image, name: imageUrl, widget: image}
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["phone", "whatsapp", "mail", "pin"]
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Display value", name: "value", widget: "string"}
+              - {label: "URL (tel:, mailto:, https://wa.me/..., etc.)", name: "url", widget: "string"}
+          - label: "Business hours"
+            name: "hours"
+            widget: "list"
+            summary: "{{fields.day}} — {{fields.time}}"
+            fields:
+              - {label: "Day / period", name: "day", widget: "string"}
+              - {label: "Time", name: "time", widget: "string"}
+          - label: "Form"
+            name: "form"
+            widget: "object"
+            fields:
+              - {label: "Submit button label", name: "submitLabel", widget: "string", default: "Send message"}
+              - {label: "Success message (after submit)", name: "successMessage", widget: "string"}
+              - label: "Form fields"
+                name: "fields"
+                widget: "list"
+                summary: "{{fields.label}} ({{fields.type}})"
+                fields:
+                  - {label: "Field name (HTML name attr)", name: "name", widget: "string"}
+                  - {label: "Label shown to user", name: "label", widget: "string"}
+                  - label: "Type"
+                    name: "type"
+                    widget: "select"
+                    options: ["text", "email", "tel", "textarea", "select"]
+                  - {label: "Required?", name: "required", widget: "boolean", default: false}
+                  - label: "Options (only for type=select)"
+                    name: "options"
+                    widget: "list"
+                    required: false
+                    field: {label: "Option", name: "", widget: "string"}
+
+      # ----------------------- CAREER -----------------------
+      - file: "site/content/career/_index.md"
+        label: "Career Page"
+        name: "career"
+        description: "Why join us, current openings, and application CTA"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Why join"
+            name: "why"
+            widget: "object"
+            fields:
+              - {label: "Section title", name: "title", widget: "string", default: "Why Limawira Wisesa?"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "Open positions"
+            name: "openings"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.location}})"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Location", name: "location", widget: "string"}
+              - {label: "Type (e.g. Full-time)", name: "type", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+          - label: "Bottom CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - {label: "Button label", name: "label", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+
+      # ----------------------- CUSTOMERS -----------------------
+      - file: "site/content/customers/_index.md"
+        label: "Customers Page"
+        name: "customers"
+        description: "Showcase of customers grouped by solution"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Customer groups"
+            name: "groups"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.customers.length}} customers)"
+            fields:
+              - {label: "Group title (e.g. Data Center)", name: "title", widget: "string"}
+              - label: "Customers"
+                name: "customers"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - {label: "Customer name", name: "name", widget: "string"}
+                  - {label: "Industry", name: "industry", widget: "string"}
+                  - {label: "Logo (optional)", name: "logo", widget: "image", required: false}
+
+      # ----------------------- PARTNERS -----------------------
+      - file: "site/content/partners/_index.md"
+        label: "Partners Page"
+        name: "partners"
+        description: "Technology partners and OEMs"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Partners"
+            name: "partners"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.category}}"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Category", name: "category", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image", required: false}
+              - {label: "Website URL", name: "url", widget: "string", required: false}
+
+      # ----------------------- AWARDS -----------------------
+      - file: "site/content/awards/_index.md"
+        label: "Awards & Certifications"
+        name: "awards"
+        description: "Certifications, awards, and recognitions"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Issued by", name: "issuedBy", widget: "string"}
+              - {label: "Image / certificate scan", name: "image", widget: "image", required: false}
+
+      # ----------------------- PROJECTS -----------------------
+      - file: "site/content/projects/_index.md"
+        label: "Projects Page"
+        name: "projects"
+        description: "Selected case studies / project recaps"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.client}}"
+            fields:
+              - {label: "Project title", name: "title", widget: "string"}
+              - {label: "Client", name: "client", widget: "string"}
+              - {label: "Industry", name: "industry", widget: "string"}
+              - {label: "Year", name: "year", widget: "string"}
+              - {label: "Solution category", name: "solution", widget: "string"}
+              - {label: "Summary", name: "summary", widget: "text"}
+              - {label: "Hero image", name: "image", widget: "image", required: false}
+
+      # ----------------------- SOLUTIONS (list/index) -----------------------
+      - file: "site/content/solutions/_index.md"
+        label: "Solutions Page (index)"
+        name: "solutions-index"
+        description: "Header copy for the /solutions/ listing page"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+
+      # ----------------------- INDUSTRIES (list/index) -----------------------
+      - file: "site/content/industries/_index.md"
+        label: "Industries Page"
+        name: "industries"
+        description: "Sectors we serve"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Industries"
+            name: "industries"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
+
+  # ============================================================
+  # SOLUTIONS (each solution = a markdown file in /solutions/)
+  # ============================================================
+  - name: "solutions"
+    label: "Solutions"
+    label_singular: "Solution"
+    description: "Each solution has its own landing page (Data Center, UPS, ICT, etc.)"
+    folder: "site/content/solutions"
+    path: "{{slug}}"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: "title"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL slug (e.g. data-center)", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Used in the URL."}
+      - {label: "Sort order (lower = first)", name: "order", widget: "number", default: 99, value_type: "int", hint: "Controls the order shown on the listing page"}
+      - label: "Icon"
+        name: "icon"
+        widget: "select"
+        default: "server"
+        options: ["server", "battery", "network", "bolt", "wrench", "building", "leaf", "shield", "monitor"]
+      - {label: "Short description (used in cards)", name: "shortDescription", widget: "text"}
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
+        fields:
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+      - {label: "Long description", name: "description", widget: "markdown"}
+      - label: "Features (3 cards)"
+        name: "features"
+        widget: "list"
+        summary: "{{fields.title}}"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "Icon"
+            name: "icon"
+            widget: "select"
+            options: ["server", "battery", "network", "bolt", "wrench", "building", "leaf", "shield", "monitor", "calculator", "plug", "blueprint", "hammer", "router", "cable", "transformer", "generator", "beaker", "clipboard", "box", "dashboard"]
+      - label: "Specs (At a glance)"
+        name: "specs"
+        widget: "list"
+        summary: "{{fields.label}}: {{fields.value}}"
+        fields:
+          - {label: "Label", name: "label", widget: "string"}
+          - {label: "Value", name: "value", widget: "string"}
+      - label: "Selected customers"
+        name: "customers"
+        widget: "list"
+        summary: "{{fields.name}}"
+        fields:
+          - {label: "Customer name", name: "name", widget: "string"}
+          - {label: "Logo (optional)", name: "logo", widget: "image", required: false}
+      - label: "Bottom CTA"
+        name: "cta"
+        widget: "object"
+        fields:
+          - {label: "Button label", name: "label", widget: "string"}
+          - {label: "URL", name: "url", widget: "string"}
+      - {label: "Body (markdown, optional)", name: "body", widget: "markdown", required: false}
+
+  # ============================================================
+  # POSTS (blog/insights)
+  # ============================================================
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    description: "News, insights, and project announcements"
+    folder: "site/content/posts"
+    path: "{{slug}}"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - label: "Publish date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        picker_utc: true
+      - {label: "Author", name: "author", widget: "string", required: false}
+      - {label: "Intro / description", name: "description", widget: "text"}
+      - {label: "Hero image", name: "image", widget: "image", required: false}
+      - {label: "Tags (comma separated)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
+      - {label: "Body (markdown)", name: "body", widget: "markdown"}
+
+  # ============================================================
+  # SITE SETTINGS (global, single-instance)
+  # ============================================================
   - name: "site_settings"
     label: "Site Settings"
+    label_singular: "Site Setting"
+    description: "Global brand, contact, social, and footer configuration"
     files:
-      - file: "site/data/footer.json"
-        label: Footer
-        name: footer
+
+      - file: "site/data/site.json"
+        label: "Brand & Contact"
+        name: "site"
+        description: "Site name, tagline, phone, email, address, social links, and footer columns/certifications"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Blurb, name: blurb, widget: text}
+          - label: "Brand"
+            name: "site"
+            widget: "object"
+            fields:
+              - {label: "Company name", name: "name", widget: "string", default: "PT Limawira Wisesa"}
+              - {label: "Tagline (hero copy)", name: "tagline", widget: "string"}
+              - {label: "Short description (used in previews)", name: "shortDescription", widget: "text"}
+              - {label: "Since year (e.g. 1985)", name: "since", widget: "string"}
+              - {label: "Display phone (e.g. +62 21 5890 3970)", name: "phone", widget: "string"}
+              - {label: "Phone without spaces for tel: links (e.g. +622158903970)", name: "phoneRaw", widget: "string"}
+              - {label: "WhatsApp number without + for wa.me links (e.g. 6281234567890)", name: "whatsapp", widget: "string"}
+              - {label: "WhatsApp display (e.g. +62 812 3456 7890)", name: "whatsappDisplay", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Address (city, country)", name: "address", widget: "string"}
+
+          - label: "Social links"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "LinkedIn URL", name: "linkedin", widget: "string", required: false}
+              - {label: "Instagram URL", name: "instagram", widget: "string", required: false}
+              - {label: "Facebook URL", name: "facebook", widget: "string", required: false}
+              - {label: "YouTube URL", name: "youtube", widget: "string", required: false}
+
+          - label: "Footer blurb"
+            name: "footer"
+            widget: "object"
+            fields:
+              - {label: "Blurb (under logo)", name: "blurb", widget: "text"}
+              - label: "Footer columns"
+                name: "columns"
+                widget: "list"
+                summary: "{{fields.heading}}"
+                fields:
+                  - {label: "Column heading", name: "heading", widget: "string"}
+                  - label: "Links"
+                    name: "links"
+                    widget: "list"
+                    summary: "{{fields.label}}"
+                    fields:
+                      - {label: "Label", name: "label", widget: "string"}
+                      - {label: "URL", name: "url", widget: "string"}
+              - label: "Certification badges (footer)"
+                name: "certifications"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - {label: "Label (e.g. ISO 9001:2015)", name: "label", widget: "string"}
+                  - {label: "Icon (reserved for future use)", name: "icon", widget: "string", required: false, default: "badge"}
+
       - file: "site/hugo.toml"
-        label: Hugo Config
-        name: config
+        label: "Hugo Config"
+        name: "hugo_config"
+        description: "Site title and global Hugo parameters"
         editor:
           preview: false
         fields:
-          - {label: Site Title for Browser Tab, name: title, widget: string}
-          - label: Params
-            name: params
-            widget: object
+          - {label: "Site title (browser tab)", name: "title", widget: "string"}
+          - label: "Params"
+            name: "params"
+            widget: "object"
             fields:
-              - label: Open Graph Image
-                name: images
-                widget: list
-                field: { label: Image, name: image, widget: image }
+              - {label: "Default description (meta tag)", name: "description", widget: "text"}
+              - {label: "Default contact phone", name: "contactPhone", widget: "string"}
+              - {label: "Default contact email", name: "contactEmail", widget: "string"}
+              - {label: "Default contact address", name: "contactAddress", widget: "string"}
+              - label: "Open Graph default image"
+                name: "images"
+                widget: "list"
+                field: {label: "Image", name: "image", widget: "image"}

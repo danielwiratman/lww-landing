@@ -1,50 +1,101 @@
-<footer class="bg-black ph3 pv4 white">
+{{ $site := .Site.Data.site }}
+{{ $footer := .Site.Data.footer }}
+{{ $social := .Site.Data.social }}
 
-	<div class="mw7 center pt3">
+<footer class="bg-brand-dark text-brand-100 mt-24">
+  <div class="container-x py-16">
 
-		<div class="measure-narrow center mb4">
+    <!-- Top: brand + blurb + columns -->
+    <div class="grid gap-10 lg:grid-cols-[1.2fr_2fr] lg:gap-16">
 
-			<img src="/img/logo.svg" alt="Kaldi logo" class="db w4 center mb4 br0">
-			<p class="f3 lh-title light-gray b tc mb2">{{ .Site.Data.footer.title }}</p>
-			<p>{{ .Site.Data.footer.blurb }}</p>
+      <!-- Brand block -->
+      <div>
+        <a href="/" class="inline-block mb-5">
+          <img src="/img/logo.svg" alt="{{ $site.name }}" class="h-12 w-auto brightness-0 invert opacity-90">
+        </a>
+        <p class="text-sm text-brand-100/90 leading-relaxed max-w-sm">{{ $footer.blurb }}</p>
 
-			{{ partial "newsletter-form" . }}
+        <ul class="mt-6 space-y-2 text-sm text-brand-100/90">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:{{ $site.phoneRaw }}" class="hover:text-white transition">{{ $site.phone }}</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:{{ $site.email }}" class="hover:text-white transition">{{ $site.email }}</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>{{ $site.address }}</span>
+          </li>
+        </ul>
 
-		</div>
+        <!-- Social -->
+        <ul class="mt-6 flex items-center gap-3">
+          {{ with $social.linkedin }}
+          <li>
+            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn"
+               class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8.4h4.55V24H.22V8.4zm7.43 0h4.36v2.13h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.48 3.04 5.48 6.99V24h-4.55v-7.06c0-1.68-.03-3.85-2.35-3.85-2.35 0-2.71 1.83-2.71 3.72V24H7.65V8.4z"/></svg>
+            </a>
+          </li>
+          {{ end }}
+          {{ with $social.instagram }}
+          <li>
+            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram"
+               class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </li>
+          {{ end }}
+          {{ with $social.facebook }}
+          <li>
+            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Facebook"
+               class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+            </a>
+          </li>
+          {{ end }}
+          {{ with $social.youtube }}
+          <li>
+            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="YouTube"
+               class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
 
-		<div class="flex-ns justify-between">
+      <!-- Link columns -->
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {{ range $footer.columns }}
+        <div>
+          <h3 class="text-sm font-semibold text-white tracking-wide uppercase mb-4">{{ .heading }}</h3>
+          <ul class="space-y-2 text-sm">
+            {{ range .links }}
+            <li>
+              <a href="{{ .url }}" class="text-brand-100/80 hover:text-white transition">{{ .label }}</a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </div>
+    </div>
 
-			<div>
-				<h3 class="f4 b lh-title mb1 primary">Kaldi</h3>
-				<ul class="mb3">
-					<li><a href="/" class="link">Home</a></li>
-					<li><a href="/products" class="link">Our products</a></li>
-					<li><a href="/values" class="link">About</a></li>
-					<li><a href="/post" class="link">Blog</a></li>
-					<li><a href="/contact" class="link">Contact</a></li>
-				</ul>
-			</div>
+    <!-- Certifications row -->
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center gap-2">
+      <span class="text-xs uppercase tracking-widest text-brand-100/70 mr-2">Certifications</span>
+      {{ range $footer.certifications }}
+        <span class="badge bg-white/10 !text-brand-100">{{ .label }}</span>
+      {{ end }}
+    </div>
 
-			<div>
-				<h3 class="f4 b lh-title mb1 primary">Find out more</h3>
-				<ul class="mb3">
-					<li><a href="/post/jamaica-blue/" class="link">Latest offers</a></li>
-					<li><a href="/contact" class="link">Schedule an appointment</a></li>
-				</ul>
-			</div>
-
-			<div>
-				<h3 class="f4 b lh-title mb2 primary">Social media</h3>
-				<ul class="mhn2">
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook" "alt" "Kaldi on Facebook") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-twitter" "alt" "Kaldi on Twitter") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-instagram" "alt" "Kaldi on Instagram") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-vimeo" "alt" "Kaldi on Vimeo") }}
-				</ul>
-			</div>
-
-		</div>
-	</div>
-
+    <!-- Copyright -->
+    <div class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-brand-100/70">
+      <p>© {{ now.Year }} {{ $site.name }}. All rights reserved.</p>
+      <p>Since {{ $site.since }} — Building reliable digital infrastructure.</p>
+    </div>
+  </div>
 </footer>
-

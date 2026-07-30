@@ -1,0 +1,38 @@
+{{/*
+  /posts/ — blog index
+*/}}
+{{ define "main" }}
+
+{{ $hero := .Params.hero | default (dict) }}
+{{ partial "page-header" (dict
+  "image"       ($hero.image | default "")
+  "eyebrow"     "Insights"
+  "heading"     "Latest stories"
+  "subheading"  "News, case studies, and engineering perspectives from the Limawira Wisesa team."
+) }}
+
+<section class="container-x py-16">
+  <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range (.Paginator 6).Pages.ByPublishDate.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="group card overflow-hidden h-full flex flex-col hover:border-brand transition">
+          {{ with .Params.image }}
+            <div class="aspect-[16/9] overflow-hidden bg-line">
+              <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+          {{ end }}
+          <div class="p-6 flex flex-col flex-1">
+            <p class="text-xs uppercase tracking-wider text-ink-muted mb-2">{{ .Date.Format "Mon, Jan 2, 2006" }}</p>
+            <h2 class="text-lg font-bold group-hover:text-brand transition">{{ .Title }}</h2>
+            <p class="mt-2 text-sm text-ink-muted line-clamp-3 flex-1">{{ .Description }}</p>
+            <p class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+              Read more {{ partial "icon" "arrow-right" }}
+            </p>
+          </div>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ end }}
