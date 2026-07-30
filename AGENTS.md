@@ -215,14 +215,34 @@ To add or remove form fields:
 
 ### 5.1 Install
 
+You need a working Hugo installation **on your machine**, then:
+
+```bash
+brew install hugo            # macOS
+# or: choco install hugo    # Windows
+# or: snap install hugo      # Linux
+```
+
+We use Hugo **0.124.1** in production. Check with `hugo version`.
+
 ```bash
 yarn install
 # or
 npm install
 ```
 
-This installs Hugo, webpack, Tailwind v4, and the Decap CMS runtime
+This installs webpack, Tailwind v4, and the Decap CMS runtime
 (which is loaded from CDN at runtime — no node dep needed for the CMS).
+
+> **Why not `hugo-bin`?** Earlier versions of this project shipped with
+> the [`hugo-bin`](https://www.npmjs.com/package/hugo-bin) npm wrapper
+> so that `yarn install` would download a Hugo binary. That approach
+> proved fragile on Netlify's build environment (the binary often
+> failed to land in `node_modules/hugo-bin/vendor/` because the
+> package's postinstall step was skipped in the build cache). The
+> current setup uses Netlify's first-class Hugo support
+> ([`HUGO_VERSION` env var](https://docs.netlify.com/configure-builds/manage-dependencies/#hugo))
+> for production and a system Hugo for local development.
 
 ### 5.2 Run
 

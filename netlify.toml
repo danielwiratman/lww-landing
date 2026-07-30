@@ -1,6 +1,8 @@
 [build.environment]
   NETLIFY_USE_YARN = "true"
   YARN_VERSION = "1.22.17"
+  HUGO_VERSION = "0.124.1"
+  NODE_VERSION = "20"
 
 [build]
   command = "yarn build"
@@ -13,8 +15,14 @@
   framework = "hugo"
   targetPort = 3000
 
+# Install Hugo binary at build time. netlify-plugin-hugo-cache is the
+# recommended cache plugin and is compatible with the official Netlify
+# Hugo support.
+[[plugins]]
+  package = "netlify-plugin-hugo-cache"
+
 [[plugins]]
   package = "netlify-plugin-cypress"
 
   [plugins.inputs]
-    record = true
+  record = true
