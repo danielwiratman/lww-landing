@@ -38,8 +38,7 @@
   {{ range .AllTranslations }}
     <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink | absURL }}">
   {{ end }}
-  {{ $defaultSite := index hugo.Sites 0 }}
-  {{ with $defaultSite.GetPage "/" }}
+  {{ with index .AllTranslations 0 }}
     <link rel="alternate" hreflang="x-default" href="{{ .Permalink | absURL }}">
   {{ end }}
 
