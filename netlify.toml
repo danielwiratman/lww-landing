@@ -15,12 +15,6 @@
   framework = "hugo"
   targetPort = 3000
 
-# Install Hugo binary at build time. netlify-plugin-hugo-cache is the
-# recommended cache plugin and is compatible with the official Netlify
-# Hugo support.
-[[plugins]]
-  package = "netlify-plugin-hugo-cache"
-
 [[plugins]]
   package = "netlify-plugin-cypress"
 

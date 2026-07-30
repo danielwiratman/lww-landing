@@ -116,7 +116,8 @@ A Hugo + Decap CMS + Tailwind CSS website, deployed to Netlify.
 
 | Layer       | Tool                        | Version        |
 |-------------|-----------------------------|----------------|
-| Site gen    | Hugo                        | 0.98+          |
+| Site gen    | Hugo                        | 0.124.x        |
+| Node        | Node.js                     | 20 LTS         |
 | Styling     | Tailwind CSS                | 4.x (PostCSS)  |
 | Bundling    | webpack                     | 5.x            |
 | JS          | Vanilla ES6 (no framework)  | —              |

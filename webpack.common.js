@@ -37,7 +37,9 @@ module.exports = {
           "style-loader",
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { esModule: false }
+            options: {
+              esModule: false
+            }
           },
           "css-loader",
           "postcss-loader"
