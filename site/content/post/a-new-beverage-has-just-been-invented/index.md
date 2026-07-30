@@ -1,6 +1,6 @@
 ---
 title: A new beverage has just been invented!
-date: 2026-07-31T12:41:51.746Z
+date: 2026-07-28T12:41:51.746Z
 description: Crazy new beverage concoction had been brewed by a remote brewery
   in Southern Sudan.
 image: pexels-tomfisk-2388736.jpg
