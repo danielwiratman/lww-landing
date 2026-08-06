@@ -69,11 +69,12 @@
 
 <!-- CTA -->
 {{ with .Params.cta }}
+  {{ $isID := eq $.Site.Language.Lang "id" }}
   {{ partial "cta" (dict
-    "eyebrow"     "Talk to us"
+    "eyebrow"     (cond $isID "Hubungi kami" "Talk to us")
     "heading"     .label
     "text"        ""
-    "primaryCta"  (dict "label" "Contact us" "url" .url)
+    "primaryCta"  (dict "label" (cond $isID "Hubungi kami" "Contact us") "url" .url)
     "secondaryCta" nil
   ) }}
 {{ end }}

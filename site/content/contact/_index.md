@@ -9,22 +9,22 @@ intro: >-
   Punya proyek di pikiran atau membutuhkan bantuan dengan infrastruktur yang
   sudah ada? Hubungi kami — tim kami akan merespons dalam satu hari kerja.
 channels:
+  - icon: "pin"
+    label: "Kunjungi kami"
+    value: "Graha Mas Pemuda Blok AA No.15-17, Jalan Pemuda, Jakarta Timur, 13220"
+    url: "https://maps.google.com/?q=Graha+Mas+Pemuda+Blok+AA+Jakarta+Timur"
   - icon: "phone"
     label: "Telepon kami"
-    value: "+62 21 5890 3970"
-    url: "tel:+622158903970"
+    value: "(62-21) 4788 2000"
+    url: "tel:+622147882000"
   - icon: "whatsapp"
     label: "WhatsApp"
     value: "+62 812 3456 7890"
     url: "https://wa.me/6281234567890"
   - icon: "mail"
     label: "Email"
-    value: "info@limawira.com"
-    url: "mailto:info@limawira.com"
-  - icon: "pin"
-    label: "Kunjungi kami"
-    value: "Jakarta, Indonesia"
-    url: "#"
+    value: "info@limawira.co.id"
+    url: "mailto:info@limawira.co.id"
 hours:
   - day: "Senin – Jumat"
     time: "08:00 – 17:00 WIB"
@@ -41,6 +41,6 @@ form:
     - {name: "company", label: "Perusahaan", type: "text", required: false}
     - {name: "phone", label: "Telepon", type: "tel", required: false}
     - {name: "topic", label: "Bagaimana kami bisa membantu?", type: "select", required: true,
-       options: ["Data Center", "Solusi UPS", "Infrastruktur ICT", "Teknik Elektrikal", "Pemeliharaan & Dukungan", "Solusi Gedung", "Lainnya"]}
+       options: ["Data Center Solution", "Uninterruptible Power Supply (UPS)", "IT Infrastructure Solutions", "Mechanical & Electrical Engineering", "Service & Maintenance Support", "Lainnya"]}
     - {name: "message", label: "Ceritakan tentang proyek Anda", type: "textarea", required: true}
 ---

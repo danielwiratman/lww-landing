@@ -64,6 +64,6 @@ cta:
     label: Request consultation
     url: /contact/
   secondaryCta:
-    label: Call +62 21 5890 3970
-    url: tel:+622158903970
+    label: Call (62-21) 4788 2000
+    url: tel:+622147882000
 ---

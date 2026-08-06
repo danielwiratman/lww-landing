@@ -67,6 +67,6 @@ cta:
     label: Ajukan konsultasi
     url: /contact/
   secondaryCta:
-    label: Telepon +62 21 5890 3970
-    url: tel:+622158903970
+    label: Telepon (62-21) 4788 2000
+    url: tel:+622147882000
 ---
