@@ -88,6 +88,10 @@ stats:
 cta:
   heading: "Ready to work with us?"
   text: "Tell us about your project and our team will get back to you within one business day."
-  label: "Contact us"
-  url: "/contact/"
+  primaryCta:
+    label: "Contact us"
+    url: "/contact/"
+  secondaryCta:
+    label: "Call (62-21) 4788 2000"
+    url: "tel:+622147882000"
 ---

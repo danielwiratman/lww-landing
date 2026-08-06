@@ -89,6 +89,10 @@ stats:
 cta:
   heading: "Siap bekerja sama dengan kami?"
   text: "Ceritakan proyek Anda dan tim kami akan menghubungi Anda dalam satu hari kerja."
-  label: "Hubungi kami"
-  url: "/contact/"
+  primaryCta:
+    label: "Hubungi kami"
+    url: "/contact/"
+  secondaryCta:
+    label: "Telepon (62-21) 4788 2000"
+    url: "tel:+622147882000"
 ---
