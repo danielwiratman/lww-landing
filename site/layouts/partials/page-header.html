@@ -1,14 +1,46 @@
 {{/*
   Reusable page header.
   Usage:
-    {{ partial "page-header" (dict "image" .Params.hero.image "eyebrow" .Params.hero.tagline "heading" .Params.hero.heading) }}
+    {{ partial "page-header" (dict
+        "image"      .Params.hero.image
+        "eyebrow"    .Params.hero.tagline
+        "heading"    .Params.hero.heading
+        "subheading" .Params.intro
+        "style"      "showcase"  {{- /* default: dark gradient. values: "dark" | "showcase" */ -}}
+        "caption"    "Kantor pusat kami di Graha Mas Pemuda, Jakarta Timur."
+    ) }}
 */}}
 
 {{ $image := .image }}
 {{ $eyebrow := .eyebrow }}
 {{ $heading := .heading }}
 {{ $subheading := .subheading }}
+{{ $style := .style | default "dark" }}
+{{ $caption := .caption }}
 
+{{ if eq $style "showcase" }}
+<section class="relative bg-white">
+  {{ with $image }}
+    <div class="w-full">
+      <img src="{{ . }}" alt="" class="w-full h-auto max-h-[640px] object-cover">
+    </div>
+  {{ end }}
+  {{ with $caption }}
+    <div class="container-x py-3 text-center">
+      <p class="text-sm text-ink-muted italic">{{ . }}</p>
+    </div>
+  {{ end }}
+  <div class="container-x pt-10 md:pt-14 pb-2">
+    {{ with $eyebrow }}
+      <p class="eyebrow mb-4">{{ . }}</p>
+    {{ end }}
+    <h1 class="text-4xl md:text-5xl font-bold text-balance max-w-3xl text-ink">{{ $heading }}</h1>
+    {{ with $subheading }}
+      <p class="mt-4 text-lg text-ink-muted max-w-2xl">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+{{ else }}
 <section class="relative overflow-hidden bg-brand-dark text-white">
   {{ with $image }}
     <div class="absolute inset-0">
@@ -30,3 +62,4 @@
     {{ end }}
   </div>
 </section>
+{{ end }}

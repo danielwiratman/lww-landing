@@ -4,7 +4,7 @@ description: "Building reliable digital infrastructure since 1985."
 hero:
   heading: "Building Reliable Digital Infrastructure Since 1985"
   tagline: "About Us"
-  image: "/img/about-hero.jpg"
+  image: "/img/limawira-office.jpg"
 intro: >-
   For more than four decades, PT. Limawira Wisesa has been a trusted
   engineering and system integration company, delivering reliable Critical

@@ -426,6 +426,11 @@
       
 
 
+"caption"    "Kantor pusat kami di Graha Mas Pemuda, Jakarta Timur."
+    ) }}
+*/}}
+
+
 
 
 
@@ -457,6 +462,7 @@
 
 
 
+
 <section class="container-x py-12 md:py-16">
   <ul class="space-y-10">
     
@@ -474,7 +480,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/40.png"
                  aria-label="View larger image">
-                <img src="/img/awards/40.png" alt="" loading="lazy"
+                <img src="/img/awards/40.png" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -484,7 +490,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/41.jpeg"
                  aria-label="View larger image">
-                <img src="/img/awards/41.jpeg" alt="" loading="lazy"
+                <img src="/img/awards/41.jpeg" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -494,7 +500,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/45.png"
                  aria-label="View larger image">
-                <img src="/img/awards/45.png" alt="" loading="lazy"
+                <img src="/img/awards/45.png" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -516,7 +522,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/42.jpeg"
                  aria-label="View larger image">
-                <img src="/img/awards/42.jpeg" alt="" loading="lazy"
+                <img src="/img/awards/42.jpeg" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -526,7 +532,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/44.png"
                  aria-label="View larger image">
-                <img src="/img/awards/44.png" alt="" loading="lazy"
+                <img src="/img/awards/44.png" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -548,7 +554,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/43.jpeg"
                  aria-label="View larger image">
-                <img src="/img/awards/43.jpeg" alt="" loading="lazy"
+                <img src="/img/awards/43.jpeg" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -558,7 +564,7 @@
                  class="award-thumb group block"
                  data-pswp-src="/img/awards/46.png"
                  aria-label="View larger image">
-                <img src="/img/awards/46.png" alt="" loading="lazy"
+                <img src="/img/awards/46.png" alt=""
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -748,31 +754,49 @@
 <script type="module">
   import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
 
-  function loadDims(a) {
-    return new Promise((resolve) => {
+  const dims = new WeakMap();
+  const pending = new Map();
+
+  function ensureDims(a) {
+    if (dims.has(a)) return Promise.resolve(dims.get(a));
+    let p = pending.get(a);
+    if (p) return p;
+    p = new Promise((resolve) => {
       const src = a.dataset.pswpSrc;
-      if (!src) return resolve({ w: 1600, h: 1200 });
+      if (!src) return resolve(null);
       const img = new Image();
-      img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
-      img.onerror = () => resolve({ w: 1600, h: 1200 });
+      img.onload = () => {
+        const d = { w: img.naturalWidth, h: img.naturalHeight };
+        dims.set(a, d);
+        pending.delete(a);
+        resolve(d);
+      };
+      img.onerror = () => { pending.delete(a); resolve(null); };
       img.src = src;
     });
+    pending.set(a, p);
+    return p;
   }
+
+  document.querySelectorAll("a.award-thumb").forEach(ensureDims);
 
   const lightbox = new PhotoSwipeLightbox({
     pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"),
     showHideAnimationType: "zoom",
-    bgOpacity: 0.92,
-    padding: { top: 24, bottom: 24, left: 24, right: 24 },
+    bgOpacity: 0.88,
+    padding: { top: 64, bottom: 64, left: 64, right: 64 },
+    initialZoomLevel: "fit",
+    secondaryZoomLevel: 1.5,
+    maxZoomLevel: 4,
     children: "a.award-thumb",
     gallery: "main",
   });
 
   lightbox.on("itemData", async (e) => {
-    const { w, h } = await loadDims(e.itemData.el);
+    const d = await ensureDims(e.itemData.el);
     e.itemData.src = e.itemData.el.dataset.pswpSrc;
-    e.itemData.w = w;
-    e.itemData.h = h;
+    e.itemData.w = d ? d.w : 1200;
+    e.itemData.h = d ? d.h : 1600;
   });
 
   lightbox.init();

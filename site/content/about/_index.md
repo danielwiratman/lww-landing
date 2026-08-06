@@ -4,7 +4,7 @@ description: "Membangun infrastruktur digital yang andal sejak 1985."
 hero:
   heading: "Membangun Infrastruktur Digital yang Andal Sejak 1985"
   tagline: "Tentang Kami"
-  image: "/img/about-hero.jpg"
+  image: "/img/limawira-office.jpg"
 intro: >-
   Selama lebih dari empat dekade, PT. Limawira Wisesa telah menjadi perusahaan
   engineering dan system integrator tepercaya, menghadirkan solusi Critical

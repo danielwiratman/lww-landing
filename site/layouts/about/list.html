@@ -4,11 +4,16 @@
 {{ define "main" }}
 
 {{ $hero := .Params.hero }}
+{{ $isID := eq $.Site.Language.Lang "id" }}
 {{ partial "page-header" (dict
   "image"       ($hero.image | default "")
   "eyebrow"     ($hero.tagline | default "About Us")
   "heading"     ($hero.heading | default .Title)
   "subheading"  ""
+  "style"       "showcase"
+  "caption"     (cond $isID
+    "Kantor pusat PT. Limawira Wisesa di Graha Mas Pemuda, Jakarta Timur."
+    "PT. Limawira Wisesa headquarters at Graha Mas Pemuda, East Jakarta.")
 ) }}
 
 <!-- Intro -->
