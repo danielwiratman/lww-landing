@@ -34,5 +34,5 @@ specs:
     value: "Schneider, Honeywell, Legrand, ABB"
 cta:
   label: "Rencanakan smart building"
-  url: "/id/contact/"
+  url: "/contact/"
 ---

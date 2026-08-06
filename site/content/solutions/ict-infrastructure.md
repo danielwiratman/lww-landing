@@ -41,5 +41,5 @@ customers:
     logo: "/img/customers/dki.png"
 cta:
   label: "Rencanakan infrastruktur ICT Anda"
-  url: "/id/contact/"
+  url: "/contact/"
 ---

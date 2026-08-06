@@ -40,5 +40,5 @@ customers:
     logo: "/img/customers/samakta.png"
 cta:
   label: "Diskusikan proyek data center Anda"
-  url: "/id/contact/"
+  url: "/contact/"
 ---

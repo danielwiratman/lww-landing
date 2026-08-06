@@ -493,6 +493,16 @@ collections:
                 widget: "select"
                 options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
 
+      # ----------------------- THANK YOU (post-submit) -----------------------
+      - file: "site/content/thank-you.md"
+        label: "Halaman Terima Kasih"
+        name: "thank-you"
+        description: "Halaman yang muncul setelah pengunjung mengirim formulir kontak."
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Meta description", name: "description", widget: "text"}
+          - {label: "Isi halaman (markdown)", name: "body", widget: "markdown"}
+
   # ============================================================
   # SOLUTIONS — BAHASA INDONESIA (each solution = a markdown file)
   # ============================================================
@@ -1019,6 +1029,16 @@ collections:
                 name: "icon"
                 widget: "select"
                 options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
+
+      # ----------------------- THANK YOU (post-submit) -----------------------
+      - file: "site/content.en/thank-you.md"
+        label: "Thank You Page"
+        name: "thank-you_en"
+        description: "Landing page shown after a visitor submits the contact form."
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Meta description", name: "description", widget: "text"}
+          - {label: "Page body (markdown)", name: "body", widget: "markdown"}
 
   # ============================================================
   # SOLUTIONS — ENGLISH

@@ -3,20 +3,32 @@
 */}}
 {{ define "main" }}
 
-{{ $hero := .Params.hero }}
-{{ partial "page-header" (dict
-  "image"       ($hero.image | default "")
-  "eyebrow"     ($hero.tagline | default .Title)
-  "heading"     ($hero.heading | default .Title)
-  "subheading"  (.Params.shortDescription | default .Params.description | default "")
-) }}
-
-{{ with .Content }}
-  <section class="container-x prose prose-lg max-w-3xl py-12">
-    {{ . }}
+{{ if .Params.body }}
+  {{/*
+    Custom-mode single (e.g. /thank-you/): editors own the body HTML
+    via the `body` field in frontmatter, so we render it directly and
+    skip the default page-header hero.
+  */}}
+  <section class="container-x py-12">
+    {{ .Params.body | safeHTML }}
   </section>
+{{ else }}
+  {{ $hero := .Params.hero }}
+  {{ partial "page-header" (dict
+    "image"       ($hero.image | default "")
+    "eyebrow"     ($hero.tagline | default .Title)
+    "heading"     ($hero.heading | default .Title)
+    "subheading"  (.Params.shortDescription | default .Params.description | default "")
+  ) }}
+
+  {{ with .Content }}
+    <section class="container-x prose prose-lg max-w-3xl py-12">
+      {{ . }}
+    </section>
+  {{ end }}
 {{ end }}
 
 {{ block "single_main" . }}{{ end }}
 
 {{ end }}
+

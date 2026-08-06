@@ -41,5 +41,5 @@ customers:
     logo: "/img/customers/antara.jpeg"
 cta:
   label: "Diskusikan kontrak pemeliharaan"
-  url: "/id/contact/"
+  url: "/contact/"
 ---

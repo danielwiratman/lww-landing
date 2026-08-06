@@ -9,24 +9,24 @@ hero:
     hidup yang responsif, dan komitmen teguh terhadap keberhasilan pelanggan.
   primaryCta:
     label: Ajukan Konsultasi
-    url: /id/contact/
+    url: /contact/
   secondaryCta:
     label: Lihat Proyek Kami
-    url: /id/projects/
+    url: /projects/
   image: img/electrical-engineer.jpg
 quickIcons:
   title: Layanan kami, sekilas
   items:
     - label: Data Center
-      url: /id/solutions/data-center/
+      url: /solutions/data-center/
     - label: Solusi UPS
-      url: /id/solutions/ups-solution/
+      url: /solutions/ups-solution/
     - label: Infrastruktur ICT
-      url: /id/solutions/ict-infrastructure/
+      url: /solutions/ict-infrastructure/
     - label: Teknik Elektrikal
-      url: /id/solutions/electrical-engineering/
+      url: /solutions/electrical-engineering/
     - label: Pemeliharaan & Dukungan
-      url: /id/solutions/maintenance-support/
+      url: /solutions/maintenance-support/
 stats:
   - label: Tahun Pengalaman
     value: 40+
@@ -46,7 +46,7 @@ partners:
   subtitle: Bermitra dengan pemimpin teknologi yang diakui secara global.
   cta:
     label: Lihat semua mitra
-    url: /id/partners/
+    url: /partners/
 cta:
   eyebrow: Siap memulai?
   title: Ceritakan proyek Anda kepada kami.
@@ -54,7 +54,7 @@ cta:
     tim engineer kami siap membantu.
   primaryCta:
     label: Ajukan konsultasi
-    url: /id/contact/
+    url: /contact/
   secondaryCta:
     label: Telepon +62 21 5890 3970
     url: tel:+622158903970

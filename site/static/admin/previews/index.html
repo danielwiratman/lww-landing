@@ -482,11 +482,39 @@
     CMS.registerPreviewTemplate("posts", renderPost);
     CMS.registerPreviewTemplate("posts_en", renderPost);
     CMS.registerPreviewTemplate("site_settings", renderSettings);
+
+    // Debug: confirm CSS path is reachable from the iframe
+    fetch("/cms-preview.css", { method: "HEAD" }).then(r => {
+      console.log("[preview] /cms-preview.css ->", r.status, r.headers.get("content-type"));
+    }).catch(e => console.warn("[preview] CSS fetch failed:", e));
   </script>
 </head>
 <body>
   <div id="root">
     <p style="padding:2rem; color:#475569;">Loading preview…</p>
   </div>
+  <script>
+    // Self-test: if you see this red banner, the preview stylesheet
+    // didn't load. Open the browser devtools Network tab and look for
+    // /cms-preview.css — it should return 200.
+    setTimeout(function () {
+      var sheets = document.styleSheets;
+      var hasPreviewCss = false;
+      for (var i = 0; i < sheets.length; i++) {
+        try {
+          if (sheets[i].href && sheets[i].href.indexOf("cms-preview.css") !== -1) {
+            hasPreviewCss = true;
+            break;
+          }
+        } catch (e) {}
+      }
+      if (!hasPreviewCss) {
+        var warn = document.createElement("div");
+        warn.style.cssText = "position:fixed;bottom:0;left:0;right:0;background:#b91c1c;color:#fff;padding:.75rem 1rem;font:14px/1.4 system-ui;text-align:center;z-index:9999";
+        warn.textContent = "Preview stylesheet (cms-preview.css) did not load — check the Network tab.";
+        document.body.appendChild(warn);
+      }
+    }, 1500);
+  </script>
 </body>
 </html>

@@ -44,5 +44,5 @@ customers:
     logo: "/img/customers/jict.jpeg"
 cta:
   label: "Dapatkan konsultasi penentuan kapasitas UPS"
-  url: "/id/contact/"
+  url: "/contact/"
 ---

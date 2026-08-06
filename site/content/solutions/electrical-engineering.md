@@ -41,5 +41,5 @@ customers:
     logo: "/img/customers/bsde.png"
 cta:
   label: "Rencanakan sistem elektrikal Anda"
-  url: "/id/contact/"
+  url: "/contact/"
 ---

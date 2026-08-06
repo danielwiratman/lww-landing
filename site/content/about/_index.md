@@ -72,5 +72,5 @@ cta:
   heading: "Siap bekerja sama dengan kami?"
   text: "Ceritakan proyek Anda dan tim kami akan menghubungi Anda dalam satu hari kerja."
   label: "Hubungi kami"
-  url: "/id/contact/"
+  url: "/contact/"
 ---
