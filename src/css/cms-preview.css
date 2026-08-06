@@ -1,6 +1,9 @@
 /* Tailwind v4 entry used by the Decap CMS preview iframe.
    The previews folder is scanned for utility classes, so the same
-   design tokens defined in main.css (@theme) are picked up here. */
+   design tokens defined in main.css (@theme) are picked up here.
+   The @layer components block mirrors the live site's component
+   classes (container-x, btn-*, card, eyebrow, etc.) so the preview
+   renders the same as the production Hugo templates. */
 @import "tailwindcss";
 
 @source "../../site/static/admin/previews/**/*.html";
@@ -32,6 +35,9 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px -8px rgba(15, 23, 42, 0.1);
+  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px -8px rgba(15, 23, 42, 0.1);
 }
 
 @layer base {
@@ -41,5 +47,52 @@
   }
   h1, h2, h3, h4 {
     @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-brand text-white hover:bg-brand-dark;
+  }
+
+  .btn-secondary {
+    @apply border border-brand text-brand bg-white hover:bg-brand hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply text-ink hover:text-brand;
+  }
+
+  .card {
+    @apply rounded-xl border border-line bg-white;
+    box-shadow: var(--shadow-card);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(rgba(71, 91, 41, 0.18) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-brand;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block w-8 h-px bg-brand;
   }
 }
