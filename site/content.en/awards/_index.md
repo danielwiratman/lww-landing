@@ -4,24 +4,35 @@ description: "Recognised quality, security, and safety standards that back every
 hero:
   heading: "Awards & Certifications"
   tagline: "Recognised quality, security, and safety"
-  image: "/img/awards-hero.jpg"
+  image: "/img/awards/47.png"
 intro: >-
   Our management systems are certified to internationally recognised standards,
   and our work has been recognised by industry bodies across Indonesia. These
   credentials give our customers confidence that every engagement meets
   audited quality, security, and safety benchmarks.
-latestAward:
-  heading: "Latest Recognition"
-  image: "/img/awards/40.png"
 awards:
-  - name: "Latest Award"
-    image: "/img/awards/40.png"
-  - name: "Award 1"
-    image: "/img/awards/41.jpeg"
-  - name: "Award 2"
-    image: "/img/awards/42.jpeg"
-  - name: "Award 3"
-    image: "/img/awards/43.jpeg"
+  - name: "Government Sector Partner of 2025"
+    description: >-
+      Recognition as a top partner in the government sector at the Indonesia
+      Partner Summit 2026.
+    images:
+      - "/img/awards/40.png"
+      - "/img/awards/41.jpeg"
+      - "/img/awards/45.png"
+  - name: "Most Valuable Partner 2022 — The Rising Star"
+    description: >-
+      Award from Alfa Siber Teknologi for our contribution to business
+      development and solution adoption in the Indonesian market.
+    images:
+      - "/img/awards/42.jpeg"
+      - "/img/awards/44.png"
+  - name: "Fujitsu SELECT Partner 2013"
+    description: >-
+      SELECT Partner status from Fujitsu, recognising our capability to sell,
+      design, and support Fujitsu enterprise solutions.
+    images:
+      - "/img/awards/43.jpeg"
+      - "/img/awards/46.png"
 certifications:
   - name: "ISO 9001:2015"
     description: "Quality Management System"
@@ -43,13 +54,4 @@ certifications:
     description: "Sistem Manajemen Keselamatan dan Kesehatan Kerja"
     issuedBy: "Kementerian Ketenagakerjaan RI"
     file: "/img/awards/smk3.pdf"
-isoCertificates:
-  - name: "ISO 9001:2015"
-    image: "/img/awards/44.png"
-  - name: "ISO 14001:2015"
-    image: "/img/awards/45.png"
-  - name: "ISO 45001:2018"
-    image: "/img/awards/46.png"
-  - name: "ISO 27001:2022"
-    image: "/img/awards/47.png"
 ---

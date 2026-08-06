@@ -4,25 +4,36 @@ description: "Standar mutu, keamanan, dan keselamatan yang diakui yang menopang 
 hero:
   heading: "Penghargaan & Sertifikasi"
   tagline: "Standar mutu, keamanan, dan keselamatan yang diakui"
-  image: "/img/awards-hero.jpg"
+  image: "/img/awards/47.png"
 intro: >-
   Sistem manajemen kami tersertifikasi sesuai standar yang diakui secara
   internasional, dan karya kami telah diakui oleh lembaga industri di seluruh
   Indonesia. Pengakuan ini memberi keyakinan kepada pelanggan bahwa setiap
   pengerjaan kami memenuhi standar mutu, keamanan, dan keselamatan yang
   telah diaudit.
-latestAward:
-  heading: "Penghargaan Terbaru"
-  image: "/img/awards/40.png"
 awards:
-  - name: "Penghargaan Terbaru"
-    image: "/img/awards/40.png"
-  - name: "Penghargaan 1"
-    image: "/img/awards/41.jpeg"
-  - name: "Penghargaan 2"
-    image: "/img/awards/42.jpeg"
-  - name: "Penghargaan 3"
-    image: "/img/awards/43.jpeg"
+  - name: "Government Sector Partner of 2025"
+    description: >-
+      Pengakuan sebagai mitra utama di sektor pemerintahan pada Indonesia
+      Partner Summit 2026.
+    images:
+      - "/img/awards/40.png"
+      - "/img/awards/41.jpeg"
+      - "/img/awards/45.png"
+  - name: "Most Valuable Partner 2022 — The Rising Star"
+    description: >-
+      Penghargaan dari Alfa Siber Teknologi atas kontribusi kami dalam
+      pengembangan bisnis dan adopsi solusi di pasar Indonesia.
+    images:
+      - "/img/awards/42.jpeg"
+      - "/img/awards/44.png"
+  - name: "Fujitsu SELECT Partner 2013"
+    description: >-
+      Status SELECT Partner dari Fujitsu yang mengakui kapabilitas kami
+      dalam menjual, mendesain, dan mendukung solusi enterprise Fujitsu.
+    images:
+      - "/img/awards/43.jpeg"
+      - "/img/awards/46.png"
 certifications:
   - name: "ISO 9001:2015"
     description: "Sistem Manajemen Mutu"
@@ -44,13 +55,4 @@ certifications:
     description: "Sistem Manajemen Keselamatan dan Kesehatan Kerja"
     issuedBy: "Kementerian Ketenagakerjaan RI"
     file: "/img/awards/smk3.pdf"
-isoCertificates:
-  - name: "ISO 9001:2015"
-    image: "/img/awards/44.png"
-  - name: "ISO 14001:2015"
-    image: "/img/awards/45.png"
-  - name: "ISO 45001:2018"
-    image: "/img/awards/46.png"
-  - name: "ISO 27001:2022"
-    image: "/img/awards/47.png"
 ---

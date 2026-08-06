@@ -344,26 +344,18 @@ collections:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Image", name: "image", widget: "image"}
           - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Penghargaan terbaru (kartu hero)"
-            name: "latestAward"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - label: "Galeri penghargaan"
+          - label: "Penghargaan (kelompok, masing-masing dengan banyak foto)"
             name: "awards"
             widget: "list"
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} ({{fields.images.length}} foto)"
             fields:
-              - {label: "Nama", name: "name", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - label: "Scan sertifikat ISO"
-            name: "isoCertificates"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "Nama", name: "name", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Nama penghargaan", name: "name", widget: "string"}
+              - {label: "Deskripsi", name: "description", widget: "text", required: false}
+              - label: "Foto-foto (upload banyak)"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.image}}"
+                field: {label: "File gambar", name: "image", widget: "image"}
           - label: "Sertifikasi"
             name: "certifications"
             widget: "list"
@@ -784,26 +776,18 @@ collections:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Image", name: "image", widget: "image"}
           - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Latest award (hero card)"
-            name: "latestAward"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - label: "Awards gallery"
+          - label: "Awards (groups, each with multiple photos)"
             name: "awards"
             widget: "list"
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} ({{fields.images.length}} photos)"
             fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - label: "ISO certificate scans"
-            name: "isoCertificates"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Award name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text", required: false}
+              - label: "Photos (upload multiple)"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.image}}"
+                field: {label: "Image file", name: "image", widget: "image"}
           - label: "Certifications"
             name: "certifications"
             widget: "list"
