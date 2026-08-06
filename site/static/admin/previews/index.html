@@ -472,6 +472,9 @@
       document.getElementById("root").innerHTML = html;
     }
 
+    CMS.registerPreviewStyle("/cms-preview.css");
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+
     CMS.registerPreviewTemplate("pages", renderPage);
     CMS.registerPreviewTemplate("pages_en", renderPage);
     CMS.registerPreviewTemplate("solutions", renderSolution);
