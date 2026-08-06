@@ -16,14 +16,19 @@ quickIcons:
   items:
     - label: Data Center
       url: /solutions/data-center/
+      icon: /img/icons/data-center.svg
     - label: UPS Solution
       url: /solutions/ups-solution/
+      icon: /img/icons/ups.svg
     - label: ICT Infrastructure
       url: /solutions/ict-infrastructure/
+      icon: /img/icons/network.svg
     - label: Electrical Engineering
       url: /solutions/electrical-engineering/
+      icon: /img/icons/electrical.svg
     - label: Maintenance & Support
       url: /solutions/maintenance-support/
+      icon: /img/icons/maintenance.svg
 stats:
   - label: Years Experience
     value: 40+

@@ -19,14 +19,19 @@ quickIcons:
   items:
     - label: Data Center
       url: /solutions/data-center/
+      icon: /img/icons/data-center.svg
     - label: Solusi UPS
       url: /solutions/ups-solution/
+      icon: /img/icons/ups.svg
     - label: Infrastruktur ICT
       url: /solutions/ict-infrastructure/
+      icon: /img/icons/network.svg
     - label: Teknik Elektrikal
       url: /solutions/electrical-engineering/
+      icon: /img/icons/electrical.svg
     - label: Pemeliharaan & Dukungan
       url: /solutions/maintenance-support/
+      icon: /img/icons/maintenance.svg
 stats:
   - label: Tahun Pengalaman
     value: 40+

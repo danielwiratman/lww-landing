@@ -55,14 +55,18 @@
 <!-- ============================== -->
 {{ with .Params.quickIcons }}
 <section class="border-y border-line bg-cream/40">
-  <div class="container-x py-8">
-    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-ink-muted text-center mb-6">{{ .title }}</p>
-    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+  <div class="container-x py-10">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-ink-muted text-center mb-8">{{ .title }}</p>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
       {{ range .items }}
         <li>
-          <a href="{{ .url }}" class="group flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-white border border-line hover:border-brand hover:bg-brand-50 transition text-sm font-semibold text-ink">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand group-hover:scale-150 transition"></span>
-            <span>{{ .label }}</span>
+          <a href="{{ .url }}" class="group card flex flex-col items-center text-center gap-3 p-6 h-full hover:border-brand hover:-translate-y-1 transition-all">
+            {{ with .icon }}
+              <span class="w-14 h-14 rounded-lg bg-brand-50 text-brand flex items-center justify-center group-hover:bg-brand group-hover:text-white transition">
+                <img src="{{ . }}" alt="" class="w-8 h-8">
+              </span>
+            {{ end }}
+            <span class="text-sm font-semibold text-ink leading-snug">{{ .label }}</span>
           </a>
         </li>
       {{ end }}
@@ -150,12 +154,16 @@
       {{ with $partnersPage }}
         {{ with .Params.partners }}
           {{ range first 8 . }}
-            <li class="flex items-center justify-center h-20 px-3 rounded-lg bg-white border border-line text-center">
-              {{ with .logo }}
-                <img src="{{ . }}" alt="" class="max-h-12 max-w-full object-contain">
+            {{ $p := . }}
+            <li class="flex flex-col items-center justify-center gap-2 p-3 rounded-lg bg-white border border-line text-center hover:border-brand transition">
+              {{ with $p.logo }}
+                <img src="{{ . }}" alt="{{ $p.name }}" class="max-h-10 max-w-full object-contain">
               {{ else }}
-                <span class="text-sm font-semibold text-ink-muted">{{ .name }}</span>
+                <span class="w-10 h-10 rounded bg-brand-50 text-brand flex items-center justify-center text-xs font-bold">
+                  {{ slicestr $p.name 0 2 | upper }}
+                </span>
               {{ end }}
+              <span class="text-xs font-semibold text-ink-muted leading-tight">{{ $p.name }}</span>
             </li>
           {{ end }}
         {{ end }}

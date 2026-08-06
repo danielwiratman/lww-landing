@@ -94,6 +94,7 @@ collections:
                 fields:
                   - {label: "Label", name: "label", widget: "string"}
                   - {label: "URL", name: "url", widget: "string"}
+                  - {label: "Ikon (upload file SVG)", name: "icon", widget: "image", allow_multiple: false, hint: "Upload file .svg ke folder /img/icons/ (atau gunakan ikon yang sudah ada di sana)."}
 
           - label: "Stats bar (strip hijau)"
             name: "stats"
@@ -640,6 +641,7 @@ collections:
                 fields:
                   - {label: "Label", name: "label", widget: "string"}
                   - {label: "URL", name: "url", widget: "string"}
+                  - {label: "Icon (upload SVG file)", name: "icon", widget: "image", allow_multiple: false, hint: "Upload a .svg file into /img/icons/ (or use an existing one)."}
 
           - label: "Stats bar (green strip)"
             name: "stats"
