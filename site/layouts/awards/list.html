@@ -29,7 +29,7 @@
                  class="award-thumb group block"
                  data-pswp-src="{{ . }}"
                  aria-label="View larger image">
-                <img src="{{ . }}" alt=""
+                <img src="{{ . }}" alt="" decoding="async"
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
@@ -66,55 +66,86 @@
 {{ end }}
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css">
-<script type="module">
-  import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
-
-  const dims = new WeakMap();
-  const pending = new Map();
-
-  function ensureDims(a) {
-    if (dims.has(a)) return Promise.resolve(dims.get(a));
-    let p = pending.get(a);
-    if (p) return p;
-    p = new Promise((resolve) => {
-      const src = a.dataset.pswpSrc;
-      if (!src) return resolve(null);
-      const img = new Image();
-      img.onload = () => {
-        const d = { w: img.naturalWidth, h: img.naturalHeight };
-        dims.set(a, d);
-        pending.delete(a);
-        resolve(d);
-      };
-      img.onerror = () => { pending.delete(a); resolve(null); };
-      img.src = src;
+<script>
+(function () {
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
     });
-    pending.set(a, p);
-    return p;
   }
 
-  document.querySelectorAll("a.award-thumb").forEach(ensureDims);
+  function loadStyle(href) {
+    return new Promise(function (resolve) {
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.href = href;
+      l.onload = resolve;
+      l.onerror = resolve;
+      document.head.appendChild(l);
+    });
+  }
 
-  const lightbox = new PhotoSwipeLightbox({
-    pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"),
-    showHideAnimationType: "zoom",
-    bgOpacity: 0.88,
-    padding: { top: 64, bottom: 64, left: 64, right: 64 },
-    initialZoomLevel: "fit",
-    secondaryZoomLevel: 1.5,
-    maxZoomLevel: 4,
-    children: "a.award-thumb",
-    gallery: "main",
-  });
+  function preloadDims() {
+    var map = new WeakMap();
+    var promises = [];
+    document.querySelectorAll("a.award-thumb").forEach(function (a) {
+      var src = a.getAttribute("data-pswp-src");
+      if (!src) return;
+      var p = new Promise(function (resolve) {
+        var img = new Image();
+        img.onload = function () { map.set(a, { w: img.naturalWidth, h: img.naturalHeight }); resolve(); };
+        img.onerror = function () { resolve(); };
+        img.src = src;
+      });
+      promises.push(p);
+    });
+    return Promise.all(promises).then(function () { return map; });
+  }
 
-  lightbox.on("itemData", async (e) => {
-    const d = await ensureDims(e.itemData.el);
-    e.itemData.src = e.itemData.el.dataset.pswpSrc;
-    e.itemData.w = d ? d.w : 1200;
-    e.itemData.h = d ? d.h : 1600;
-  });
+  function init() {
+    if (typeof PhotoSwipeLightbox === "undefined") return;
+    var dimMap = new Map();
+    var anchors = document.querySelectorAll("a.award-thumb");
 
-  lightbox.init();
+    anchors.forEach(function (a) {
+      var src = a.getAttribute("data-pswp-src");
+      var img = a.querySelector("img");
+      if (!src) return;
+      dimMap.set(a, { w: img.naturalWidth || 1200, h: img.naturalHeight || 1600, src: src });
+    });
+
+    var lightbox = new PhotoSwipeLightbox({
+      pswpModule: PhotoSwipe,
+      gallery: "main",
+      children: "a.award-thumb",
+      showHideAnimationType: "zoom",
+      bgOpacity: 0.88,
+      padding: { top: 64, bottom: 64, left: 64, right: 64 },
+      initialZoomLevel: "fit",
+      secondaryZoomLevel: 1.5,
+      maxZoomLevel: 4,
+    });
+
+    lightbox.on("itemData", function (e) {
+      var d = dimMap.get(e.itemData.el);
+      if (!d) return;
+      e.itemData.src = d.src;
+      e.itemData.w = d.w;
+      e.itemData.h = d.h;
+    });
+
+    lightbox.init();
+  }
+
+  Promise.all([
+    loadStyle("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"),
+    loadScript("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.umd.min.js"),
+  ]).then(preloadDims).then(init);
+})();
 </script>
 
 {{ end }}

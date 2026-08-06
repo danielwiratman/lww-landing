@@ -1,14 +1,7 @@
 {{/*
-  Reusable page header.
-  Usage:
-    {{ partial "page-header" (dict
-        "image"      .Params.hero.image
-        "eyebrow"    .Params.hero.tagline
-        "heading"    .Params.hero.heading
-        "subheading" .Params.intro
-        "style"      "showcase"  {{- /* default: dark gradient. values: "dark" | "showcase" */ -}}
-        "caption"    "Kantor pusat kami di Graha Mas Pemuda, Jakarta Timur."
-    ) }}
+  Reusable page header. Two styles:
+    - dark (default): green gradient background with text overlay
+    - showcase: white background with full-width image and caption below
 */}}
 
 {{ $image := .image }}
