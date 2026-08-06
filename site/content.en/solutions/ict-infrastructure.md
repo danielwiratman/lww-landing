@@ -1,45 +1,46 @@
 ---
-title: "ICT Infrastructure"
+title: "IT Infrastructure Solutions"
 slug: "ict-infrastructure"
 order: 3
 icon: "network"
-shortDescription: "Network, structured cabling, and ICT infrastructure for modern business."
+shortDescription: "Integrated IT solutions — server, networking, cloud, and cybersecurity for digital transformation."
 hero:
-  heading: "ICT Infrastructure"
-  tagline: "Network, structured cabling, and ICT infrastructure for modern business."
+  heading: "IT Infrastructure Solutions"
+  tagline: "Server, networking, cloud, and cybersecurity in one integrated solution"
+  image: "/img/solutions/ict-infrastructure.jpg"
 description: >-
-  We deliver enterprise-grade ICT infrastructure — from LAN/WAN architecture
-  and structured cabling to data center networking and software-defined
-  infrastructure. Our solutions are designed for performance, security, and
-  long-term manageability, drawing on partnerships with globally recognised
-  manufacturers.
+  Limawira delivers integrated IT solutions that help organisations build
+  modern, secure, and reliable IT infrastructure. With experience serving a
+  wide range of industries, Limawira provides end-to-end solutions covering
+  server, storage, networking, virtualization, cloud, backup, cybersecurity,
+  unified communication, and managed services. All solutions are designed
+  to improve operational performance, strengthen system security, and
+  support digital transformation in line with each customer's business
+  needs.
 features:
-  - title: "Network Architecture"
-    description: "LAN, WAN, SD-WAN, and wireless network design with leading OEMs."
-    icon: "router"
-  - title: "Structured Cabling"
-    description: "Cat6A, Cat7, and fibre-optic backbone installations certified to TIA/EIA standards."
-    icon: "cable"
-  - title: "Smart Building Networks"
-    description: "Converged networks for building management, IP surveillance, and unified communications."
-    icon: "building"
+  - title: "Server, Storage & Virtualization"
+    description: "Virtualised compute and storage infrastructure for optimal performance and elasticity."
+    icon: "server"
+  - title: "Networking & Unified Communication"
+    description: "Enterprise networking and unified communication for secure connectivity across offices and branches."
+    icon: "network"
+  - title: "Cybersecurity & Managed Services"
+    description: "Cybersecurity, backup, cloud, and managed services for protection and operational continuity."
+    icon: "shield"
 specs:
-  - label: "Cabling"
-    value: "Cat6A, Cat7, OS2 Singlemode, OM4 Multimode"
-  - label: "Wireless"
-    value: "Wi-Fi 6/6E, Outdoor Mesh, Private 5G"
-  - label: "Network"
-    value: "L2/L3 Switching, SD-WAN, NFV"
-  - label: "Brands"
-    value: "Allied Telesyn, Panduit, Alcatel, Huawei, Legrand"
+  - label: "Scope"
+    value: "Server, storage, networking, virtualization, cloud, backup, cybersecurity, UC, managed services"
+  - label: "Approach"
+    value: "End-to-end, integrated, tailored to business needs"
+  - label: "Outcome"
+    value: "Operational performance, security, digital transformation"
+  - label: "Industries"
+    value: "Public sector, finance, healthcare, manufacturing, telecommunications"
 customers:
-  - name: "Kementerian Keuangan (DJBC)"
-    logo: "/img/customers/djbc.png"
+  - name: "Kementerian Keuangan — DJBC"
   - name: "Kementerian Dalam Negeri"
-    logo: "/img/customers/kemendagri.png"
   - name: "Pemprov DKI Jakarta"
-    logo: "/img/customers/dki.png"
 cta:
-  label: "Plan your ICT infrastructure"
+  label: "Plan your IT infrastructure"
   url: "/contact/"
 ---

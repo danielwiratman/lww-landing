@@ -1,44 +1,44 @@
 ---
-title: "Maintenance & Support"
+title: "Service & Maintenance Support"
 slug: "maintenance-support"
 order: 5
 icon: "wrench"
-shortDescription: "Preventive maintenance and 24/7 support to ensure optimal system performance."
+shortDescription: "Preventive, corrective, and SLA-based maintenance support for optimal operations."
 hero:
-  heading: "Maintenance & Support"
-  tagline: "Preventive maintenance and 24/7 support to ensure optimal system performance."
+  heading: "Service & Maintenance Support"
+  tagline: "Preventive, corrective, and SLA-backed support for uninterrupted operations"
+  image: "/img/solutions/maintenance-support.jpg"
 description: >-
-  Our 24/7 service desk and nationwide field-engineer network keep your
-  critical infrastructure healthy throughout its lifecycle. We offer
-  multi-vendor maintenance contracts covering UPS, batteries, generators,
-  switchgear, and data center facilities, with SLA-backed response times.
+  Limawira provides Service & Maintenance Support to keep your entire
+  infrastructure and systems running at their best. Our services cover
+  preventive maintenance, corrective maintenance, troubleshooting,
+  emergency support, health checks, spare parts replacement, and
+  scheduled maintenance contracts with SLAs tailored to each customer's
+  needs.
 features:
-  - title: "Preventive Maintenance"
-    description: "Scheduled inspections, thermal scanning, oil sampling, and component replacement programs."
+  - title: "Preventive & Corrective Maintenance"
+    description: "Scheduled preventive and corrective maintenance to prevent downtime and extend system life."
+    icon: "wrench"
+  - title: "Troubleshooting & Emergency Support"
+    description: "Rapid response for troubleshooting and emergencies so your operations keep running."
+    icon: "lightning"
+  - title: "Health Check & Spare Parts"
+    description: "Periodic health checks and genuine spare parts for long-term reliability."
     icon: "clipboard"
-  - title: "24/7 Helpdesk"
-    description: "Round-the-clock hotline with remote diagnostics and on-site dispatch across Indonesia."
-    icon: "phone"
-  - title: "Spare Parts Management"
-    description: "OEM-aligned spare parts inventory and battery replacement programs to maximise uptime."
-    icon: "box"
 specs:
-  - label: "Coverage"
-    value: "Nationwide Indonesia"
-  - label: "SLA"
-    value: "2h / 4h / 8h response"
-  - label: "Engineers"
-    value: "50+ certified field engineers"
-  - label: "Reporting"
-    value: "Monthly asset health reports"
+  - label: "Services"
+    value: "Preventive, corrective, troubleshooting, emergency, health check, spare parts, SLA"
+  - label: "Contracts"
+    value: "Scheduled maintenance with flexible SLA"
+  - label: "Support"
+    value: "Rapid response from certified engineers"
+  - label: "Outcome"
+    value: "Optimal operations, minimal downtime, longer system life"
 customers:
-  - name: "Astra Sedaya Finance"
-    logo: "/img/customers/acc.jpeg"
-  - name: "Bappenas"
-    logo: "/img/customers/bappenas.png"
+  - name: "Astra Sedaya Finance (Astra Credit Company)"
+  - name: "BAPPENAS / Kantor Meneg PPN"
   - name: "LKBN Antara"
-    logo: "/img/customers/antara.jpeg"
 cta:
-  label: "Discuss a maintenance contract"
+  label: "Get a maintenance contract for your systems"
   url: "/contact/"
 ---

@@ -1,48 +1,52 @@
 ---
-title: "Solusi UPS"
+title: "Uninterruptible Power Supply (UPS)"
 slug: "ups-solution"
 order: 2
 icon: "battery"
-shortDescription: "Sistem UPS yang andal untuk proteksi daya dan kelangsungan bisnis."
+shortDescription: "Solusi UPS Remingtons untuk menjaga kontinuitas operasional infrastruktur kritikal."
 hero:
-  heading: "Solusi UPS"
-  tagline: "Sistem UPS yang andal untuk proteksi daya dan kelangsungan bisnis."
+  heading: "Uninterruptible Power Supply (UPS)"
+  tagline: "Melindungi operasional kritikal dari gangguan daya dengan UPS Remingtons"
+  image: "/img/solutions/ups-solution.jpg"
 description: >-
-  Sejak 1990, Limawira Wisesa telah menjadi nama tepercaya di bidang
-  proteksi daya kritis. Sebagai distributor eksklusif sistem UPS Exide
-  Electronics (USA) di Indonesia, kami membantu organisasi melindungi
-  operasionalnya dari gangguan daya dengan solusi UPS menyeluruh — mulai
-  dari penentuan kapasitas dan penyediaan hingga instalasi, commissioning,
-  dan pemeliharaan siklus hidup.
+  Secara spesifik, Flagship produk Limawira adalah UPS bernama Remingtons
+  di mana UPS ini mampu menyediakan sistem catu daya tanpa putus
+  (Uninterruptible Power Supply) yang dirancang untuk menjaga kontinuitas
+  operasional infrastruktur kritikal. Dengan performa yang andal dan
+  efisiensi tinggi, Remingtons melindungi server, storage, perangkat
+  jaringan, serta sistem data center dari gangguan listrik seperti
+  pemadaman, lonjakan tegangan, maupun fluktuasi daya.
+  Didukung layanan konsultasi, implementasi, pengujian, hingga pemeliharaan,
+  Limawira menghadirkan solusi UPS Remingtons (Type Offline, Line
+  Interactive, Online) yang sesuai dengan kebutuhan berbagai industri mulai
+  dari ruang server, data center, fasilitas kesehatan, manufaktur,
+  perbankan, hingga telekomunikasi, sehingga memastikan ketersediaan daya
+  yang stabil dan mendukung keberlangsungan operasional bisnis.
 features:
-  - title: "Penentuan Kapasitas & Pemilihan UPS"
-    description: "Load profiling, perhitungan autonomi, dan pemilihan topologi (online double-conversion, line-interactive, modular)."
-    icon: "calculator"
-  - title: "Penyediaan & Instalasi"
-    description: "Penerapan UPS single-unit, parallel redundant, dan modular dari 1 kVA hingga multi-MVA."
-    icon: "plug"
-  - title: "Layanan & Pemeliharaan"
-    description: "Preventive maintenance, program penggantian baterai, dan respons darurat 24/7."
+  - title: "Tiga Tipe UPS"
+    description: "Pilihan tipe Offline, Line Interactive, dan Online untuk disesuaikan dengan kebutuhan beban kritikal Anda."
+    icon: "battery"
+  - title: "Proteksi Menyeluruh"
+    description: "Melindungi dari pemadaman, lonjakan tegangan, dan fluktuasi daya untuk server, storage, jaringan, dan data center."
+    icon: "shield"
+  - title: "Layanan End-to-End"
+    description: "Konsultasi, implementasi, pengujian, hingga pemeliharaan berkala oleh tim engineer bersertifikat."
     icon: "wrench"
 specs:
-  - label: "Kapasitas"
-    value: "1 kVA – 5 MVA"
-  - label: "Topologi"
-    value: "On-line, Line-interactive, Modular"
-  - label: "Runtime"
-    value: "5 menit – 8 jam"
-  - label: "Baterai"
-    value: "VRLA, Lithium-ion, Flooded"
+  - label: "Produk"
+    value: "Remingtons (flagship)"
+  - label: "Tipe"
+    value: "Offline, Line Interactive, Online"
+  - label: "Industri"
+    value: "Server room, data center, kesehatan, manufaktur, perbankan, telekomunikasi"
+  - label: "Layanan"
+    value: "Konsultasi, implementasi, pengujian, pemeliharaan"
 customers:
   - name: "Taspen (Persero)"
-    logo: "/img/customers/taspen.png"
-  - name: "BPOM"
-    logo: "/img/customers/bpom.png"
-  - name: "Bank BTN"
-    logo: "/img/customers/btn.png"
-  - name: "JICT"
-    logo: "/img/customers/jict.jpeg"
+  - name: "BPOM — Badan Pengawas Obat dan Makanan"
+  - name: "BTN — Bank Tabungan Negara"
+  - name: "JICT — Jakarta International Container Terminal"
 cta:
-  label: "Dapatkan konsultasi penentuan kapasitas UPS"
+  label: "Pilih UPS yang tepat untuk bisnis Anda"
   url: "/contact/"
 ---

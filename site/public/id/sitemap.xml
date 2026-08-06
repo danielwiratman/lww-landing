@@ -3,6 +3,13 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/solutions/data-center/</loc>
+    <lastmod>0001-01-01T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>/solutions/ict-infrastructure/</loc>
     <lastmod>0001-01-01T00:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -17,6 +24,13 @@
   </url>
   
   <url>
+    <loc>/solutions/electrical-engineering/</loc>
+    <lastmod>0001-01-01T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>/partners/</loc>
     <lastmod>0001-01-01T00:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -28,13 +42,6 @@
     <lastmod>0001-01-01T00:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>/solutions/maintenance-support/</loc>
-    <lastmod>0001-01-01T00:00:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   
   <url>
@@ -59,38 +66,17 @@
   </url>
   
   <url>
+    <loc>/solutions/maintenance-support/</loc>
+    <lastmod>0001-01-01T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>/solutions/</loc>
     <lastmod>0001-01-01T00:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>/solutions/data-center/</loc>
-    <lastmod>0001-01-01T00:00:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>/solutions/building-solution/</loc>
-    <lastmod>0001-01-01T00:00:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>/solutions/ups-solution/</loc>
-    <lastmod>0001-01-01T00:00:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>/solutions/electrical-engineering/</loc>
-    <lastmod>0001-01-01T00:00:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   
   <url>
@@ -102,6 +88,13 @@
   
   <url>
     <loc>/thank-you/</loc>
+    <lastmod>0001-01-01T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>/solutions/ups-solution/</loc>
     <lastmod>0001-01-01T00:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

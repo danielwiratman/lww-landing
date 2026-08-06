@@ -1,43 +1,44 @@
 ---
-title: "Data Center"
+title: "Data Center Solution"
 slug: "data-center"
 order: 1
 icon: "server"
-shortDescription: "End-to-end data center infrastructure solutions designed for reliability and scalability."
+shortDescription: "End-to-end data center infrastructure for greenfield builds and modernisation."
 hero:
-  heading: "Data Center Solutions"
-  tagline: "End-to-end data center infrastructure designed for reliability, efficiency, and scalability."
+  heading: "Data Center Solution"
+  tagline: "End-to-end data center infrastructure for greenfield builds and modernisation"
+  image: "/img/solutions/data-center.jpg"
 description: >-
-  We design, build, and maintain mission-critical data center environments for
-  enterprises that cannot afford downtime. From a single rack to multi-megawatt
-  hyperscale builds, our team delivers turnkey solutions backed by 40+ years
-  of engineering experience.
+  Limawira delivers end-to-end Data Center solutions — from consultation,
+  design, procurement, and installation to commissioning — to support both
+  greenfield construction and modernisation of existing data centers. Our
+  solutions span server racks, UPS, Precision Air Conditioners (PAC/CRAC/CRAH),
+  PDU, structured cabling, fire suppression systems, environmental
+  monitoring, CCTV, and other supporting infrastructure to keep your data
+  center operating safely, efficiently, and sustainably.
 features:
-  - title: "Consulting & Design"
-    description: "Tier-rated facility design, capacity planning, and TCO modelling aligned with Uptime Institute standards."
-    icon: "blueprint"
-  - title: "Build & Implementation"
-    description: "Civil, electrical, mechanical, and IT infrastructure works delivered by certified project managers."
-    icon: "hammer"
-  - title: "Operations & Monitoring"
-    description: "24/7 NOC services, DCIM, environmental monitoring, and on-site engineering support."
-    icon: "monitor"
+  - title: "Server Rack & PDU"
+    description: "Standard 19\" server racks with managed PDUs for reliable in-rack power distribution."
+    icon: "server"
+  - title: "Precision Cooling"
+    description: "Precision Air Conditioners (PAC/CRAC/CRAH) that maintain optimal temperature and humidity in the data center space."
+    icon: "calculator"
+  - title: "Fire Suppression & Monitoring"
+    description: "Fire suppression, environmental monitoring, and IP CCTV for 24/7 physical and operational security."
+    icon: "shield"
 specs:
-  - label: "Tier"
-    value: "Tier I — Tier IV"
-  - label: "Power Density"
-    value: "Up to 30 kW per rack"
-  - label: "PUE Target"
-    value: "< 1.4"
-  - label: "Compliance"
-    value: "Uptime, TIA-942, ANSI/BICSI"
+  - label: "Scope"
+    value: "Consultation, design, procurement, installation, commissioning"
+  - label: "Infrastructure"
+    value: "Racks, UPS, PAC/CRAC/CRAH, PDU, cabling, fire, monitoring, CCTV"
+  - label: "Standards"
+    value: "Best-practice engineering and industry data center standards"
+  - label: "Approach"
+    value: "End-to-end, safe, efficient, sustainable"
 customers:
   - name: "Kementerian Pertanian"
-    logo: "/img/customers/pertanian.png"
-  - name: "Kementerian Keuangan (DJPb)"
-    logo: "/img/customers/djpb.png"
+  - name: "Kementerian Keuangan — DJPb"
   - name: "Samakta Mitra"
-    logo: "/img/customers/samakta.png"
 cta:
   label: "Discuss your data center project"
   url: "/contact/"

@@ -1,45 +1,44 @@
 ---
-title: "Pemeliharaan & Dukungan"
+title: "Service & Maintenance Support"
 slug: "maintenance-support"
 order: 5
 icon: "wrench"
-shortDescription: "Pemeliharaan preventif dan dukungan 24/7 untuk memastikan performa sistem yang optimal."
+shortDescription: "Layanan pemeliharaan preventif, korektif, dan dukungan SLA untuk operasional optimal."
 hero:
-  heading: "Pemeliharaan & Dukungan"
-  tagline: "Pemeliharaan preventif dan dukungan 24/7 untuk memastikan performa sistem yang optimal."
+  heading: "Service & Maintenance Support"
+  tagline: "Pemeliharaan preventif, korektif, dan dukungan SLA untuk operasional tanpa henti"
+  image: "/img/solutions/maintenance-support.jpg"
 description: >-
-  Service desk 24/7 dan jaringan field engineer kami di seluruh Indonesia
-  menjaga infrastruktur kritis Anda tetap sehat sepanjang siklus hidupnya.
-  Kami menawarkan kontrak pemeliharaan multi-vendor yang mencakup UPS,
-  baterai, generator, switchgear, dan fasilitas data center, dengan
-  waktu respons yang dijamin oleh SLA.
+  Limawira menyediakan layanan Service & Maintenance Support untuk
+  memastikan seluruh infrastruktur dan sistem pelanggan tetap beroperasi
+  secara optimal. Layanan kami mencakup preventive maintenance, corrective
+  maintenance, troubleshooting, emergency support, health check,
+  penggantian suku cadang, serta kontrak pemeliharaan berkala dengan SLA
+  yang disesuaikan dengan kebutuhan pelanggan.
 features:
-  - title: "Pemeliharaan Preventif"
-    description: "Inspeksi terjadwal, thermal scanning, oil sampling, dan program penggantian komponen."
+  - title: "Preventive & Corrective Maintenance"
+    description: "Pemeliharaan preventif dan korektif terjadwal untuk mencegah downtime dan memperpanjang umur sistem."
+    icon: "wrench"
+  - title: "Troubleshooting & Emergency Support"
+    description: "Respons cepat untuk troubleshooting dan emergency support agar operasional Anda tetap berjalan."
+    icon: "lightning"
+  - title: "Health Check & Spare Parts"
+    description: "Health check berkala dan ketersediaan suku cadang asli untuk keandalan jangka panjang."
     icon: "clipboard"
-  - title: "Helpdesk 24/7"
-    description: "Hotline sepanjang waktu dengan diagnostik jarak jauh dan penugasan on-site di seluruh Indonesia."
-    icon: "phone"
-  - title: "Manajemen Suku Cadang"
-    description: "Inventaris suku cadang yang selaras dengan OEM dan program penggantian baterai untuk memaksimalkan uptime."
-    icon: "box"
 specs:
-  - label: "Cakupan"
-    value: "Seluruh Indonesia"
-  - label: "SLA"
-    value: "Respons 2 jam / 4 jam / 8 jam"
-  - label: "Engineer"
-    value: "Lebih dari 50 field engineer bersertifikat"
-  - label: "Pelaporan"
-    value: "Laporan kesehatan aset bulanan"
+  - label: "Layanan"
+    value: "Preventive, corrective, troubleshooting, emergency, health check, spare parts, SLA"
+  - label: "Kontrak"
+    value: "Pemeliharaan berkala dengan SLA fleksibel"
+  - label: "Dukungan"
+    value: "Respons cepat dan tim engineer bersertifikat"
+  - label: "Outcome"
+    value: "Operasional optimal, downtime minimal, umur sistem lebih panjang"
 customers:
-  - name: "Astra Sedaya Finance"
-    logo: "/img/customers/acc.jpeg"
-  - name: "Bappenas"
-    logo: "/img/customers/bappenas.png"
+  - name: "Astra Sedaya Finance (Astra Credit Company)"
+  - name: "BAPPENAS / Kantor Meneg PPN"
   - name: "LKBN Antara"
-    logo: "/img/customers/antara.jpeg"
 cta:
-  label: "Diskusikan kontrak pemeliharaan"
+  label: "Dapatkan kontrak pemeliharaan untuk sistem Anda"
   url: "/contact/"
 ---

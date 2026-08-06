@@ -1,14 +1,15 @@
 ---
-title: Mitra
-description: Pemimpin teknologi kelas dunia yang bermitra dengan kami untuk
-  menghadirkan solusi terbaik.
+title: "Mitra & Pelanggan"
+description: "Mitra teknologi kelas dunia dan pelanggan yang telah mempercayai kami."
 hero:
-  heading: Mitra Kami
-  tagline: Bermitra dengan yang terbaik
-  image: img/electrical-engineer.jpg
-intro: Kami bermitra dengan pemimpin teknologi yang diakui secara global untuk
-  menghadirkan solusi terbaik bagi pelanggan kami. Ekosistem mitra kami mencakup
-  power, networking, cabling, dan building system.
+  heading: "Mitra & Pelanggan Kami"
+  tagline: "Bermitra dengan yang terbaik"
+  image: "/img/partners-hero.jpg"
+intro: >-
+  Kami bermitra dengan pemimpin teknologi yang diakui secara global untuk
+  menghadirkan solusi terbaik bagi pelanggan kami. Ekosistem mitra kami
+  mencakup power, networking, cabling, dan building system. Dan kami telah
+  dipercaya oleh lebih dari 1.000 pelanggan di berbagai industri.
 partners:
   - name: Infor
     category: Perangkat Lunak Korporat

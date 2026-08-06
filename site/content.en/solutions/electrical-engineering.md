@@ -1,45 +1,44 @@
 ---
-title: "Electrical Engineering"
+title: "Mechanical & Electrical Engineering"
 slug: "electrical-engineering"
 order: 4
 icon: "bolt"
-shortDescription: "Electrical design, installation, and engineering for various industries."
+shortDescription: "Mechanical & Electrical Engineering services for mechanical and electrical systems."
 hero:
-  heading: "Electrical Engineering"
-  tagline: "Electrical design, installation, and engineering for various industries."
+  heading: "Mechanical & Electrical Engineering"
+  tagline: "Design, installation, and commissioning of mechanical & electrical systems"
+  image: "/img/solutions/electrical-engineering.jpg"
 description: >-
-  Our electrical engineering practice combines the legacy of a contracting
-  company founded in 1985 with modern digital tools and best practices. We
-  design and build MV/LV distribution, generator systems, earthing and
-  lightning protection, and specialised protection systems engineered in our
-  in-house R&D workshop.
+  Limawira provides Mechanical & Electrical Engineering services covering
+  the design, installation, testing, and commissioning of mechanical and
+  electrical systems. Our services include power distribution systems,
+  grounding, HVAC, generators, electrical panels, lighting, fire
+  protection, and other supporting infrastructure delivered in line with
+  safety standards and each customer's operational requirements.
 features:
-  - title: "MV / LV Distribution"
-    description: "Switchgear, transformers, busways, and protection relays from Schneider, ABB, Eaton, and Siemens."
+  - title: "Power Distribution"
+    description: "Power distribution systems, electrical panels, and grounding designed to safety standards."
     icon: "transformer"
-  - title: "Backup Power Systems"
-    description: "Diesel and gas generator sets sized for mission-critical loads, with ATS and paralleling switchgear."
-    icon: "generator"
-  - title: "In-house R&D"
-    description: "Custom electrical protection systems engineered in our 2005-built workshop with international OEM partners."
-    icon: "beaker"
+  - title: "HVAC, Generator & Lighting"
+    description: "Reliable HVAC, generator, and lighting installation for 24/7 facility operations."
+    icon: "plug"
+  - title: "Fire Protection & Commissioning"
+    description: "Fire protection systems, testing, and commissioning to ensure every system works to standard."
+    icon: "shield"
 specs:
-  - label: "Voltage"
-    value: "220 V — 20 kV"
-  - label: "Capacity"
-    value: "Up to 10 MVA"
+  - label: "Services"
+    value: "Design, installation, testing, commissioning"
+  - label: "Systems"
+    value: "Power distribution, grounding, HVAC, generator, panels, lighting, fire protection"
   - label: "Standards"
-    value: "PUIL, IEC, SNI, IEEE"
-  - label: "OEMs"
-    value: "Schneider, ABB, Eaton, Siemens"
+    value: "Safety standards and customer operational requirements"
+  - label: "Approach"
+    value: "End-to-end, engineering best practice"
 customers:
   - name: "Telkom Satelit Indonesia"
-    logo: "/img/customers/telkom.jpeg"
   - name: "Asuransi Jiwa Manulife Indonesia"
-    logo: "/img/customers/manulife.png"
   - name: "Bumi Serpong Damai"
-    logo: "/img/customers/bsde.png"
 cta:
-  label: "Plan your electrical system"
+  label: "Talk through your M&E needs"
   url: "/contact/"
 ---

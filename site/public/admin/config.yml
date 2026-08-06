@@ -302,11 +302,11 @@ collections:
                   - {label: "Industri", name: "industry", widget: "string"}
                   - {label: "Logo (opsional)", name: "logo", widget: "image", required: false}
 
-      # ----------------------- PARTNER (PARTNERS) -----------------------
+      # ----------------------- MITRA & PELANGGAN (PARTNERS) -----------------------
       - file: "site/content/partners/_index.md"
-        label: "Partner"
+        label: "Mitra & Pelanggan"
         name: "partners"
-        description: "Mitra teknologi dan OEM"
+        description: "Mitra teknologi, OEM, dan pelanggan kami"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Deskripsi", name: "description", widget: "text"}
@@ -737,9 +737,9 @@ collections:
                   - {label: "Logo (optional)", name: "logo", widget: "image", required: false}
 
       - file: "site/content.en/partners/_index.md"
-        label: "Partners Page"
+        label: "Partners & Clients Page"
         name: "partners_en"
-        description: "Technology partners and OEMs"
+        description: "Technology partners, OEMs, and customers"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}

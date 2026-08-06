@@ -3,7 +3,11 @@ title: PT Limawira Wisesa
 hero:
   eyebrow: Since 1985
   heading: Building Enterprise Digital Infrastructure & Critical Power Solutions
-  tagline: For over 40 years, Limawira has been a trusted partner in Digital Infrastructure, Critical Power, and Electrical Engineering, delivering innovative solutions through engineering excellence, responsive lifecycle support, and an unwavering commitment to customer success.
+  tagline: >-
+    For over 40 years, Limawira has been a trusted partner in Digital
+    Infrastructure, Critical Power, and Electrical Engineering, delivering
+    innovative solutions through engineering excellence, responsive
+    lifecycle support, and an unwavering commitment to customer success.
   primaryCta:
     label: Request Consultation
     url: /contact/
@@ -14,19 +18,19 @@ hero:
 quickIcons:
   title: What we do, at a glance
   items:
-    - label: Data Center
+    - label: Data Center Solution
       url: /solutions/data-center/
       icon: /img/icons/data-center.svg
-    - label: UPS Solution
+    - label: Uninterruptible Power Supply (UPS)
       url: /solutions/ups-solution/
       icon: /img/icons/ups.svg
-    - label: ICT Infrastructure
+    - label: IT Infrastructure Solutions
       url: /solutions/ict-infrastructure/
       icon: /img/icons/network.svg
-    - label: Electrical Engineering
+    - label: Mechanical & Electrical Engineering
       url: /solutions/electrical-engineering/
       icon: /img/icons/electrical.svg
-    - label: Maintenance & Support
+    - label: Service & Maintenance Support
       url: /solutions/maintenance-support/
       icon: /img/icons/maintenance.svg
 stats:
@@ -41,17 +45,21 @@ stats:
 solutions:
   eyebrow: What we do
   title: Our Solutions & Services
-  subtitle: End-to-end solutions across six practice areas — from design and build to long-term maintenance.
+  subtitle: >-
+    End-to-end solutions across five practice areas — from design and build
+    to long-term maintenance.
 partners:
-  title: Our Partners
-  subtitle: Working with globally recognised technology leaders.
+  title: Our Partners & Clients
+  subtitle: Working with globally recognised technology leaders and customers.
   cta:
-    label: See all partners
+    label: See all partners & clients
     url: /partners/
 cta:
   eyebrow: Ready to start?
   title: Tell us about your project.
-  text: Whether you are building a new facility or modernising an existing one, our engineers are ready to help.
+  text: >-
+    Whether you are building a new facility or modernising an existing one,
+    our engineers are ready to help.
   primaryCta:
     label: Request consultation
     url: /contact/

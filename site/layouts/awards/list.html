@@ -24,13 +24,13 @@
         </div>
         <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
           {{ range .images }}
-            <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
+            <li class="rounded-lg border border-line bg-cream/40 p-3">
               <a href="{{ . }}"
-                 class="award-thumb group block w-full"
+                 class="award-thumb group block"
                  data-pswp-width="1600" data-pswp-height="1200"
                  aria-label="View larger image">
                 <img src="{{ . }}" alt="" loading="lazy"
-                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+                     class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
               </a>
             </li>
           {{ end }}

@@ -1,47 +1,51 @@
 ---
-title: "UPS Solution"
+title: "Uninterruptible Power Supply (UPS)"
 slug: "ups-solution"
 order: 2
 icon: "battery"
-shortDescription: "Reliable UPS systems for power protection and business continuity."
+shortDescription: "Remingtons UPS solutions that keep critical infrastructure running through any power disturbance."
 hero:
-  heading: "UPS Solutions"
-  tagline: "Reliable UPS systems for power protection and business continuity."
+  heading: "Uninterruptible Power Supply (UPS)"
+  tagline: "Remingtons UPS — protecting critical operations from power disturbances"
+  image: "/img/solutions/ups-solution.jpg"
 description: >-
-  Since 1990, Limawira Wisesa has been a trusted name in critical power
-  protection. As the exclusive Indonesian distributor of Exide Electronics
-  (USA) UPS systems, we help organizations safeguard their operations against
-  power disturbances with end-to-end UPS solutions — from sizing and supply
-  to installation, commissioning, and lifecycle maintenance.
+  Specifically, Limawira's flagship UPS product is Remingtons — an
+  Uninterruptible Power Supply system engineered to maintain continuity of
+  critical infrastructure operations. With reliable performance and high
+  efficiency, Remingtons protects servers, storage, network devices, and
+  data center systems from electrical disturbances such as blackouts,
+  voltage surges, and power fluctuations.
+  Backed by consultation, implementation, testing, and maintenance services,
+  Limawira delivers Remingtons UPS solutions (Offline, Line Interactive, and
+  Online types) tailored to the needs of industries ranging from server
+  rooms, data centers, healthcare facilities, manufacturing, banking, and
+  telecommunications — ensuring stable power availability and supporting
+  ongoing business operations.
 features:
-  - title: "UPS Sizing & Selection"
-    description: "Load profiling, autonomy calculation, and topology selection (online double-conversion, line-interactive, modular)."
-    icon: "calculator"
-  - title: "Supply & Installation"
-    description: "Single-unit, parallel redundant, and modular UPS deployments from 1 kVA to multi-MVA."
-    icon: "plug"
-  - title: "Service & Maintenance"
-    description: "Preventive maintenance, battery replacement programs, and 24/7 emergency response."
+  - title: "Three UPS Types"
+    description: "Offline, Line Interactive, and Online options to match the demands of your critical load."
+    icon: "battery"
+  - title: "Comprehensive Protection"
+    description: "Shields servers, storage, networking, and data center systems from blackouts, surges, and fluctuations."
+    icon: "shield"
+  - title: "End-to-End Service"
+    description: "Consultation, implementation, testing, and scheduled maintenance delivered by certified engineers."
     icon: "wrench"
 specs:
-  - label: "Capacity"
-    value: "1 kVA – 5 MVA"
-  - label: "Topology"
-    value: "On-line, Line-interactive, Modular"
-  - label: "Runtime"
-    value: "5 min – 8 hours"
-  - label: "Battery"
-    value: "VRLA, Lithium-ion, Flooded"
+  - label: "Product"
+    value: "Remingtons (flagship)"
+  - label: "Types"
+    value: "Offline, Line Interactive, Online"
+  - label: "Industries"
+    value: "Server room, data center, healthcare, manufacturing, banking, telecommunications"
+  - label: "Services"
+    value: "Consultation, implementation, testing, maintenance"
 customers:
   - name: "Taspen (Persero)"
-    logo: "/img/customers/taspen.png"
-  - name: "BPOM"
-    logo: "/img/customers/bpom.png"
-  - name: "Bank BTN"
-    logo: "/img/customers/btn.png"
-  - name: "JICT"
-    logo: "/img/customers/jict.jpeg"
+  - name: "BPOM — Badan Pengawas Obat dan Makanan"
+  - name: "BTN — Bank Tabungan Negara"
+  - name: "JICT — Jakarta International Container Terminal"
 cta:
-  label: "Get a UPS sizing consultation"
+  label: "Find the right UPS for your business"
   url: "/contact/"
 ---
