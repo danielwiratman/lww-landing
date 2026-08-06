@@ -1,5 +1,6 @@
 {{/*
-  Vertical ticker: 5 horizontal rows stacked, each scrolling slowly.
+  Vertical ticker: 5 horizontal rows, all at the same speed.
+  Odd rows (1, 3, 5) scroll right-to-left; even rows (2, 4) scroll left-to-right.
   Usage:
     {{ partial "client-marquee" (dict "items" $items) }}
 */}}
@@ -13,8 +14,9 @@
 
 <div class="client-marquee" role="list" aria-label="Client list">
   {{ range $row := seq 0 (sub $rowCount 1) }}
+    {{ $isEven := eq (mod $row 2) 1 }}
     {{ $offset := mul $row $perRow }}
-    <div class="client-marquee-row">
+    <div class="client-marquee-row {{ if $isEven }}client-marquee-row-reverse{{ end }}">
       <div class="client-marquee-track">
         {{ range $i := seq $offset (add (sub $offset 1) $perRow) }}
           {{ $idx := mod $i $total }}
@@ -44,14 +46,12 @@
     display: flex;
     gap: 1rem;
     width: max-content;
-    animation: client-marquee-scroll 180s linear infinite;
+    animation: client-marquee-scroll-ltr 180s linear infinite;
     will-change: transform;
   }
-  .client-marquee-row:nth-child(2) .client-marquee-track { animation-duration: 200s; }
-  .client-marquee-row:nth-child(3) .client-marquee-track { animation-duration: 220s; }
-  .client-marquee-row:nth-child(4) .client-marquee-track { animation-duration: 240s; }
-  .client-marquee-row:nth-child(5) .client-marquee-track { animation-duration: 260s; }
-
+  .client-marquee-row-reverse .client-marquee-track {
+    animation-name: client-marquee-scroll-rtl;
+  }
   .client-marquee:hover .client-marquee-track,
   .client-marquee:focus-within .client-marquee-track {
     animation-play-state: paused;
@@ -74,9 +74,13 @@
     color: #fff;
     border-color: rgba(255, 255, 255, 0.3);
   }
-  @keyframes client-marquee-scroll {
+  @keyframes client-marquee-scroll-ltr {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
+  }
+  @keyframes client-marquee-scroll-rtl {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
   }
   @media (prefers-reduced-motion: reduce) {
     .client-marquee-track { animation: none; }
