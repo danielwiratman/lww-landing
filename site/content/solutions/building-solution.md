@@ -1,37 +1,38 @@
 ---
-title: "Building Solution"
+title: "Solusi Gedung"
 slug: "building-solution"
 order: 6
 icon: "building"
-shortDescription: "Smart building system and automation for efficient building management."
+shortDescription: "Sistem smart building dan otomasi untuk manajemen gedung yang efisien."
 hero:
-  heading: "Building Solutions"
-  tagline: "Smart building systems and automation for efficient building management."
+  heading: "Solusi Gedung"
+  tagline: "Sistem smart building dan otomasi untuk manajemen gedung yang efisien."
 description: >-
-  We integrate building management systems, IP surveillance, access control,
-  and energy management into a unified smart-building platform. Our approach
-  helps property owners and facility managers reduce operating costs, improve
-  occupant comfort, and meet sustainability goals.
+  Kami mengintegrasikan building management system, IP surveillance, access
+  control, dan energy management ke dalam satu platform smart-building
+  terpadu. Pendekatan kami membantu pemilik properti dan facility manager
+  menekan biaya operasional, meningkatkan kenyamanan penghuni, dan memenuhi
+  tujuan keberlanjutan.
 features:
   - title: "Building Management System"
-    description: "BACnet/IP, Modbus, and KNX integrations with centralised dashboards and analytics."
+    description: "Integrasi BACnet/IP, Modbus, dan KNX dengan dashboard terpusat dan analitik."
     icon: "dashboard"
-  - title: "Security & Surveillance"
-    description: "IP CCTV, access control, and intrusion detection with on-prem or cloud VMS."
+  - title: "Keamanan & Surveillance"
+    description: "IP CCTV, access control, dan intrusion detection dengan VMS on-premise atau cloud."
     icon: "shield"
-  - title: "Energy Management"
-    description: "Sub-metering, power quality monitoring, and ESG reporting aligned with green-building standards."
+  - title: "Manajemen Energi"
+    description: "Sub-metering, power quality monitoring, dan pelaporan ESG yang selaras dengan standar green building."
     icon: "leaf"
 specs:
-  - label: "Protocols"
+  - label: "Protokol"
     value: "BACnet, Modbus, KNX, LonWorks"
-  - label: "Integrations"
-    value: "BMS, PMS, ERP, ESG platforms"
-  - label: "Standards"
+  - label: "Integrasi"
+    value: "BMS, PMS, ERP, platform ESG"
+  - label: "Standar"
     value: "GREENSHIP, LEED, EDGE"
-  - label: "OEMs"
+  - label: "OEM"
     value: "Schneider, Honeywell, Legrand, ABB"
 cta:
-  label: "Plan a smart building"
-  url: "/contact/"
+  label: "Rencanakan smart building"
+  url: "/id/contact/"
 ---

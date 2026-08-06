@@ -1,18 +1,18 @@
 baseurl = "/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "id"
 defaultContentLanguageInSubdir = false
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 enableRobotsTXT = true
 
 [languages]
-  [languages.en]
-    languageName = "English"
-    weight = 1
-    contentDir = "content"
   [languages.id]
     languageName = "Bahasa Indonesia"
+    weight = 1
+    contentDir = "content"
+  [languages.en]
+    languageName = "English"
     weight = 2
-    contentDir = "content.id"
+    contentDir = "content.en"
 
 [params]
   description = "PT Limawira Wisesa — Enterprise digital infrastructure and critical power solutions since 1985."

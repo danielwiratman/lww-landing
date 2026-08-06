@@ -1,53 +1,53 @@
 ---
-title: "Career"
-description: "Join the team building Indonesia's digital infrastructure."
+title: "Karier"
+description: "Bergabunglah dengan tim yang membangun infrastruktur digital Indonesia."
 hero:
-  heading: "Build your career with Limawira Wisesa"
-  tagline: "Career"
+  heading: "Bangun Karier Anda Bersama Limawira Wisesa"
+  tagline: "Karier"
   image: "/img/career-hero.jpg"
 intro: >-
-  We are always looking for talented engineers, project managers, and
-  commercial professionals who share our commitment to engineering excellence
-  and customer success.
+  Kami selalu mencari engineer, project manager, dan profesional commercial
+  yang berbakat dan memiliki komitmen terhadap keunggulan engineering serta
+  keberhasilan pelanggan.
 why:
-  title: "Why Limawira Wisesa?"
+  title: "Mengapa Limawira Wisesa?"
   items:
-    - title: "Meaningful work"
-      description: "Help build critical infrastructure for Indonesia's leading organisations."
-    - title: "Continuous learning"
-      description: "OEM certifications, on-the-job training, and clear career paths."
-    - title: "Collaborative culture"
-      description: "A flat organisation where every voice is heard and ownership is encouraged."
-    - title: "Competitive rewards"
-      description: "Industry-aligned compensation, performance bonuses, and comprehensive benefits."
+    - title: "Pekerjaan yang bermakna"
+      description: "Berkontribusi membangun infrastruktur kritis bagi organisasi terkemuka di Indonesia."
+    - title: "Pembelajaran berkelanjutan"
+      description: "Sertifikasi OEM, pelatihan di tempat kerja, dan jalur karier yang jelas."
+    - title: "Budaya kolaboratif"
+      description: "Organisasi yang flat di mana setiap suara didengar dan kepemilikan didorong."
+    - title: "Kompensasi yang kompetitif"
+      description: "Gaji yang mengikuti standar industri, bonus kinerja, dan benefit yang komprehensif."
 openings:
   - title: "Senior Electrical Engineer"
     location: "Jakarta"
     type: "Full-time"
     description: >-
-      Lead the design and commissioning of MV/LV distribution, generator, and
-      UPS systems for mission-critical facilities.
+      Memimpin desain dan commissioning sistem distribusi MV/LV, generator,
+      dan UPS untuk fasilitas mission-critical.
   - title: "Project Manager"
     location: "Jakarta"
     type: "Full-time"
     description: >-
-      Manage end-to-end delivery of data center and infrastructure projects for
-      enterprise customers.
+      Mengelola pengiriman end-to-end proyek data center dan infrastruktur
+      untuk pelanggan korporat.
   - title: "Field Service Engineer (UPS)"
     location: "Jakarta / Surabaya"
     type: "Full-time"
     description: >-
-      Perform preventive maintenance, troubleshooting, and commissioning of UPS
-      and battery systems across customer sites.
+      Melakukan preventive maintenance, troubleshooting, dan commissioning
+      sistem UPS dan baterai di berbagai lokasi pelanggan.
   - title: "Pre-Sales Engineer"
     location: "Jakarta"
     type: "Full-time"
     description: >-
-      Partner with the sales team to scope, design, and present solutions to
-      enterprise customers.
+      Bermitra dengan tim sales untuk menentukan ruang lingkup, mendesain,
+      dan mempresentasikan solusi kepada pelanggan korporat.
 cta:
-  heading: "Don't see the right role?"
-  text: "Send us your CV and we'll keep you in mind for future opportunities."
-  label: "Email your CV"
+  heading: "Tidak menemukan posisi yang sesuai?"
+  text: "Kirimkan CV Anda dan kami akan mempertimbangkan Anda untuk kesempatan di masa depan."
+  label: "Kirim CV via email"
   url: "mailto:career@limawira.com"
 ---

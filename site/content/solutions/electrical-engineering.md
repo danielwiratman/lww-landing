@@ -1,36 +1,36 @@
 ---
-title: "Electrical Engineering"
+title: "Teknik Elektrikal"
 slug: "electrical-engineering"
 order: 4
 icon: "bolt"
-shortDescription: "Electrical design, installation, and engineering for various industries."
+shortDescription: "Desain, instalasi, dan engineering elektrikal untuk berbagai industri."
 hero:
-  heading: "Electrical Engineering"
-  tagline: "Electrical design, installation, and engineering for various industries."
+  heading: "Teknik Elektrikal"
+  tagline: "Desain, instalasi, dan engineering elektrikal untuk berbagai industri."
 description: >-
-  Our electrical engineering practice combines the legacy of a contracting
-  company founded in 1985 with modern digital tools and best practices. We
-  design and build MV/LV distribution, generator systems, earthing and
-  lightning protection, and specialised protection systems engineered in our
-  in-house R&D workshop.
+  Praktik teknik elektrikal kami memadukan warisan perusahaan kontraktor
+  yang didirikan pada 1985 dengan perangkat digital modern dan praktik
+  terbaik terkini. Kami merancang dan membangun distribusi MV/LV, sistem
+  generator, sistem pentanahan dan proteksi petir, serta sistem proteksi
+  khusus yang dirancang di workshop R&D internal kami.
 features:
-  - title: "MV / LV Distribution"
-    description: "Switchgear, transformers, busways, and protection relays from Schneider, ABB, Eaton, and Siemens."
+  - title: "Distribusi MV / LV"
+    description: "Switchgear, trafo, busways, dan relai proteksi dari Schneider, ABB, Eaton, dan Siemens."
     icon: "transformer"
-  - title: "Backup Power Systems"
-    description: "Diesel and gas generator sets sized for mission-critical loads, with ATS and paralleling switchgear."
+  - title: "Sistem Daya Cadangan"
+    description: "Genset diesel dan gas yang disesuaikan untuk beban mission-critical, lengkap dengan ATS dan paralleling switchgear."
     icon: "generator"
-  - title: "In-house R&D"
-    description: "Custom electrical protection systems engineered in our 2005-built workshop with international OEM partners."
+  - title: "R&D Internal"
+    description: "Sistem proteksi elektrikal khusus yang dirancang di workshop kami (didirikan 2005) bersama mitra OEM internasional."
     icon: "beaker"
 specs:
-  - label: "Voltage"
+  - label: "Tegangan"
     value: "220 V — 20 kV"
-  - label: "Capacity"
-    value: "Up to 10 MVA"
-  - label: "Standards"
+  - label: "Kapasitas"
+    value: "Hingga 10 MVA"
+  - label: "Standar"
     value: "PUIL, IEC, SNI, IEEE"
-  - label: "OEMs"
+  - label: "OEM"
     value: "Schneider, ABB, Eaton, Siemens"
 customers:
   - name: "Telkom Satelit Indonesia"
@@ -40,6 +40,6 @@ customers:
   - name: "Bumi Serpong Damai"
     logo: "/img/customers/bsde.png"
 cta:
-  label: "Plan your electrical system"
-  url: "/contact/"
+  label: "Rencanakan sistem elektrikal Anda"
+  url: "/id/contact/"
 ---

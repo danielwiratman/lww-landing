@@ -11,19 +11,22 @@
 {{ $currentPage := . }}
 
 {{/*
-  Canonical list of languages the switcher should show. Hugo exposes
-  language metadata, but the flag glyph and the display strings are
-  project-specific, so we keep the map here. To add a new language:
+  Display metadata per language. Order does NOT control dropdown order —
+  the dropdown is driven by .Site.Home.AllTranslations, which Hugo orders
+  by the language `weight` set in site/hugo.toml. To reorder the dropdown,
+  change the `weight` of each [languages.*] entry in hugo.toml.
+
+  To add a new language:
   1. Add it to [languages] in site/hugo.toml.
-  2. Mirror content under site/content.<code>/.
-  3. Add an entry to $langMap below.
+  2. Mirror content under site/content.<code>/ (or content/ for default).
+  3. Add an entry to $langMeta below.
 */}}
-{{ $langMap := dict
-  "en" (dict "flag" "us" "name" "English"         "sub"  "English")
-  "id" (dict "flag" "id" "name" "Bahasa Indonesia" "sub"  "Bahasa")
+{{ $langMeta := dict
+  "id" (dict "flag" "id" "name" "Bahasa Indonesia" "sub" "Bahasa")
+  "en" (dict "flag" "us" "name" "English"          "sub" "English")
 }}
 
-{{ $currentMeta := index $langMap $currentLang }}
+{{ $currentMeta := index $langMeta $currentLang }}
 
 <div class="relative" data-lang-switcher>
   <button type="button"
@@ -46,20 +49,11 @@
        aria-label="Available languages"
        class="lang-menu absolute right-0 mt-2 min-w-[200px] rounded-xl bg-white border border-line shadow-soft p-1.5 origin-top-right
               opacity-0 -translate-y-1 pointer-events-none scale-95 transition-all duration-150 z-50">
-    {{ range $code, $meta := $langMap }}
+    {{ range .Site.Home.AllTranslations }}
+      {{ $code := .Language.Lang }}
+      {{ $meta := index $langMeta $code }}
       {{ $isCurrent := eq $code $currentLang }}
-      {{ $url := "" }}
-      {{ if $isCurrent }}
-        {{ $url = $currentPage.RelPermalink }}
-      {{ else }}
-        {{ $found := "" }}
-        {{ range $currentPage.AllTranslations }}
-          {{ if eq .Language.Lang $code }}{{ $found = .RelPermalink }}{{ end }}
-        {{ end }}
-        {{ if not $found }}{{ $found = printf "/%s/" $code }}{{ end }}
-        {{ $url = $found }}
-      {{ end }}
-      <a href="{{ $url }}"
+      <a href="{{ .RelPermalink }}"
          role="option"
          aria-selected="{{ if $isCurrent }}true{{ else }}false{{ end }}"
          {{ if $isCurrent }}aria-current="true"{{ end }}

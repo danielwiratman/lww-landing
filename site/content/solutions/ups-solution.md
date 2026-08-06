@@ -1,36 +1,37 @@
 ---
-title: "UPS Solution"
+title: "Solusi UPS"
 slug: "ups-solution"
 order: 2
 icon: "battery"
-shortDescription: "Reliable UPS systems for power protection and business continuity."
+shortDescription: "Sistem UPS yang andal untuk proteksi daya dan kelangsungan bisnis."
 hero:
-  heading: "UPS Solutions"
-  tagline: "Reliable UPS systems for power protection and business continuity."
+  heading: "Solusi UPS"
+  tagline: "Sistem UPS yang andal untuk proteksi daya dan kelangsungan bisnis."
 description: >-
-  Since 1990, Limawira Wisesa has been a trusted name in critical power
-  protection. As the exclusive Indonesian distributor of Exide Electronics
-  (USA) UPS systems, we help organizations safeguard their operations against
-  power disturbances with end-to-end UPS solutions — from sizing and supply
-  to installation, commissioning, and lifecycle maintenance.
+  Sejak 1990, Limawira Wisesa telah menjadi nama tepercaya di bidang
+  proteksi daya kritis. Sebagai distributor eksklusif sistem UPS Exide
+  Electronics (USA) di Indonesia, kami membantu organisasi melindungi
+  operasionalnya dari gangguan daya dengan solusi UPS menyeluruh — mulai
+  dari penentuan kapasitas dan penyediaan hingga instalasi, commissioning,
+  dan pemeliharaan siklus hidup.
 features:
-  - title: "UPS Sizing & Selection"
-    description: "Load profiling, autonomy calculation, and topology selection (online double-conversion, line-interactive, modular)."
+  - title: "Penentuan Kapasitas & Pemilihan UPS"
+    description: "Load profiling, perhitungan autonomi, dan pemilihan topologi (online double-conversion, line-interactive, modular)."
     icon: "calculator"
-  - title: "Supply & Installation"
-    description: "Single-unit, parallel redundant, and modular UPS deployments from 1 kVA to multi-MVA."
+  - title: "Penyediaan & Instalasi"
+    description: "Penerapan UPS single-unit, parallel redundant, dan modular dari 1 kVA hingga multi-MVA."
     icon: "plug"
-  - title: "Service & Maintenance"
-    description: "Preventive maintenance, battery replacement programs, and 24/7 emergency response."
+  - title: "Layanan & Pemeliharaan"
+    description: "Preventive maintenance, program penggantian baterai, dan respons darurat 24/7."
     icon: "wrench"
 specs:
-  - label: "Capacity"
+  - label: "Kapasitas"
     value: "1 kVA – 5 MVA"
-  - label: "Topology"
+  - label: "Topologi"
     value: "On-line, Line-interactive, Modular"
   - label: "Runtime"
-    value: "5 min – 8 hours"
-  - label: "Battery"
+    value: "5 menit – 8 jam"
+  - label: "Baterai"
     value: "VRLA, Lithium-ion, Flooded"
 customers:
   - name: "Taspen (Persero)"
@@ -42,6 +43,6 @@ customers:
   - name: "JICT"
     logo: "/img/customers/jict.jpeg"
 cta:
-  label: "Get a UPS sizing consultation"
-  url: "/contact/"
+  label: "Dapatkan konsultasi penentuan kapasitas UPS"
+  url: "/id/contact/"
 ---

@@ -35,21 +35,564 @@ preview_path: "previews/index.html"
 # ----------------------------------------------------------------------
 # Collections
 # ----------------------------------------------------------------------
+# Decap CMS does not have native multilingual content collection support,
+# so each language gets its own collection. Default language is Indonesian
+# (lives at the URL root). English is the secondary language (lives under
+# /en/). Editors translate a page by opening both English and Indonesian
+# entries side-by-side; Hugo pairs them automatically because the file
+# paths under /site/content.en/ mirror the Indonesian tree.
+# ----------------------------------------------------------------------
 collections:
 
   # ============================================================
-  # PAGES (top-level pages, edited as single files)
+  # PAGES — BAHASA INDONESIA (default language, lives at URL root)
   # ============================================================
   - name: "pages"
-    label: "Pages"
-    label_singular: "Page"
-    description: "Top-level marketing pages: Home, About, Contact, Career, etc."
+    label: "Pages — Bahasa Indonesia"
+    label_singular: "Halaman (ID)"
+    description: "Versi Bahasa Indonesia dari semua halaman utama. Path-nya mengikuti mirror di site/content/."
     files:
 
-      # ----------------------- HOME -----------------------
+      # ----------------------- BERANDA (HOME) -----------------------
       - file: "site/content/_index.md"
-        label: "Home Page"
+        label: "Beranda"
         name: "home"
+        description: "Hero, quick links, stats, solutions, partners, CTA"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Eyebrow (label kecil di atas judul)", name: "eyebrow", widget: "string", default: "Since 1985"}
+              - {label: "Judul utama", name: "heading", widget: "string"}
+              - {label: "Tagline (subjudul)", name: "tagline", widget: "text"}
+              - {label: "Hero image", name: "image", widget: "image", allow_multiple: false}
+              - label: "Tombol CTA utama"
+                name: "primaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Tombol CTA sekunder"
+                name: "secondaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Quick icons row (di bawah hero)"
+            name: "quickIcons"
+            widget: "object"
+            fields:
+              - {label: "Judul", name: "title", widget: "string", default: "Apa yang kami kerjakan, sekilas"}
+              - label: "Item"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Stats bar (strip hijau)"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.value}} — {{fields.label}}"
+            fields:
+              - {label: "Value (mis. 40+)", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+
+          - label: "Solutions grid (enam kartu — dibaca dari koleksi Solutions ID)"
+            name: "solutions"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow", name: "eyebrow", widget: "string", default: "Apa yang kami kerjakan"}
+              - {label: "Judul", name: "title", widget: "string"}
+              - {label: "Subjudul", name: "subtitle", widget: "text"}
+              - {label: "Hint", name: "body", widget: "hidden", default: "Kartu dibaca dari koleksi 'Solutions — Bahasa Indonesia' di bawah"}
+
+          - label: "Partners strip"
+            name: "partners"
+            widget: "object"
+            fields:
+              - {label: "Judul", name: "title", widget: "string", default: "Partner Kami"}
+              - {label: "Subjudul", name: "subtitle", widget: "text"}
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Bottom CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow", name: "eyebrow", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Teks", name: "text", widget: "text"}
+              - label: "Tombol utama"
+                name: "primaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Tombol sekunder"
+                name: "secondaryCta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+      # ----------------------- TENTANG (ABOUT) -----------------------
+      - file: "site/content/about/_index.md"
+        label: "Tentang Kami"
+        name: "about"
+        description: "Cerita perusahaan, visi, misi, nilai, statistik"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow (tagline)", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Paragraf intro", name: "intro", widget: "text"}
+
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.value}} — {{fields.label}}"
+            fields:
+              - {label: "Value", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+
+          - label: "Story timeline"
+            name: "story"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - {label: "Tahun / periode", name: "year", widget: "string"}
+              - {label: "Judul", name: "title", widget: "string"}
+              - {label: "Deskripsi", name: "description", widget: "text"}
+
+          - label: "Visi"
+            name: "vision"
+            widget: "object"
+            fields:
+              - {label: "Judul", name: "title", widget: "string", default: "Visi"}
+              - {label: "Teks", name: "text", widget: "text"}
+
+          - label: "Misi"
+            name: "mission"
+            widget: "object"
+            fields:
+              - {label: "Judul", name: "title", widget: "string", default: "Misi"}
+              - label: "Item"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Pernyataan", name: "", widget: "string"}
+
+          - label: "Nilai"
+            name: "values"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Judul", name: "title", widget: "string"}
+              - {label: "Deskripsi", name: "description", widget: "text"}
+
+          - label: "Bottom CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Teks", name: "text", widget: "text"}
+              - {label: "Tombol", name: "label", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+
+      # ----------------------- KONTAK (CONTACT) -----------------------
+      - file: "site/content/contact/_index.md"
+        label: "Kontak"
+        name: "contact"
+        description: "Saluran, jam operasional, dan definisi formulir"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Saluran kontak"
+            name: "channels"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.value}}"
+            fields:
+              - label: "Ikon"
+                name: "icon"
+                widget: "select"
+                options: ["phone", "whatsapp", "mail", "pin"]
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Nilai tampilan", name: "value", widget: "string"}
+              - {label: "URL (tel:, mailto:, https://wa.me/..., dll.)", name: "url", widget: "string"}
+          - label: "Jam operasional"
+            name: "hours"
+            widget: "list"
+            summary: "{{fields.day}} — {{fields.time}}"
+            fields:
+              - {label: "Hari / periode", name: "day", widget: "string"}
+              - {label: "Waktu", name: "time", widget: "string"}
+          - label: "Formulir"
+            name: "form"
+            widget: "object"
+            fields:
+              - {label: "Label tombol kirim", name: "submitLabel", widget: "string", default: "Kirim pesan"}
+              - {label: "Pesan sukses (setelah submit)", name: "successMessage", widget: "string"}
+              - label: "Field formulir"
+                name: "fields"
+                widget: "list"
+                summary: "{{fields.label}} ({{fields.type}})"
+                fields:
+                  - {label: "Nama field (HTML name attr)", name: "name", widget: "string"}
+                  - {label: "Label untuk pengguna", name: "label", widget: "string"}
+                  - label: "Tipe"
+                    name: "type"
+                    widget: "select"
+                    options: ["text", "email", "tel", "textarea", "select"]
+                  - {label: "Wajib?", name: "required", widget: "boolean", default: false}
+                  - label: "Opsi (hanya untuk type=select)"
+                    name: "options"
+                    widget: "list"
+                    required: false
+                    field: {label: "Opsi", name: "", widget: "string"}
+
+      # ----------------------- KARIER (CAREER) -----------------------
+      - file: "site/content/career/_index.md"
+        label: "Karier"
+        name: "career"
+        description: "Mengapa bergabung, posisi terbuka, dan CTA lamaran"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Mengapa bergabung"
+            name: "why"
+            widget: "object"
+            fields:
+              - {label: "Judul bagian", name: "title", widget: "string", default: "Mengapa Limawira Wisesa?"}
+              - label: "Item"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Judul", name: "title", widget: "string"}
+                  - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Posisi terbuka"
+            name: "openings"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.location}})"
+            fields:
+              - {label: "Judul", name: "title", widget: "string"}
+              - {label: "Lokasi", name: "location", widget: "string"}
+              - {label: "Tipe (mis. Full-time)", name: "type", widget: "string"}
+              - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Bottom CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Teks", name: "text", widget: "text"}
+              - {label: "Label tombol", name: "label", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+
+      # ----------------------- PELANGGAN (CUSTOMERS) -----------------------
+      - file: "site/content/customers/_index.md"
+        label: "Pelanggan"
+        name: "customers"
+        description: "Daftar pelanggan dikelompokkan per solusi"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Grup pelanggan"
+            name: "groups"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.customers.length}} pelanggan)"
+            fields:
+              - {label: "Judul grup (mis. Data Center)", name: "title", widget: "string"}
+              - label: "Pelanggan"
+                name: "customers"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - {label: "Nama pelanggan", name: "name", widget: "string"}
+                  - {label: "Industri", name: "industry", widget: "string"}
+                  - {label: "Logo (opsional)", name: "logo", widget: "image", required: false}
+
+      # ----------------------- PARTNER (PARTNERS) -----------------------
+      - file: "site/content/partners/_index.md"
+        label: "Partner"
+        name: "partners"
+        description: "Mitra teknologi dan OEM"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Partner"
+            name: "partners"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.category}}"
+            fields:
+              - {label: "Nama", name: "name", widget: "string"}
+              - {label: "Kategori", name: "category", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image", required: false}
+              - {label: "URL website", name: "url", widget: "string", required: false}
+
+      # ----------------------- PENGHARGAAN (AWARDS) -----------------------
+      - file: "site/content/awards/_index.md"
+        label: "Penghargaan & Sertifikasi"
+        name: "awards"
+        description: "Sertifikasi, penghargaan, dan pengakuan"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Penghargaan terbaru (kartu hero)"
+            name: "latestAward"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Galeri penghargaan"
+            name: "awards"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Nama", name: "name", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Scan sertifikat ISO"
+            name: "isoCertificates"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Nama", name: "name", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Sertifikasi"
+            name: "certifications"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Nama", name: "name", widget: "string"}
+              - {label: "Deskripsi", name: "description", widget: "text"}
+              - {label: "Diterbitkan oleh", name: "issuedBy", widget: "string"}
+              - {label: "Gambar / scan sertifikat", name: "image", widget: "image", required: false}
+              - {label: "File PDF sertifikat (opsional)", name: "file", widget: "file", required: false}
+
+      # ----------------------- PROYEK (PROJECTS) -----------------------
+      - file: "site/content/projects/_index.md"
+        label: "Proyek"
+        name: "projects"
+        description: "Studi kasus / rekap proyek terpilih"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Proyek"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.client}}"
+            fields:
+              - {label: "Judul proyek", name: "title", widget: "string"}
+              - {label: "Klien", name: "client", widget: "string"}
+              - {label: "Industri", name: "industry", widget: "string"}
+              - {label: "Tahun", name: "year", widget: "string"}
+              - {label: "Kategori solusi", name: "solution", widget: "string"}
+              - {label: "Ringkasan", name: "summary", widget: "text"}
+              - {label: "Hero image", name: "image", widget: "image", required: false}
+
+      # ----------------------- SOLUTIONS (indeks) -----------------------
+      - file: "site/content/solutions/_index.md"
+        label: "Solutions (ID) — Halaman Indeks"
+        name: "solutions-index"
+        description: "Teks header untuk halaman daftar /solutions/"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+
+      # ----------------------- INDUSTRI (INDUSTRIES) -----------------------
+      - file: "site/content/industries/_index.md"
+        label: "Industri"
+        name: "industries"
+        description: "Sektor yang kami layani"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - label: "Industri"
+            name: "industries"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Judul", name: "title", widget: "string"}
+              - {label: "Deskripsi", name: "description", widget: "text"}
+              - label: "Ikon"
+                name: "icon"
+                widget: "select"
+                options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
+
+  # ============================================================
+  # SOLUTIONS — BAHASA INDONESIA (each solution = a markdown file)
+  # ============================================================
+  - name: "solutions"
+    label: "Solutions — Bahasa Indonesia"
+    label_singular: "Solution (ID)"
+    description: "Setiap solusi punya halaman landing (Data Center, UPS, ICT, dll.) dalam Bahasa Indonesia"
+    folder: "site/content/solutions"
+    path: "{{slug}}"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: "title"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL slug (mis. data-center)", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Harus cocok dengan slug solusi Bahasa Inggris di koleksi 'Solutions — English'."}
+      - {label: "Sort order (lower = first)", name: "order", widget: "number", default: 99, value_type: "int", hint: "Mengontrol urutan di halaman daftar"}
+      - label: "Ikon"
+        name: "icon"
+        widget: "select"
+        default: "server"
+        options: ["server", "battery", "network", "bolt", "wrench", "building", "leaf", "shield", "monitor"]
+      - {label: "Deskripsi singkat (untuk kartu)", name: "shortDescription", widget: "text"}
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
+        fields:
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+      - {label: "Deskripsi panjang", name: "description", widget: "markdown"}
+      - label: "Fitur (3 kartu)"
+        name: "features"
+        widget: "list"
+        summary: "{{fields.title}}"
+        fields:
+          - {label: "Judul", name: "title", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - label: "Ikon"
+            name: "icon"
+            widget: "select"
+            options: ["server", "battery", "network", "bolt", "wrench", "building", "leaf", "shield", "monitor", "calculator", "plug", "blueprint", "hammer", "router", "cable", "transformer", "generator", "beaker", "clipboard", "box", "dashboard"]
+      - label: "Spesifikasi (Sekilas)"
+        name: "specs"
+        widget: "list"
+        summary: "{{fields.label}}: {{fields.value}}"
+        fields:
+          - {label: "Label", name: "label", widget: "string"}
+          - {label: "Nilai", name: "value", widget: "string"}
+      - label: "Pelanggan terpilih"
+        name: "customers"
+        widget: "list"
+        summary: "{{fields.name}}"
+        fields:
+          - {label: "Nama pelanggan", name: "name", widget: "string"}
+          - {label: "Logo (opsional)", name: "logo", widget: "image", required: false}
+      - label: "Bottom CTA"
+        name: "cta"
+        widget: "object"
+        fields:
+          - {label: "Label tombol", name: "label", widget: "string"}
+          - {label: "URL (gunakan path /id/ untuk link internal Bahasa Indonesia)", name: "url", widget: "string"}
+      - {label: "Body (markdown, opsional)", name: "body", widget: "markdown", required: false}
+
+  # ============================================================
+  # POSTS — BAHASA INDONESIA (blog/insights)
+  # ============================================================
+  - name: "posts"
+    label: "Posts — Bahasa Indonesia"
+    label_singular: "Post (ID)"
+    description: "Berita, insight, dan pengumuman proyek dalam Bahasa Indonesia"
+    folder: "site/content/posts"
+    path: "{{slug}}"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - label: "Tanggal publikasi"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        picker_utc: true
+      - {label: "Penulis", name: "author", widget: "string", required: false}
+      - {label: "Intro / deskripsi", name: "description", widget: "text"}
+      - {label: "Hero image", name: "image", widget: "image", required: false}
+      - {label: "Tags (koma dipisahkan)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
+      - {label: "Body (markdown)", name: "body", widget: "markdown"}
+
+  # ============================================================
+  # PAGES — ENGLISH (lives under /en/)
+  # ============================================================
+  - name: "pages_en"
+    label: "Pages — English"
+    label_singular: "Page (EN)"
+    description: "English version of every top-level page. Files live under site/content.en/."
+    files:
+
+      - file: "site/content.en/_index.md"
+        label: "Home Page"
+        name: "home_en"
         description: "Hero, quick links, stats, solutions overview, partners, CTA"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -96,14 +639,14 @@ collections:
               - {label: "Value (e.g. 40+)", name: "value", widget: "string"}
               - {label: "Label", name: "label", widget: "string"}
 
-          - label: "Solutions grid (six cards — read from the Solutions collection)"
+          - label: "Solutions grid (six cards — read from the English Solutions collection)"
             name: "solutions"
             widget: "object"
             fields:
               - {label: "Eyebrow", name: "eyebrow", widget: "string", default: "What we do"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "text"}
-              - {label: "Hint", name: "body", widget: "hidden", default: "Cards are pulled from the Solutions collection; add or reorder solutions under /admin/#/collections/solutions"}
+              - {label: "Hint", name: "body", widget: "hidden", default: "Cards are pulled from the English Solutions collection"}
 
           - label: "Partners strip"
             name: "partners"
@@ -138,10 +681,9 @@ collections:
                   - {label: "Label", name: "label", widget: "string"}
                   - {label: "URL", name: "url", widget: "string"}
 
-      # ----------------------- ABOUT -----------------------
-      - file: "site/content/about/_index.md"
+      - file: "site/content.en/about/_index.md"
         label: "About Page"
-        name: "about"
+        name: "about_en"
         description: "Company story, vision, mission, values, stats"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -203,17 +745,12 @@ collections:
             fields:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
-              - label: "Button"
-                name: "label"
-                widget: "string"
-              - label: "URL"
-                name: "url"
-                widget: "string"
+              - {label: "Button", name: "label", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
 
-      # ----------------------- CONTACT -----------------------
-      - file: "site/content/contact/_index.md"
+      - file: "site/content.en/contact/_index.md"
         label: "Contact Page"
-        name: "contact"
+        name: "contact_en"
         description: "Channels, hours, and form definition"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -268,10 +805,9 @@ collections:
                     required: false
                     field: {label: "Option", name: "", widget: "string"}
 
-      # ----------------------- CAREER -----------------------
-      - file: "site/content/career/_index.md"
+      - file: "site/content.en/career/_index.md"
         label: "Career Page"
-        name: "career"
+        name: "career_en"
         description: "Why join us, current openings, and application CTA"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -313,10 +849,9 @@ collections:
               - {label: "Button label", name: "label", widget: "string"}
               - {label: "URL", name: "url", widget: "string"}
 
-      # ----------------------- CUSTOMERS -----------------------
-      - file: "site/content/customers/_index.md"
+      - file: "site/content.en/customers/_index.md"
         label: "Customers Page"
-        name: "customers"
+        name: "customers_en"
         description: "Showcase of customers grouped by solution"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -343,10 +878,9 @@ collections:
                   - {label: "Industry", name: "industry", widget: "string"}
                   - {label: "Logo (optional)", name: "logo", widget: "image", required: false}
 
-      # ----------------------- PARTNERS -----------------------
-      - file: "site/content/partners/_index.md"
+      - file: "site/content.en/partners/_index.md"
         label: "Partners Page"
-        name: "partners"
+        name: "partners_en"
         description: "Technology partners and OEMs"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -369,10 +903,9 @@ collections:
               - {label: "Logo", name: "logo", widget: "image", required: false}
               - {label: "Website URL", name: "url", widget: "string", required: false}
 
-      # ----------------------- AWARDS -----------------------
-      - file: "site/content/awards/_index.md"
+      - file: "site/content.en/awards/_index.md"
         label: "Awards & Certifications"
-        name: "awards"
+        name: "awards_en"
         description: "Certifications, awards, and recognitions"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -416,10 +949,9 @@ collections:
               - {label: "Image / certificate scan", name: "image", widget: "image", required: false}
               - {label: "PDF certificate file (optional)", name: "file", widget: "file", required: false}
 
-      # ----------------------- PROJECTS -----------------------
-      - file: "site/content/projects/_index.md"
+      - file: "site/content.en/projects/_index.md"
         label: "Projects Page"
-        name: "projects"
+        name: "projects_en"
         description: "Selected case studies / project recaps"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -445,11 +977,10 @@ collections:
               - {label: "Summary", name: "summary", widget: "text"}
               - {label: "Hero image", name: "image", widget: "image", required: false}
 
-      # ----------------------- SOLUTIONS (list/index) -----------------------
-      - file: "site/content/solutions/_index.md"
+      - file: "site/content.en/solutions/_index.md"
         label: "Solutions Page (index)"
-        name: "solutions-index"
-        description: "Header copy for the /solutions/ listing page"
+        name: "solutions-index_en"
+        description: "Header copy for the /en/solutions/ listing page"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
@@ -462,10 +993,9 @@ collections:
               - {label: "Image", name: "image", widget: "image"}
           - {label: "Intro", name: "intro", widget: "text"}
 
-      # ----------------------- INDUSTRIES (list/index) -----------------------
-      - file: "site/content/industries/_index.md"
+      - file: "site/content.en/industries/_index.md"
         label: "Industries Page"
-        name: "industries"
+        name: "industries_en"
         description: "Sectors we serve"
         fields:
           - {label: "Title", name: "title", widget: "string"}
@@ -491,20 +1021,20 @@ collections:
                 options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
 
   # ============================================================
-  # SOLUTIONS (each solution = a markdown file in /solutions/)
+  # SOLUTIONS — ENGLISH
   # ============================================================
-  - name: "solutions"
-    label: "Solutions"
-    label_singular: "Solution"
-    description: "Each solution has its own landing page (Data Center, UPS, ICT, etc.)"
-    folder: "site/content/solutions"
+  - name: "solutions_en"
+    label: "Solutions — English"
+    label_singular: "Solution (EN)"
+    description: "Each solution has its own landing page in English (Data Center, UPS, ICT, etc.)"
+    folder: "site/content.en/solutions"
     path: "{{slug}}"
     create: true
     slug: "{{fields.slug}}"
     identifier_field: "title"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "URL slug (e.g. data-center)", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Used in the URL."}
+      - {label: "URL slug (e.g. data-center)", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Must match the slug of the Indonesian solution in 'Solutions — Bahasa Indonesia'."}
       - {label: "Sort order (lower = first)", name: "order", widget: "number", default: 99, value_type: "int", hint: "Controls the order shown on the listing page"}
       - label: "Icon"
         name: "icon"
@@ -554,13 +1084,13 @@ collections:
       - {label: "Body (markdown, optional)", name: "body", widget: "markdown", required: false}
 
   # ============================================================
-  # POSTS (blog/insights)
+  # POSTS — ENGLISH (blog/insights)
   # ============================================================
-  - name: "posts"
-    label: "Posts"
-    label_singular: "Post"
-    description: "News, insights, and project announcements"
-    folder: "site/content/posts"
+  - name: "posts_en"
+    label: "Posts — English"
+    label_singular: "Post (EN)"
+    description: "News, insights, and project announcements in English"
+    folder: "site/content.en/posts"
     path: "{{slug}}"
     create: true
     slug: "{{slug}}"
@@ -576,510 +1106,6 @@ collections:
       - {label: "Intro / description", name: "description", widget: "text"}
       - {label: "Hero image", name: "image", widget: "image", required: false}
       - {label: "Tags (comma separated)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
-      - {label: "Body (markdown)", name: "body", widget: "markdown"}
-
-  # ============================================================
-  # PAGES — BAHASA INDONESIA (parallel structure to /Pages above)
-  # ============================================================
-  # Decap CMS does not have native multilingual content collection
-  # support, so each language gets its own collection. The CMS
-  # sidebar groups them visually via the "EN" / "ID" prefix.
-  # Editors translate a page by opening both English and Indonesian
-  # entries side-by-side; Hugo pairs them automatically because the
-  # file paths under /site/content.id/ mirror the English tree.
-  # ============================================================
-  - name: "pages_id"
-    label: "Pages — Bahasa Indonesia"
-    label_singular: "Halaman (ID)"
-    description: "Versi Bahasa Indonesia dari semua halaman utama. Path-nya mengikuti mirror di site/content.id/."
-    files:
-
-      - file: "site/content.id/_index.md"
-        label: "Beranda"
-        name: "home_id"
-        description: "Hero, quick links, stats, solutions, partners, CTA"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            collapsed: false
-            fields:
-              - {label: "Eyebrow (label kecil di atas judul)", name: "eyebrow", widget: "string", default: "Since 1985"}
-              - {label: "Judul utama", name: "heading", widget: "string"}
-              - {label: "Tagline (subjudul)", name: "tagline", widget: "text"}
-              - {label: "Hero image", name: "image", widget: "image", allow_multiple: false}
-              - label: "Tombol CTA utama"
-                name: "primaryCta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-              - label: "Tombol CTA sekunder"
-                name: "secondaryCta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-
-          - label: "Quick icons row (di bawah hero)"
-            name: "quickIcons"
-            widget: "object"
-            fields:
-              - {label: "Judul", name: "title", widget: "string", default: "Apa yang kami kerjakan, sekilas"}
-              - label: "Items"
-                name: "items"
-                widget: "list"
-                summary: "{{fields.label}}"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL (gunakan path /id/ untuk link internal Bahasa Indonesia)", name: "url", widget: "string"}
-
-          - label: "Stats bar (strip hijau)"
-            name: "stats"
-            widget: "list"
-            summary: "{{fields.value}} — {{fields.label}}"
-            fields:
-              - {label: "Value (mis. 40+)", name: "value", widget: "string"}
-              - {label: "Label", name: "label", widget: "string"}
-
-          - label: "Solutions grid (enam kartu — dibaca dari koleksi Solutions ID)"
-            name: "solutions"
-            widget: "object"
-            fields:
-              - {label: "Eyebrow", name: "eyebrow", widget: "string", default: "Apa yang kami kerjakan"}
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Subjudul", name: "subtitle", widget: "text"}
-              - {label: "Hint", name: "body", widget: "hidden", default: "Kartu dibaca dari koleksi 'Solutions — Bahasa Indonesia' di bawah"}
-
-          - label: "Partners strip"
-            name: "partners"
-            widget: "object"
-            fields:
-              - {label: "Judul", name: "title", widget: "string", default: "Partner Kami"}
-              - {label: "Subjudul", name: "subtitle", widget: "text"}
-              - label: "CTA"
-                name: "cta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-
-          - label: "Bottom CTA"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "Eyebrow", name: "eyebrow", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Text", name: "text", widget: "text"}
-              - label: "Tombol utama"
-                name: "primaryCta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-              - label: "Tombol sekunder"
-                name: "secondaryCta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-
-      - file: "site/content.id/about/_index.md"
-        label: "Tentang Kami"
-        name: "about_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Eyebrow (tagline)", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro paragraf", name: "intro", widget: "text"}
-
-          - label: "Stats"
-            name: "stats"
-            widget: "list"
-            summary: "{{fields.value}} — {{fields.label}}"
-            fields:
-              - {label: "Value", name: "value", widget: "string"}
-              - {label: "Label", name: "label", widget: "string"}
-
-          - label: "Story timeline"
-            name: "story"
-            widget: "list"
-            summary: "{{fields.year}} — {{fields.title}}"
-            fields:
-              - {label: "Tahun / periode", name: "year", widget: "string"}
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-
-          - label: "Visi"
-            name: "vision"
-            widget: "object"
-            fields:
-              - {label: "Judul", name: "title", widget: "string", default: "Visi"}
-              - {label: "Teks", name: "text", widget: "text"}
-
-          - label: "Misi"
-            name: "mission"
-            widget: "object"
-            fields:
-              - {label: "Judul", name: "title", widget: "string", default: "Misi"}
-              - label: "Item"
-                name: "items"
-                widget: "list"
-                fields:
-                  - {label: "Pernyataan", name: "", widget: "string"}
-
-          - label: "Nilai"
-            name: "values"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-
-          - label: "Bottom CTA"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Teks", name: "text", widget: "text"}
-              - {label: "Tombol", name: "label", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
-
-      - file: "site/content.id/contact/_index.md"
-        label: "Kontak"
-        name: "contact_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Saluran kontak"
-            name: "channels"
-            widget: "list"
-            summary: "{{fields.label}} — {{fields.value}}"
-            fields:
-              - label: "Ikon"
-                name: "icon"
-                widget: "select"
-                options: ["phone", "whatsapp", "mail", "pin"]
-              - {label: "Label", name: "label", widget: "string"}
-              - {label: "Nilai tampilan", name: "value", widget: "string"}
-              - {label: "URL (tel:, mailto:, https://wa.me/..., dll.)", name: "url", widget: "string"}
-          - label: "Jam operasional"
-            name: "hours"
-            widget: "list"
-            summary: "{{fields.day}} — {{fields.time}}"
-            fields:
-              - {label: "Hari / periode", name: "day", widget: "string"}
-              - {label: "Waktu", name: "time", widget: "string"}
-          - label: "Formulir"
-            name: "form"
-            widget: "object"
-            fields:
-              - {label: "Label tombol kirim", name: "submitLabel", widget: "string", default: "Kirim pesan"}
-              - {label: "Pesan sukses (setelah submit)", name: "successMessage", widget: "string"}
-              - label: "Field formulir"
-                name: "fields"
-                widget: "list"
-                summary: "{{fields.label}} ({{fields.type}})"
-                fields:
-                  - {label: "Nama field (HTML name attr)", name: "name", widget: "string"}
-                  - {label: "Label untuk pengguna", name: "label", widget: "string"}
-                  - label: "Tipe"
-                    name: "type"
-                    widget: "select"
-                    options: ["text", "email", "tel", "textarea", "select"]
-                  - {label: "Wajib?", name: "required", widget: "boolean", default: false}
-                  - label: "Opsi (hanya untuk type=select)"
-                    name: "options"
-                    widget: "list"
-                    required: false
-                    field: {label: "Opsi", name: "", widget: "string"}
-
-      - file: "site/content.id/career/_index.md"
-        label: "Karier"
-        name: "career_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Mengapa bergabung"
-            name: "why"
-            widget: "object"
-            fields:
-              - {label: "Judul bagian", name: "title", widget: "string", default: "Mengapa Limawira Wisesa?"}
-              - label: "Item"
-                name: "items"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - {label: "Judul", name: "title", widget: "string"}
-                  - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Posisi terbuka"
-            name: "openings"
-            widget: "list"
-            summary: "{{fields.title}} ({{fields.location}})"
-            fields:
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Lokasi", name: "location", widget: "string"}
-              - {label: "Tipe (mis. Full-time)", name: "type", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Bottom CTA"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Teks", name: "text", widget: "text"}
-              - {label: "Label tombol", name: "label", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
-
-      - file: "site/content.id/customers/_index.md"
-        label: "Pelanggan"
-        name: "customers_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - label: "Grup pelanggan"
-            name: "groups"
-            widget: "list"
-            summary: "{{fields.title}} ({{fields.customers.length}} pelanggan)"
-            fields:
-              - {label: "Judul grup (mis. Data Center)", name: "title", widget: "string"}
-              - label: "Pelanggan"
-                name: "customers"
-                widget: "list"
-                summary: "{{fields.name}}"
-                fields:
-                  - {label: "Nama pelanggan", name: "name", widget: "string"}
-                  - {label: "Industri", name: "industry", widget: "string"}
-                  - {label: "Logo (opsional)", name: "logo", widget: "image", required: false}
-
-      - file: "site/content.id/partners/_index.md"
-        label: "Partner"
-        name: "partners_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Partner"
-            name: "partners"
-            widget: "list"
-            summary: "{{fields.name}} — {{fields.category}}"
-            fields:
-              - {label: "Nama", name: "name", widget: "string"}
-              - {label: "Kategori", name: "category", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image", required: false}
-              - {label: "URL website", name: "url", widget: "string", required: false}
-
-      - file: "site/content.id/awards/_index.md"
-        label: "Penghargaan & Sertifikasi"
-        name: "awards_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Sertifikasi"
-            name: "certifications"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "Nama", name: "name", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-              - {label: "Diterbitkan oleh", name: "issuedBy", widget: "string"}
-              - {label: "Gambar / scan sertifikat", name: "image", widget: "image", required: false}
-
-      - file: "site/content.id/projects/_index.md"
-        label: "Proyek"
-        name: "projects_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Proyek"
-            name: "projects"
-            widget: "list"
-            summary: "{{fields.title}} — {{fields.client}}"
-            fields:
-              - {label: "Judul proyek", name: "title", widget: "string"}
-              - {label: "Klien", name: "client", widget: "string"}
-              - {label: "Industri", name: "industry", widget: "string"}
-              - {label: "Tahun", name: "year", widget: "string"}
-              - {label: "Kategori solusi", name: "solution", widget: "string"}
-              - {label: "Ringkasan", name: "summary", widget: "text"}
-              - {label: "Hero image", name: "image", widget: "image", required: false}
-
-      - file: "site/content.id/solutions/_index.md"
-        label: "Solutions (ID) — Halaman Indeks"
-        name: "solutions-index_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-
-      - file: "site/content.id/industries/_index.md"
-        label: "Industri"
-        name: "industries_id"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Industri"
-            name: "industries"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-              - label: "Ikon"
-                name: "icon"
-                widget: "select"
-                options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
-
-  # ============================================================
-  # SOLUTIONS — BAHASA INDONESIA
-  # ============================================================
-  - name: "solutions_id"
-    label: "Solutions — Bahasa Indonesia"
-    label_singular: "Solution (ID)"
-    description: "Setiap solusi punya halaman landing (Data Center, UPS, ICT, dll.) dalam Bahasa Indonesia"
-    folder: "site/content.id/solutions"
-    path: "{{slug}}"
-    create: true
-    slug: "{{fields.slug}}"
-    identifier_field: "title"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "URL slug (mis. data-center)", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Harus cocok dengan slug solusi Bahasa Inggris di koleksi 'Solutions'."}
-      - {label: "Sort order (lower = first)", name: "order", widget: "number", default: 99, value_type: "int", hint: "Mengontrol urutan di halaman daftar"}
-      - label: "Ikon"
-        name: "icon"
-        widget: "select"
-        default: "server"
-        options: ["server", "battery", "network", "bolt", "wrench", "building", "leaf", "shield", "monitor"]
-      - {label: "Deskripsi singkat (untuk kartu)", name: "shortDescription", widget: "text"}
-      - label: "Hero"
-        name: "hero"
-        widget: "object"
-        fields:
-          - {label: "Tagline", name: "tagline", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Image", name: "image", widget: "image"}
-      - {label: "Deskripsi panjang", name: "description", widget: "markdown"}
-      - label: "Fitur (3 kartu)"
-        name: "features"
-        widget: "list"
-        summary: "{{fields.title}}"
-        fields:
-          - {label: "Judul", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Ikon"
-            name: "icon"
-            widget: "select"
-            options: ["server", "battery", "network", "bolt", "wrench", "building", "leaf", "shield", "monitor", "calculator", "plug", "blueprint", "hammer", "router", "cable", "transformer", "generator", "beaker", "clipboard", "box", "dashboard"]
-      - label: "Spesifikasi (Sekilas)"
-        name: "specs"
-        widget: "list"
-        summary: "{{fields.label}}: {{fields.value}}"
-        fields:
-          - {label: "Label", name: "label", widget: "string"}
-          - {label: "Nilai", name: "value", widget: "string"}
-      - label: "Pelanggan terpilih"
-        name: "customers"
-        widget: "list"
-        summary: "{{fields.name}}"
-        fields:
-          - {label: "Nama pelanggan", name: "name", widget: "string"}
-          - {label: "Logo (opsional)", name: "logo", widget: "image", required: false}
-      - label: "Bottom CTA"
-        name: "cta"
-        widget: "object"
-        fields:
-          - {label: "Label tombol", name: "label", widget: "string"}
-          - {label: "URL (gunakan path /id/ untuk link internal Bahasa Indonesia)", name: "url", widget: "string"}
-      - {label: "Body (markdown, opsional)", name: "body", widget: "markdown", required: false}
-
-  # ============================================================
-  # POSTS — BAHASA INDONESIA
-  # ============================================================
-  - name: "posts_id"
-    label: "Posts — Bahasa Indonesia"
-    label_singular: "Post (ID)"
-    description: "Blog/berita dalam Bahasa Indonesia"
-    folder: "site/content.id/posts"
-    path: "{{slug}}"
-    create: true
-    slug: "{{slug}}"
-    identifier_field: "title"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - label: "Tanggal publikasi"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        picker_utc: true
-      - {label: "Penulis", name: "author", widget: "string", required: false}
-      - {label: "Intro / deskripsi", name: "description", widget: "text"}
-      - {label: "Hero image", name: "image", widget: "image", required: false}
-      - {label: "Tags (koma dipisahkan)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
       - {label: "Body (markdown)", name: "body", widget: "markdown"}
 
   # ============================================================

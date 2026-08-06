@@ -1,13 +1,13 @@
 ---
-title: "Solutions & Services"
-description: "Six core practice areas covering the full lifecycle of digital infrastructure and critical power systems."
+title: "Solusi & Layanan"
+description: "Enam area praktik utama yang mencakup siklus hidup lengkap infrastruktur digital dan sistem critical power."
 hero:
-  heading: "Solutions & Services"
-  tagline: "What we do"
+  heading: "Solusi & Layanan"
+  tagline: "Layanan kami"
   image: "/img/solutions-hero.jpg"
 intro: >-
-  From design and build to long-term maintenance, our six practice areas cover
-  the full lifecycle of digital infrastructure and critical power systems. Each
-  engagement is led by certified engineers and backed by 24/7 nationwide
-  support.
+  Mulai dari desain dan pembangunan hingga pemeliharaan jangka panjang,
+  enam area praktik kami mencakup siklus hidup lengkap infrastruktur
+  digital dan sistem critical power. Setiap pengerjaan dipimpin oleh
+  engineer bersertifikat dan didukung oleh layanan nationwide 24/7.
 ---

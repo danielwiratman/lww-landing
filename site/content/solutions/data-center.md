@@ -1,35 +1,35 @@
 ---
-title: "Data Center"
+title: "Solusi Data Center"
 slug: "data-center"
 order: 1
 icon: "server"
-shortDescription: "End-to-end data center infrastructure solutions designed for reliability and scalability."
+shortDescription: "Solusi infrastruktur data center menyeluruh yang dirancang untuk keandalan dan skalabilitas."
 hero:
-  heading: "Data Center Solutions"
-  tagline: "End-to-end data center infrastructure designed for reliability, efficiency, and scalability."
+  heading: "Solusi Data Center"
+  tagline: "Infrastruktur data center menyeluruh yang dirancang untuk keandalan, efisiensi, dan skalabilitas."
 description: >-
-  We design, build, and maintain mission-critical data center environments for
-  enterprises that cannot afford downtime. From a single rack to multi-megawatt
-  hyperscale builds, our team delivers turnkey solutions backed by 40+ years
-  of engineering experience.
+  Kami merancang, membangun, dan merawat lingkungan data center mission-critical
+  bagi perusahaan yang tidak bisa menoleransi downtime. Dari satu rak
+  hingga hyperscale multi-megawatt, tim kami menghadirkan solusi turnkey
+  yang didukung oleh pengalaman engineering lebih dari 40 tahun.
 features:
-  - title: "Consulting & Design"
-    description: "Tier-rated facility design, capacity planning, and TCO modelling aligned with Uptime Institute standards."
+  - title: "Konsultasi & Desain"
+    description: "Desain fasilitas berperingkat Tier, capacity planning, dan pemodelan TCO yang selaras dengan standar Uptime Institute."
     icon: "blueprint"
-  - title: "Build & Implementation"
-    description: "Civil, electrical, mechanical, and IT infrastructure works delivered by certified project managers."
+  - title: "Pembangunan & Implementasi"
+    description: "Pekerjaan sipil, elektrikal, mekanikal, dan infrastruktur TI yang disampaikan oleh project manager bersertifikat."
     icon: "hammer"
-  - title: "Operations & Monitoring"
-    description: "24/7 NOC services, DCIM, environmental monitoring, and on-site engineering support."
+  - title: "Operasi & Monitoring"
+    description: "Layanan NOC 24/7, DCIM, environmental monitoring, dan dukungan engineering on-site."
     icon: "monitor"
 specs:
   - label: "Tier"
     value: "Tier I — Tier IV"
   - label: "Power Density"
-    value: "Up to 30 kW per rack"
-  - label: "PUE Target"
+    value: "Hingga 30 kW per rak"
+  - label: "Target PUE"
     value: "< 1.4"
-  - label: "Compliance"
+  - label: "Kepatuhan"
     value: "Uptime, TIA-942, ANSI/BICSI"
 customers:
   - name: "Kementerian Pertanian"
@@ -39,6 +39,6 @@ customers:
   - name: "Samakta Mitra"
     logo: "/img/customers/samakta.png"
 cta:
-  label: "Discuss your data center project"
-  url: "/contact/"
+  label: "Diskusikan proyek data center Anda"
+  url: "/id/contact/"
 ---

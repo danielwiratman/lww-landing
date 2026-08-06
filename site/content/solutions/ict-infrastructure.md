@@ -1,36 +1,36 @@
 ---
-title: "ICT Infrastructure"
+title: "Infrastruktur ICT"
 slug: "ict-infrastructure"
 order: 3
 icon: "network"
-shortDescription: "Network, structured cabling, and ICT infrastructure for modern business."
+shortDescription: "Jaringan, structured cabling, dan infrastruktur ICT untuk bisnis modern."
 hero:
-  heading: "ICT Infrastructure"
-  tagline: "Network, structured cabling, and ICT infrastructure for modern business."
+  heading: "Infrastruktur ICT"
+  tagline: "Jaringan, structured cabling, dan infrastruktur ICT untuk bisnis modern."
 description: >-
-  We deliver enterprise-grade ICT infrastructure — from LAN/WAN architecture
-  and structured cabling to data center networking and software-defined
-  infrastructure. Our solutions are designed for performance, security, and
-  long-term manageability, drawing on partnerships with globally recognised
-  manufacturers.
+  Kami menyediakan infrastruktur ICT kelas korporat — mulai dari arsitektur
+  LAN/WAN dan structured cabling hingga networking data center dan
+  infrastruktur software-defined. Solusi kami dirancang untuk performa,
+  keamanan, dan kemudahan pengelolaan jangka panjang, dengan dukungan
+  kemitraan bersama produsen yang diakui secara global.
 features:
-  - title: "Network Architecture"
-    description: "LAN, WAN, SD-WAN, and wireless network design with leading OEMs."
+  - title: "Arsitektur Jaringan"
+    description: "Desain LAN, WAN, SD-WAN, dan jaringan nirkabel dengan OEM terkemuka."
     icon: "router"
   - title: "Structured Cabling"
-    description: "Cat6A, Cat7, and fibre-optic backbone installations certified to TIA/EIA standards."
+    description: "Instalasi backbone Cat6A, Cat7, dan fibre-optic yang tersertifikasi sesuai standar TIA/EIA."
     icon: "cable"
-  - title: "Smart Building Networks"
-    description: "Converged networks for building management, IP surveillance, and unified communications."
+  - title: "Jaringan Smart Building"
+    description: "Jaringan terpadu untuk building management, IP surveillance, dan unified communications."
     icon: "building"
 specs:
   - label: "Cabling"
     value: "Cat6A, Cat7, OS2 Singlemode, OM4 Multimode"
-  - label: "Wireless"
+  - label: "Nirkabel"
     value: "Wi-Fi 6/6E, Outdoor Mesh, Private 5G"
-  - label: "Network"
+  - label: "Jaringan"
     value: "L2/L3 Switching, SD-WAN, NFV"
-  - label: "Brands"
+  - label: "Merek"
     value: "Allied Telesyn, Panduit, Alcatel, Huawei, Legrand"
 customers:
   - name: "Kementerian Keuangan (DJBC)"
@@ -40,6 +40,6 @@ customers:
   - name: "Pemprov DKI Jakarta"
     logo: "/img/customers/dki.png"
 cta:
-  label: "Plan your ICT infrastructure"
-  url: "/contact/"
+  label: "Rencanakan infrastruktur ICT Anda"
+  url: "/id/contact/"
 ---

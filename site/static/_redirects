@@ -1,0 +1,15 @@
+# Old English URLs (before default-language switch) now redirect to /en/.
+/solutions/         /en/solutions/         301
+/solutions/*        /en/solutions/:splat   301
+/projects/          /en/projects/          301
+/projects/*         /en/projects/:splat    301
+/about/             /en/about/             301
+/contact/           /en/contact/           301
+/career/            /en/career/            301
+/customers/         /en/customers/         301
+/partners/          /en/partners/          301
+/awards/            /en/awards/            301
+/industries/        /en/industries/        301
+/posts/             /en/posts/             301
+/posts/*            /en/posts/:splat       301
+/thank-you/         /en/thank-you/         301

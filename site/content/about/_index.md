@@ -1,77 +1,76 @@
 ---
-title: "About"
-description: "Building reliable digital infrastructure since 1985."
+title: "Tentang Kami"
+description: "Membangun infrastruktur digital yang andal sejak 1985."
 hero:
-  heading: "Building Reliable Digital Infrastructure Since 1985"
-  tagline: "About Us"
+  heading: "Membangun Infrastruktur Digital yang Andal Sejak 1985"
+  tagline: "Tentang Kami"
   image: "/img/about-hero.jpg"
 intro: >-
-  For more than four decades, PT. Limawira Wisesa has been a trusted engineering
-  and system integration company, delivering reliable Critical Power, Data
-  Center, ICT Infrastructure, and Electrical Engineering solutions for
-  organisations across Indonesia.
+  Selama lebih dari empat dekade, PT Limawira Wisesa telah menjadi perusahaan
+  engineering dan system integrator tepercaya, menghadirkan solusi Critical
+  Power, Data Center, Infrastruktur ICT, dan Teknik Elektrikal yang andal
+  bagi organisasi di seluruh Indonesia.
 story:
   - year: "1985"
-    title: "Founded in Jakarta"
+    title: "Berdiri di Jakarta"
     description: >-
-      Founded by five young professionals with expertise in Mechanical and
-      Electrical Engineering, Limawira Wisesa began its journey by providing
-      high-quality engineering services.
+      Didirikan oleh lima profesional muda dengan keahlian di bidang Teknik
+      Mesin dan Elektrikal, Limawira Wisesa memulai perjalanannya dengan
+      menyediakan layanan engineering berkualitas tinggi.
   - year: "1990"
-    title: "Entering Critical Power"
+    title: "Memasuki Industri Critical Power"
     description: >-
-      Limawira Wisesa entered the Critical Power industry and became the
-      exclusive distributor of Exide Electronics USA Uninterruptible Power
-      Supply (UPS) systems in Indonesia.
-  - year: "Mid-1990s"
-    title: "ICT Infrastructure"
+      Limawira Wisesa memasuki industri Critical Power dan menjadi distributor
+      eksklusif sistem Uninterruptible Power Supply (UPS) Exide Electronics USA
+      di Indonesia.
+  - year: "Pertengahan 1990-an"
+    title: "Infrastruktur ICT"
     description: >-
-      The company broadened its expertise into ICT Infrastructure, introducing
-      enterprise networking and structured cabling solutions from Allied
-      Telesyn, Panduit, Alcatel, and AdventNet.
+      Perusahaan memperluas keahliannya ke Infrastruktur ICT, memperkenalkan
+      solusi enterprise networking dan structured cabling dari Allied Telesyn,
+      Panduit, Alcatel, dan AdventNet.
   - year: "2005"
-    title: "In-house R&D Division"
+    title: "Divisi R&D Internal"
     description: >-
-      Established its own Research & Development Division with dedicated
-      workshops and testing facilities, designing and manufacturing specialised
-      electrical protection systems in collaboration with international OEM
-      partners.
-  - year: "Today"
-    title: "Comprehensive System Integrator"
+      Membangun Divisi Penelitian & Pengembangan sendiri dengan workshop dan
+      fasilitas pengujian khusus, merancang serta memproduksi sistem proteksi
+      elektrikal khusus bekerja sama dengan mitra OEM internasional.
+  - year: "Saat Ini"
+    title: "System Integrator Menyeluruh"
     description: >-
-      Delivering end-to-end solutions spanning consultation, engineering
-      design, procurement, installation, testing & commissioning, maintenance,
-      and managed support services.
+      Menyediakan solusi end-to-end yang mencakup konsultasi, desain
+      engineering, pengadaan, instalasi, pengujian & commissioning,
+      pemeliharaan, hingga layanan managed support.
 vision:
-  title: "Vision"
-  text: "To be the best in providing services and support in our field of expertise."
+  title: "Visi"
+  text: "Menjadi yang terbaik dalam menyediakan layanan dan dukungan di bidang keahlian kami."
 mission:
-  title: "Mission"
+  title: "Misi"
   items:
-    - "To deliver the best solutions in Information Systems, Data Communication, and Power Supply technologies."
-    - "To achieve sustainable and reasonable profitability for the company and its shareholders."
-    - "To enhance the welfare and well-being of our employees."
+    - "Menyediakan solusi terbaik di bidang Sistem Informasi, Komunikasi Data, dan teknologi Power Supply."
+    - "Mencapai profitabilitas yang berkelanjutan dan wajar bagi perusahaan serta pemegang saham."
+    - "Meningkatkan kesejahteraan seluruh karyawan kami."
 values:
-  - title: "Engineering Excellence"
-    description: "Every project is led by certified engineers and audited to international standards."
-  - title: "Customer Success"
-    description: "We measure our success by the long-term outcomes we deliver for our customers."
-  - title: "Innovation"
-    description: "Our in-house R&D keeps us at the forefront of electrical and digital infrastructure."
-  - title: "Integrity"
-    description: "We do what is right, even when no one is watching."
+  - title: "Keunggulan Engineering"
+    description: "Setiap proyek dipimpin oleh engineer bersertifikat dan diaudit sesuai standar internasional."
+  - title: "Keberhasilan Pelanggan"
+    description: "Kami mengukur keberhasilan kami dari hasil jangka panjang yang kami berikan kepada pelanggan."
+  - title: "Inovasi"
+    description: "Divisi R&D internal kami menjaga kami di garis depan infrastruktur elektrikal dan digital."
+  - title: "Integritas"
+    description: "Kami melakukan yang benar, bahkan ketika tidak ada yang melihat."
 stats:
-  - label: "Years of experience"
+  - label: "Tahun pengalaman"
     value: "40+"
-  - label: "Projects completed"
+  - label: "Proyek selesai"
     value: "500+"
-  - label: "Satisfied customers"
+  - label: "Pelanggan puas"
     value: "200+"
-  - label: "Support availability"
+  - label: "Ketersediaan dukungan"
     value: "24/7"
 cta:
-  heading: "Ready to work with us?"
-  text: "Tell us about your project and our team will be in touch within one business day."
-  label: "Contact us"
-  url: "/contact/"
+  heading: "Siap bekerja sama dengan kami?"
+  text: "Ceritakan proyek Anda dan tim kami akan menghubungi Anda dalam satu hari kerja."
+  label: "Hubungi kami"
+  url: "/id/contact/"
 ---
