@@ -7,7 +7,6 @@ shortDescription: "Sistem UPS yang andal untuk proteksi daya dan kelangsungan bi
 hero:
   heading: "Solusi UPS"
   tagline: "Sistem UPS yang andal untuk proteksi daya dan kelangsungan bisnis."
-  image: "/img/solution-ups.jpg"
 description: >-
   Sejak 1990, Limawira Wisesa telah menjadi nama tepercaya di bidang
   proteksi daya kritis. Sebagai distributor eksklusif sistem UPS Exide
@@ -42,7 +41,7 @@ customers:
   - name: "Bank BTN"
     logo: "/img/customers/btn.png"
   - name: "JICT"
-    logo: "/img/customers/jict.png"
+    logo: "/img/customers/jict.jpeg"
 cta:
   label: "Dapatkan konsultasi penentuan kapasitas UPS"
   url: "/id/contact/"

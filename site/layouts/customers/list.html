@@ -20,7 +20,10 @@
       </div>
       <ul class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {{ range .customers }}
-          <li class="card p-5 hover:border-brand transition">
+          <li class="card p-5 hover:border-brand transition flex flex-col items-center justify-center text-center min-h-32">
+            {{ with .logo }}
+              <img src="{{ . }}" alt="" class="max-h-16 max-w-full object-contain mb-3">
+            {{ end }}
             <p class="text-sm font-semibold">{{ .name }}</p>
             <p class="text-xs text-ink-muted mt-1">{{ .industry }}</p>
           </li>

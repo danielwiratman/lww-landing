@@ -2,15 +2,15 @@
 title: "PT Limawira Wisesa"
 hero:
   eyebrow: "Sejak 1985"
-  heading: "Infrastruktur Digital Korporat & Solusi Critical Power"
-  tagline: "System integrator berpengalaman untuk solusi IT, Elektrikal, dan Power System yang andal, efisien, dan berkelanjutan."
+  heading: "Membangun Infrastruktur Digital Korporat & Solusi Critical Power"
+  tagline: "Selama lebih dari 40 tahun, Limawira telah menjadi mitra tepercaya di bidang Infrastruktur Digital, Critical Power, dan Teknik Elektrikal, menghadirkan solusi inovatif melalui keunggulan engineering, dukungan siklus hidup yang responsif, dan komitmen teguh terhadap keberhasilan pelanggan."
   primaryCta:
     label: "Ajukan Konsultasi"
     url: "/id/contact/"
   secondaryCta:
     label: "Lihat Proyek Kami"
     url: "/id/projects/"
-  image: "/img/home-hero.jpg"
+  image: "/img/home-hero.png"
 quickIcons:
   title: "Layanan kami, sekilas"
   items:

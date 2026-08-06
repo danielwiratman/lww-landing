@@ -2,16 +2,15 @@
 title: PT Limawira Wisesa
 hero:
   eyebrow: Since 1985
-  heading: Enterprise Digital Infrastructure & Critical Power Solutions
-  tagline: System integrator berpengalaman untuk solusi IT, Electrical, dan Power
-    System yang andal, efisien, dan berkelanjutan.
+  heading: Building Enterprise Digital Infrastructure & Critical Power Solutions
+  tagline: For over 40 years, Limawira has been a trusted partner in Digital Infrastructure, Critical Power, and Electrical Engineering, delivering innovative solutions through engineering excellence, responsive lifecycle support, and an unwavering commitment to customer success.
   primaryCta:
     label: Request Consultation
     url: /contact/
   secondaryCta:
     label: View Our Projects
     url: /projects/
-  image: img/electrical-engineer.jpg
+  image: /img/home-hero.png
 quickIcons:
   title: What we do, at a glance
   items:
@@ -37,8 +36,7 @@ stats:
 solutions:
   eyebrow: What we do
   title: Our Solutions & Services
-  subtitle: End-to-end solutions across six practice areas — from design and build
-    to long-term maintenance.
+  subtitle: End-to-end solutions across six practice areas — from design and build to long-term maintenance.
 partners:
   title: Our Partners
   subtitle: Working with globally recognised technology leaders.
@@ -48,13 +46,11 @@ partners:
 cta:
   eyebrow: Ready to start?
   title: Tell us about your project.
-  text: Whether you are building a new facility or modernising an existing one,
-    our engineers are ready to help.
+  text: Whether you are building a new facility or modernising an existing one, our engineers are ready to help.
   primaryCta:
     label: Request consultation
     url: /contact/
   secondaryCta:
     label: Call +62 21 5890 3970
     url: tel:+622158903970
-  heading: Test
 ---

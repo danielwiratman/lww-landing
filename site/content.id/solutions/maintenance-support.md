@@ -7,7 +7,6 @@ shortDescription: "Pemeliharaan preventif dan dukungan 24/7 untuk memastikan per
 hero:
   heading: "Pemeliharaan & Dukungan"
   tagline: "Pemeliharaan preventif dan dukungan 24/7 untuk memastikan performa sistem yang optimal."
-  image: "/img/solution-maintenance.jpg"
 description: >-
   Service desk 24/7 dan jaringan field engineer kami di seluruh Indonesia
   menjaga infrastruktur kritis Anda tetap sehat sepanjang siklus hidupnya.
@@ -35,11 +34,11 @@ specs:
     value: "Laporan kesehatan aset bulanan"
 customers:
   - name: "Astra Sedaya Finance"
-    logo: "/img/customers/acc.png"
+    logo: "/img/customers/acc.jpeg"
   - name: "Bappenas"
     logo: "/img/customers/bappenas.png"
   - name: "LKBN Antara"
-    logo: "/img/customers/antara.png"
+    logo: "/img/customers/antara.jpeg"
 cta:
   label: "Diskusikan kontrak pemeliharaan"
   url: "/id/contact/"

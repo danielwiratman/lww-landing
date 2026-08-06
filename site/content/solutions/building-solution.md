@@ -7,7 +7,6 @@ shortDescription: "Smart building system and automation for efficient building m
 hero:
   heading: "Building Solutions"
   tagline: "Smart building systems and automation for efficient building management."
-  image: "/img/solution-building.jpg"
 description: >-
   We integrate building management systems, IP surveillance, access control,
   and energy management into a unified smart-building platform. Our approach

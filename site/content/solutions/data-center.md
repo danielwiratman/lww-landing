@@ -7,7 +7,6 @@ shortDescription: "End-to-end data center infrastructure solutions designed for 
 hero:
   heading: "Data Center Solutions"
   tagline: "End-to-end data center infrastructure designed for reliability, efficiency, and scalability."
-  image: "/img/solution-datacenter.jpg"
 description: >-
   We design, build, and maintain mission-critical data center environments for
   enterprises that cannot afford downtime. From a single rack to multi-megawatt

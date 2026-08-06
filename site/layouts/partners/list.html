@@ -14,7 +14,10 @@
 <section class="container-x py-16">
   <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
     {{ range .Params.partners }}
-      <li class="card p-6 flex flex-col items-center justify-center text-center h-32 hover:border-brand transition">
+      <li class="card p-6 flex flex-col items-center justify-center text-center h-40 hover:border-brand transition">
+        {{ with .logo }}
+          <img src="{{ . }}" alt="" class="max-h-16 max-w-full object-contain mb-2">
+        {{ end }}
         <p class="text-base font-bold">{{ .name }}</p>
         <p class="text-xs text-ink-muted mt-1">{{ .category }}</p>
       </li>

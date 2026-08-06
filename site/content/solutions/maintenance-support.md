@@ -7,7 +7,6 @@ shortDescription: "Preventive maintenance and 24/7 support to ensure optimal sys
 hero:
   heading: "Maintenance & Support"
   tagline: "Preventive maintenance and 24/7 support to ensure optimal system performance."
-  image: "/img/solution-maintenance.jpg"
 description: >-
   Our 24/7 service desk and nationwide field-engineer network keep your
   critical infrastructure healthy throughout its lifecycle. We offer
@@ -34,11 +33,11 @@ specs:
     value: "Monthly asset health reports"
 customers:
   - name: "Astra Sedaya Finance"
-    logo: "/img/customers/acc.png"
+    logo: "/img/customers/acc.jpeg"
   - name: "Bappenas"
     logo: "/img/customers/bappenas.png"
   - name: "LKBN Antara"
-    logo: "/img/customers/antara.png"
+    logo: "/img/customers/antara.jpeg"
 cta:
   label: "Discuss a maintenance contract"
   url: "/contact/"

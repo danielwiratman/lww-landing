@@ -7,7 +7,6 @@ shortDescription: "Network, structured cabling, and ICT infrastructure for moder
 hero:
   heading: "ICT Infrastructure"
   tagline: "Network, structured cabling, and ICT infrastructure for modern business."
-  image: "/img/solution-ict.jpg"
 description: >-
   We deliver enterprise-grade ICT infrastructure — from LAN/WAN architecture
   and structured cabling to data center networking and software-defined

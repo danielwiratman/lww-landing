@@ -7,7 +7,6 @@ shortDescription: "Reliable UPS systems for power protection and business contin
 hero:
   heading: "UPS Solutions"
   tagline: "Reliable UPS systems for power protection and business continuity."
-  image: "/img/solution-ups.jpg"
 description: >-
   Since 1990, Limawira Wisesa has been a trusted name in critical power
   protection. As the exclusive Indonesian distributor of Exide Electronics
@@ -41,7 +40,7 @@ customers:
   - name: "Bank BTN"
     logo: "/img/customers/btn.png"
   - name: "JICT"
-    logo: "/img/customers/jict.png"
+    logo: "/img/customers/jict.jpeg"
 cta:
   label: "Get a UPS sizing consultation"
   url: "/contact/"

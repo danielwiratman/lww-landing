@@ -7,7 +7,6 @@ shortDescription: "Sistem smart building dan otomasi untuk manajemen gedung yang
 hero:
   heading: "Solusi Gedung"
   tagline: "Sistem smart building dan otomasi untuk manajemen gedung yang efisien."
-  image: "/img/solution-building.jpg"
 description: >-
   Kami mengintegrasikan building management system, IP surveillance, access
   control, dan energy management ke dalam satu platform smart-building

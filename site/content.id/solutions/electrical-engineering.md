@@ -7,7 +7,6 @@ shortDescription: "Desain, instalasi, dan engineering elektrikal untuk berbagai 
 hero:
   heading: "Teknik Elektrikal"
   tagline: "Desain, instalasi, dan engineering elektrikal untuk berbagai industri."
-  image: "/img/solution-electrical.jpg"
 description: >-
   Praktik teknik elektrikal kami memadukan warisan perusahaan kontraktor
   yang didirikan pada 1985 dengan perangkat digital modern dan praktik
@@ -35,7 +34,7 @@ specs:
     value: "Schneider, ABB, Eaton, Siemens"
 customers:
   - name: "Telkom Satelit Indonesia"
-    logo: "/img/customers/telkom.png"
+    logo: "/img/customers/telkom.jpeg"
   - name: "Asuransi Jiwa Manulife Indonesia"
     logo: "/img/customers/manulife.png"
   - name: "Bumi Serpong Damai"

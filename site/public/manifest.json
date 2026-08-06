@@ -1,0 +1,12 @@
+{
+  "name": "PT Limawira Wisesa",
+  "short_name": "Limawira Wisesa",
+  "description": "Enterprise digital infrastructure and critical power solutions since 1985.",
+  "icons": [
+    { "src": "/img/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/img/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#475b29",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

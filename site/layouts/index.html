@@ -146,11 +146,16 @@
     </div>
 
     <ul class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-      {{ with .Site.GetPage "/partners/" }}
+      {{ $partnersPage := $.Site.GetPage "/partners/" }}
+      {{ with $partnersPage }}
         {{ with .Params.partners }}
           {{ range first 8 . }}
-            <li class="flex items-center justify-center h-20 px-4 rounded-lg bg-white border border-line text-sm font-semibold text-ink-muted text-center">
-              {{ .name }}
+            <li class="flex items-center justify-center h-20 px-3 rounded-lg bg-white border border-line text-center">
+              {{ with .logo }}
+                <img src="{{ . }}" alt="" class="max-h-12 max-w-full object-contain">
+              {{ else }}
+                <span class="text-sm font-semibold text-ink-muted">{{ .name }}</span>
+              {{ end }}
             </li>
           {{ end }}
         {{ end }}

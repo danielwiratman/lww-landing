@@ -7,7 +7,6 @@ shortDescription: "Electrical design, installation, and engineering for various 
 hero:
   heading: "Electrical Engineering"
   tagline: "Electrical design, installation, and engineering for various industries."
-  image: "/img/solution-electrical.jpg"
 description: >-
   Our electrical engineering practice combines the legacy of a contracting
   company founded in 1985 with modern digital tools and best practices. We
@@ -35,7 +34,7 @@ specs:
     value: "Schneider, ABB, Eaton, Siemens"
 customers:
   - name: "Telkom Satelit Indonesia"
-    logo: "/img/customers/telkom.png"
+    logo: "/img/customers/telkom.jpeg"
   - name: "Asuransi Jiwa Manulife Indonesia"
     logo: "/img/customers/manulife.png"
   - name: "Bumi Serpong Damai"

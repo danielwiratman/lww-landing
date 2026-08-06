@@ -7,7 +7,6 @@ shortDescription: "Jaringan, structured cabling, dan infrastruktur ICT untuk bis
 hero:
   heading: "Infrastruktur ICT"
   tagline: "Jaringan, structured cabling, dan infrastruktur ICT untuk bisnis modern."
-  image: "/img/solution-ict.jpg"
 description: >-
   Kami menyediakan infrastruktur ICT kelas korporat — mulai dari arsitektur
   LAN/WAN dan structured cabling hingga networking data center dan

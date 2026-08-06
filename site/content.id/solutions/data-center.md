@@ -1,5 +1,5 @@
 ---
-title: "Data Center"
+title: "Solusi Data Center"
 slug: "data-center"
 order: 1
 icon: "server"
@@ -7,7 +7,6 @@ shortDescription: "Solusi infrastruktur data center menyeluruh yang dirancang un
 hero:
   heading: "Solusi Data Center"
   tagline: "Infrastruktur data center menyeluruh yang dirancang untuk keandalan, efisiensi, dan skalabilitas."
-  image: "/img/solution-datacenter.jpg"
 description: >-
   Kami merancang, membangun, dan merawat lingkungan data center mission-critical
   bagi perusahaan yang tidak bisa menoleransi downtime. Dari satu rak
