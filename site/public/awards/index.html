@@ -482,15 +482,33 @@
         <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/40.png" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/40.png"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/40.png" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/41.jpeg" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/41.jpeg"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/41.jpeg" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/45.png" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/45.png"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/45.png" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
         </ul>
@@ -506,11 +524,23 @@
         <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/42.jpeg" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/42.jpeg"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/42.jpeg" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/44.png" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/44.png"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/44.png" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
         </ul>
@@ -526,11 +556,23 @@
         <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/43.jpeg" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/43.jpeg"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/43.jpeg" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="/img/awards/46.png" alt="" class="w-full h-56 object-contain">
+              <a href="/img/awards/46.png"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="/img/awards/46.png" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           
         </ul>
@@ -713,6 +755,20 @@
   </ul>
 </section>
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css">
+<script type="module">
+  import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "main",
+    children: "a.award-thumb",
+    pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"),
+    showHideAnimationType: "zoom",
+    bgOpacity: 0.92,
+    padding: { top: 24, bottom: 24, left: 24, right: 24 },
+  });
+  lightbox.init();
+</script>
 
 
     </main>

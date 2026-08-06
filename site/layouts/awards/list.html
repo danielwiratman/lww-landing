@@ -25,7 +25,13 @@
         <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
           {{ range .images }}
             <li class="rounded-lg border border-line bg-cream/40 p-3 flex items-center justify-center">
-              <img src="{{ . }}" alt="" class="w-full h-56 object-contain">
+              <a href="{{ . }}"
+                 class="award-thumb group block w-full"
+                 data-pswp-width="1600" data-pswp-height="1200"
+                 aria-label="View larger image">
+                <img src="{{ . }}" alt="" loading="lazy"
+                     class="w-full h-56 object-contain transition duration-300 group-hover:scale-[1.02]">
+              </a>
             </li>
           {{ end }}
         </ul>
@@ -58,5 +64,19 @@
   </ul>
 </section>
 {{ end }}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css">
+<script type="module">
+  import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "main",
+    children: "a.award-thumb",
+    pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"),
+    showHideAnimationType: "zoom",
+    bgOpacity: 0.92,
+    padding: { top: 24, bottom: 24, left: 24, right: 24 },
+  });
+  lightbox.init();
+</script>
 
 {{ end }}
