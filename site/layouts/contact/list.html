@@ -30,6 +30,24 @@
   </ul>
 </section>
 
+<!-- Map -->
+{{ $isID := eq $.Site.Language.Lang "id" }}
+<section class="container-x pb-12">
+  <div class="rounded-2xl overflow-hidden border border-line bg-white">
+    <div class="aspect-[21/9] w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4591.460893609353!2d106.89654917563678!3d-6.194057860684477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4c7f498d509%3A0x6b8ea8ab8bd1b58d!2sPT.%20Limawira%20Wisesa!5e1!3m2!1sen!2sid!4v1785989314268!5m2!1sen!2sid"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="{{ cond $isID "Lokasi PT. Limawira Wisesa di peta" "PT. Limawira Wisesa location on map" }}"></iframe>
+    </div>
+  </div>
+</section>
+
 <!-- Form + hours -->
 <section class="container-x py-12">
   <div class="grid lg:grid-cols-3 gap-8">

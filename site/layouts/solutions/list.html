@@ -5,6 +5,7 @@
 {{ define "main" }}
 
 {{ $hero := .Params.hero }}
+{{ $isID := eq $.Site.Language.Lang "id" }}
 {{ partial "page-header" (dict
   "image"       ($hero.image | default "")
   "eyebrow"     ($hero.tagline | default "Solutions & Services")
@@ -27,7 +28,7 @@
           <h3 class="text-lg font-bold mb-2 group-hover:text-brand transition">{{ .Title }}</h3>
           <p class="text-sm text-ink-muted leading-relaxed">{{ .Params.shortDescription }}</p>
           <p class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand">
-            Learn more {{ partial "icon" "arrow-right" }}
+            {{ cond $isID "Pelajari lebih lanjut" "Learn more" }} {{ partial "icon" "arrow-right" }}
           </p>
         </a>
       </li>
@@ -36,11 +37,17 @@
 </section>
 
 {{ partial "cta" (dict
-  "eyebrow"     "Need help choosing?"
-  "heading"     "Not sure which solution fits your project?"
-  "text"        "Talk to our engineers — we'll recommend the right architecture based on your load, uptime, and compliance requirements."
-  "primaryCta"  (dict "label" "Request consultation" "url" "/contact/")
-  "secondaryCta" (dict "label" "Call +62 21 5890 3970" "url" "tel:+622158903970")
+  "eyebrow"     (cond $isID "Butuh bantuan memilih?" "Need help choosing?")
+  "heading"     (cond $isID "Belum yakin solusi mana yang sesuai untuk proyek Anda?" "Not sure which solution fits your project?")
+  "text"        (cond $isID
+    "Diskusikan dengan tim engineer kami — kami akan merekomendasikan arsitektur yang tepat berdasarkan beban, uptime, dan kebutuhan kepatuhan Anda."
+    "Talk to our engineers — we'll recommend the right architecture based on your load, uptime, and compliance requirements.")
+  "primaryCta"  (dict
+    "label" (cond $isID "Ajukan konsultasi" "Request consultation")
+    "url"   "/contact/")
+  "secondaryCta" (dict
+    "label" (cond $isID "Telepon (62-21) 4788 2000" "Call (62-21) 4788 2000")
+    "url"   "tel:+622147882000")
 ) }}
 
 {{ end }}
