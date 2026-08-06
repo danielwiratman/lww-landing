@@ -4,6 +4,7 @@
 {{ define "main" }}
 
 {{ $hero := .Params.hero }}
+{{ $isID := eq $.Site.Language.Lang "id" }}
 {{ partial "page-header" (dict
   "image"       ($hero.image | default "")
   "eyebrow"     ($hero.tagline | default "Partners")
@@ -11,7 +12,14 @@
   "subheading"  (.Params.intro | default "")
 ) }}
 
+<!-- Partners -->
 <section class="container-x py-16">
+  <div class="max-w-2xl mb-10">
+    <p class="eyebrow mb-3">{{ cond $isID "Mitra" "Partners" }}</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-balance">
+      {{ cond $isID "Mitra Teknologi Kami" "Our Technology Partners" }}
+    </h2>
+  </div>
   <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
     {{ range .Params.partners }}
       <li class="card p-6 flex flex-col items-center justify-center text-center h-40 hover:border-brand transition">
@@ -25,11 +33,33 @@
   </ul>
 </section>
 
-{{ partial "cta" (dict
-  "eyebrow"     "Become a partner"
-  "heading"     "Interested in partnering with Limawira Wisesa?"
-  "text"        "We work with technology leaders, system integrators, and value-added resellers across Indonesia."
-  "primaryCta"  (dict "label" "Get in touch" "url" "/contact/")
-) }}
+<!-- Clients -->
+{{ with .Params.clients }}
+<section class="bg-brand text-white">
+  <div class="container-x py-16 md:py-20">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold tracking-[0.2em] uppercase text-brand-200 mb-3">
+        {{ cond $isID "Pelanggan" "Clients" }}
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold text-balance">
+        {{ if $isID }}Dipercaya oleh {{ .count }} pelanggan di seluruh Indonesia{{ else }}Trusted by {{ .count }} clients across Indonesia{{ end }}
+      </h2>
+      {{ with .blurb }}
+        <p class="mt-4 text-brand-100/90 max-w-2xl">{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.cta }}
+  {{ partial "cta" (dict
+    "eyebrow"     .eyebrow
+    "heading"     .heading
+    "text"        .text
+    "primaryCta"  (dict "label" .button "url" "/contact/")
+    "secondaryCta" nil
+  ) }}
+{{ end }}
 
 {{ end }}

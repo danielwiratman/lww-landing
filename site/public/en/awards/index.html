@@ -812,12 +812,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css">
 <script>
 (function () {
+  
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a.award-thumb");
+    if (a) e.preventDefault();
+  }, true);
+
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
       var s = document.createElement("script");
       s.src = src;
       s.onload = resolve;
-      s.onerror = reject;
+      s.onerror = function () { reject(new Error("Failed to load " + src)); };
       document.head.appendChild(s);
     });
   }
@@ -834,36 +840,28 @@
   }
 
   function preloadDims() {
-    var map = new WeakMap();
     var promises = [];
     document.querySelectorAll("a.award-thumb").forEach(function (a) {
       var src = a.getAttribute("data-pswp-src");
       if (!src) return;
       var p = new Promise(function (resolve) {
         var img = new Image();
-        img.onload = function () { map.set(a, { w: img.naturalWidth, h: img.naturalHeight }); resolve(); };
+        img.onload = function () { resolve(); };
         img.onerror = function () { resolve(); };
         img.src = src;
       });
       promises.push(p);
     });
-    return Promise.all(promises).then(function () { return map; });
+    return Promise.all(promises);
   }
 
   function init() {
-    if (typeof PhotoSwipeLightbox === "undefined") return;
-    var dimMap = new Map();
-    var anchors = document.querySelectorAll("a.award-thumb");
-
-    anchors.forEach(function (a) {
-      var src = a.getAttribute("data-pswp-src");
-      var img = a.querySelector("img");
-      if (!src) return;
-      dimMap.set(a, { w: img.naturalWidth || 1200, h: img.naturalHeight || 1600, src: src });
-    });
-
-    var lightbox = new PhotoSwipeLightbox({
-      pswpModule: PhotoSwipe,
+    if (typeof window.PhotoSwipeLightbox === "undefined") {
+      console.error("PhotoSwipe not loaded");
+      return;
+    }
+    var lightbox = new window.PhotoSwipeLightbox({
+      pswpModule: window.PhotoSwipe,
       gallery: "main",
       children: "a.award-thumb",
       showHideAnimationType: "zoom",
@@ -875,11 +873,12 @@
     });
 
     lightbox.on("itemData", function (e) {
-      var d = dimMap.get(e.itemData.el);
-      if (!d) return;
-      e.itemData.src = d.src;
-      e.itemData.w = d.w;
-      e.itemData.h = d.h;
+      var a = e.itemData.el;
+      var src = a.getAttribute("data-pswp-src");
+      var img = a.querySelector("img");
+      e.itemData.src = src;
+      e.itemData.w = (img && img.naturalWidth) || 1200;
+      e.itemData.h = (img && img.naturalHeight) || 1600;
     });
 
     lightbox.init();
@@ -887,8 +886,12 @@
 
   Promise.all([
     loadStyle("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"),
-    loadScript("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.umd.min.js"),
-  ]).then(preloadDims).then(init);
+    loadScript("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/umd/photoswipe.umd.min.js"),
+    loadScript("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/umd/photoswipe-lightbox.umd.min.js"),
+  ])
+    .then(preloadDims)
+    .then(init)
+    .catch(function (err) { console.error("Lightbox init failed:", err); });
 })();
 </script>
 

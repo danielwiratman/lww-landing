@@ -53,4 +53,16 @@ partners:
   - name: Huawei
     category: Technology
     logo: /img/partners/39.png
+clients:
+  count: "500+"
+  blurb: >-
+    Our customers span every major industry — government, finance,
+    healthcare, manufacturing, telecommunications, and more.
+cta:
+  eyebrow: "Become a partner"
+  heading: "Interested in partnering with Limawira Wisesa?"
+  text: >-
+    We work with technology leaders, system integrators, and value-added
+    resellers across Indonesia.
+  button: "Contact us"
 ---
