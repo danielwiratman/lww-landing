@@ -22,8 +22,8 @@ public_folder: "img"
 local_backend: true
 
 # Friendly editor settings
-site_url: https://limawira.netlify.app
-display_url: https://limawira.com
+site_url: https://dev-lww-landing.netlify.app
+display_url: https://dev-lww-landing.netlify.app
 logo_url: /img/logo.svg
 
 # Allow editors to publish from a friendly UI
