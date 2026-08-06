@@ -1,5 +1,5 @@
 {{/*
-  Scrolling text marquee for client/customer names.
+  Vertical ticker: 5 horizontal rows stacked, each scrolling slowly.
   Usage:
     {{ partial "client-marquee" (dict "items" $items) }}
 */}}
@@ -7,41 +7,62 @@
 {{ $items := .items }}
 
 {{ if $items }}
+{{ $rowCount := 5 }}
+{{ $total := len $items }}
+{{ $perRow := div (add $total (sub $rowCount 1)) $rowCount }}
+
 <div class="client-marquee" role="list" aria-label="Client list">
-  <div class="client-marquee-track">
-    {{ range $items }}
-      <span class="client-marquee-item" role="listitem">{{ . }}</span>
-    {{ end }}
-    {{ range $items }}
-      <span class="client-marquee-item" role="listitem" aria-hidden="true">{{ . }}</span>
-    {{ end }}
-  </div>
+  {{ range $row := seq 0 (sub $rowCount 1) }}
+    {{ $offset := mul $row $perRow }}
+    <div class="client-marquee-row">
+      <div class="client-marquee-track">
+        {{ range $i := seq $offset (add (sub $offset 1) $perRow) }}
+          {{ $idx := mod $i $total }}
+          <span class="client-marquee-item" role="listitem">{{ index $items $idx }}</span>
+        {{ end }}
+        {{ range $i := seq $offset (add (sub $offset 1) $perRow) }}
+          {{ $idx := mod $i $total }}
+          <span class="client-marquee-item" role="listitem" aria-hidden="true">{{ index $items $idx }}</span>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
 </div>
 
 <style>
   .client-marquee {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%);
   }
+  .client-marquee-row {
+    overflow: hidden;
+  }
   .client-marquee-track {
     display: flex;
-    gap: 2.5rem;
+    gap: 1rem;
     width: max-content;
-    animation: client-marquee-scroll 60s linear infinite;
+    animation: client-marquee-scroll 180s linear infinite;
     will-change: transform;
   }
+  .client-marquee-row:nth-child(2) .client-marquee-track { animation-duration: 200s; }
+  .client-marquee-row:nth-child(3) .client-marquee-track { animation-duration: 220s; }
+  .client-marquee-row:nth-child(4) .client-marquee-track { animation-duration: 240s; }
+  .client-marquee-row:nth-child(5) .client-marquee-track { animation-duration: 260s; }
+
   .client-marquee:hover .client-marquee-track,
   .client-marquee:focus-within .client-marquee-track {
     animation-play-state: paused;
   }
   .client-marquee-item {
     flex: 0 0 auto;
-    padding: 0.5rem 1.25rem;
+    padding: 0.4rem 1rem;
     border-radius: 9999px;
     background: rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.85);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 0.01em;
     white-space: nowrap;
