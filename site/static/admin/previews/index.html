@@ -472,8 +472,73 @@
       document.getElementById("root").innerHTML = html;
     }
 
-    CMS.registerPreviewStyle("/cms-preview.css");
-    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+    // Decap CMS preview pane is an <iframe srcdoc="...">. registerPreviewStyle
+    // injects <link> tags into the srcdoc <head>, but the path is resolved
+    // against about:srcdoc (the iframe's baseURI), not the parent page.
+    // To work around that, we fetch the CSS at preview-time and inject it
+    // as a <style> block in the iframe head. This is bulletproof regardless
+    // of how the admin URL is mounted.
+    (function injectPreviewCss() {
+      if (typeof window === "undefined") return;
+      var origin = window.location && window.location.origin ? window.location.origin : "";
+      var cssUrl = origin + "/cms-preview.css";
+
+      function tryInject(doc) {
+        if (!doc || !doc.head) return;
+        if (doc.getElementById("lw-cms-preview-style")) return;
+        var link = doc.createElement("link");
+        link.id = "lw-cms-preview-style";
+        link.rel = "stylesheet";
+        link.href = cssUrl;
+        doc.head.appendChild(link);
+      }
+
+      // 1) Direct injection into the preview iframe (if it exists right now)
+      var frame = document.getElementById("preview-pane");
+      if (frame) tryInject(frame.contentDocument);
+
+      // 2) Watch for the preview pane to mount — Decap recreates it
+      var observer = new MutationObserver(function () {
+        var f = document.getElementById("preview-pane");
+        if (f && f.contentDocument) tryInject(f.contentDocument);
+      });
+      observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+
+      // 3) Also try once the iframe loads
+      if (frame) {
+        frame.addEventListener("load", function () {
+          tryInject(frame.contentDocument);
+        });
+      }
+    })();
+
+    // Belt-and-suspenders: fetch the CSS and inline it as a <style> tag in
+    // the preview iframe. Avoids any cross-frame path-resolution issues.
+    (function inlinePreviewCss() {
+      if (typeof window === "undefined") return;
+      var origin = window.location && window.location.origin ? window.location.origin : "";
+      fetch(origin + "/cms-preview.css")
+        .then(function (r) { return r.ok ? r.text() : ""; })
+        .then(function (css) {
+          if (!css) return;
+          function inject(doc) {
+            if (!doc || !doc.head) return;
+            if (doc.getElementById("lw-cms-preview-inline")) return;
+            var s = doc.createElement("style");
+            s.id = "lw-cms-preview-inline";
+            s.textContent = css;
+            doc.head.appendChild(s);
+          }
+          var frame = document.getElementById("preview-pane");
+          if (frame) inject(frame.contentDocument);
+          var obs = new MutationObserver(function () {
+            var f = document.getElementById("preview-pane");
+            if (f && f.contentDocument) inject(f.contentDocument);
+          });
+          obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
+        })
+        .catch(function (e) { console.warn("[preview] CSS fetch failed:", e); });
+    })();
 
     CMS.registerPreviewTemplate("pages", renderPage);
     CMS.registerPreviewTemplate("pages_en", renderPage);
