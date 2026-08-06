@@ -1,0 +1,64 @@
+{{/*
+  Scrolling text marquee for client/customer names.
+  Usage:
+    {{ partial "client-marquee" (dict "items" $items) }}
+*/}}
+
+{{ $items := .items }}
+
+{{ if $items }}
+<div class="client-marquee" role="list" aria-label="Client list">
+  <div class="client-marquee-track">
+    {{ range $items }}
+      <span class="client-marquee-item" role="listitem">{{ . }}</span>
+    {{ end }}
+    {{ range $items }}
+      <span class="client-marquee-item" role="listitem" aria-hidden="true">{{ . }}</span>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+  .client-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%);
+  }
+  .client-marquee-track {
+    display: flex;
+    gap: 2.5rem;
+    width: max-content;
+    animation: client-marquee-scroll 60s linear infinite;
+    will-change: transform;
+  }
+  .client-marquee:hover .client-marquee-track,
+  .client-marquee:focus-within .client-marquee-track {
+    animation-play-state: paused;
+  }
+  .client-marquee-item {
+    flex: 0 0 auto;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .client-marquee-item:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  @keyframes client-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .client-marquee-track { animation: none; }
+  }
+</style>
+{{ end }}

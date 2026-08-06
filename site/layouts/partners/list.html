@@ -35,7 +35,7 @@
 
 <!-- Clients -->
 {{ with .Params.clients }}
-<section class="bg-brand text-white">
+<section class="bg-brand text-white overflow-hidden">
   <div class="container-x py-16 md:py-20">
     <div class="max-w-2xl">
       <p class="text-sm font-semibold tracking-[0.2em] uppercase text-brand-200 mb-3">
@@ -48,6 +48,9 @@
         <p class="mt-4 text-brand-100/90 max-w-2xl">{{ . }}</p>
       {{ end }}
     </div>
+  </div>
+  <div class="pb-16 md:pb-20">
+    {{ partial "client-marquee" (dict "items" ($.Site.Data.clients)) }}
   </div>
 </section>
 {{ end }}
