@@ -42,9 +42,13 @@ specs:
     value: "Consultation, implementation, testing, maintenance"
 customers:
   - name: "Taspen (Persero)"
+    logo: "/img/customers/taspen.png"
   - name: "BPOM — Badan Pengawas Obat dan Makanan"
+    logo: "/img/customers/bpom.png"
   - name: "BTN — Bank Tabungan Negara"
+    logo: "/img/customers/btn.png"
   - name: "JICT — Jakarta International Container Terminal"
+    logo: "/img/customers/jict.jpeg"
 cta:
   label: "Find the right UPS for your business"
   url: "/contact/"

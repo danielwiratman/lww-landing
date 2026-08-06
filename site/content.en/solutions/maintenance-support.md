@@ -36,8 +36,11 @@ specs:
     value: "Optimal operations, minimal downtime, longer system life"
 customers:
   - name: "Astra Sedaya Finance (Astra Credit Company)"
+    logo: "/img/customers/acc.jpeg"
   - name: "BAPPENAS / Kantor Meneg PPN"
+    logo: "/img/customers/bappenas.png"
   - name: "LKBN Antara"
+    logo: "/img/customers/antara.jpeg"
 cta:
   label: "Get a maintenance contract for your systems"
   url: "/contact/"

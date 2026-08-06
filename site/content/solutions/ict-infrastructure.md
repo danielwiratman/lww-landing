@@ -38,8 +38,11 @@ specs:
     value: "Berbagai sektor — pemerintahan, keuangan, kesehatan, manufaktur, telekomunikasi"
 customers:
   - name: "Kementerian Keuangan — DJBC"
+    logo: "/img/customers/djbc.png"
   - name: "Kementerian Dalam Negeri"
+    logo: "/img/customers/kemendagri.png"
   - name: "Pemprov DKI Jakarta"
+    logo: "/img/customers/dki.png"
 cta:
   label: "Rencanakan infrastruktur IT Anda"
   url: "/contact/"

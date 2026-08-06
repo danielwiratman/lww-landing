@@ -37,8 +37,11 @@ specs:
     value: "End-to-end, safe, efficient, sustainable"
 customers:
   - name: "Kementerian Pertanian"
+    logo: "/img/customers/pertanian.png"
   - name: "Kementerian Keuangan — DJPb"
+    logo: "/img/customers/djpb.png"
   - name: "Samakta Mitra"
+    logo: "/img/customers/samakta.png"
 cta:
   label: "Discuss your data center project"
   url: "/contact/"

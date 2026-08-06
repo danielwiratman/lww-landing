@@ -36,8 +36,11 @@ specs:
     value: "End-to-end, engineering best practice"
 customers:
   - name: "Telkom Satelit Indonesia"
+    logo: "/img/customers/telkom.jpeg"
   - name: "Asuransi Jiwa Manulife Indonesia"
+    logo: "/img/customers/manulife.png"
   - name: "Bumi Serpong Damai"
+    logo: "/img/customers/bsde.png"
 cta:
   label: "Talk through your M&E needs"
   url: "/contact/"

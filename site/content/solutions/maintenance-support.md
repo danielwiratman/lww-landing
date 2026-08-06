@@ -36,8 +36,11 @@ specs:
     value: "Operasional optimal, downtime minimal, umur sistem lebih panjang"
 customers:
   - name: "Astra Sedaya Finance (Astra Credit Company)"
+    logo: "/img/customers/acc.jpeg"
   - name: "BAPPENAS / Kantor Meneg PPN"
+    logo: "/img/customers/bappenas.png"
   - name: "LKBN Antara"
+    logo: "/img/customers/antara.jpeg"
 cta:
   label: "Dapatkan kontrak pemeliharaan untuk sistem Anda"
   url: "/contact/"
