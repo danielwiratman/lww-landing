@@ -27,7 +27,7 @@
             <li class="rounded-lg border border-line bg-cream/40 p-3">
               <a href="{{ . }}"
                  class="award-thumb group block"
-                 data-pswp-width="1600" data-pswp-height="1200"
+                 data-pswp-src="{{ . }}"
                  aria-label="View larger image">
                 <img src="{{ . }}" alt="" loading="lazy"
                      class="w-full h-auto max-h-72 object-contain mx-auto transition duration-300 group-hover:scale-[1.02]">
@@ -68,14 +68,34 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css">
 <script type="module">
   import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
+
+  function loadDims(a) {
+    return new Promise((resolve) => {
+      const src = a.dataset.pswpSrc;
+      if (!src) return resolve({ w: 1600, h: 1200 });
+      const img = new Image();
+      img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+      img.onerror = () => resolve({ w: 1600, h: 1200 });
+      img.src = src;
+    });
+  }
+
   const lightbox = new PhotoSwipeLightbox({
-    gallery: "main",
-    children: "a.award-thumb",
     pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"),
     showHideAnimationType: "zoom",
     bgOpacity: 0.92,
     padding: { top: 24, bottom: 24, left: 24, right: 24 },
+    children: "a.award-thumb",
+    gallery: "main",
   });
+
+  lightbox.on("itemData", async (e) => {
+    const { w, h } = await loadDims(e.itemData.el);
+    e.itemData.src = e.itemData.el.dataset.pswpSrc;
+    e.itemData.w = w;
+    e.itemData.h = h;
+  });
+
   lightbox.init();
 </script>
 
