@@ -1,0 +1,17 @@
+{
+  "main": {
+    "css": "main.48079.css",
+    "js": "main.48079.js"
+  },
+  "cms": {
+    "js": "cms.48079.js"
+  },
+  "cms-preview": {
+    "css": "cms-preview.css",
+    "js": "cms-preview.48079.js"
+  },
+  "": {
+    "html": "admin/index.html",
+    "keep": "fonts/.keep"
+  }
+}

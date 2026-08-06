@@ -11,8 +11,8 @@ hero:
     label: Ajukan Konsultasi
     url: /contact/
   secondaryCta:
-    label: Lihat Proyek Kami
-    url: /projects/
+    label: Lihat Solusi Kami
+    url: /solutions/
   image: img/electrical-engineer.jpg
 quickIcons:
   title: Layanan kami, sekilas

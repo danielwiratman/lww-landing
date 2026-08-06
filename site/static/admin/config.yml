@@ -272,51 +272,6 @@ collections:
                     required: false
                     field: {label: "Opsi", name: "", widget: "string"}
 
-      # ----------------------- KARIER (CAREER) -----------------------
-      - file: "site/content/career/_index.md"
-        label: "Karier"
-        name: "career"
-        description: "Mengapa bergabung, posisi terbuka, dan CTA lamaran"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Mengapa bergabung"
-            name: "why"
-            widget: "object"
-            fields:
-              - {label: "Judul bagian", name: "title", widget: "string", default: "Mengapa Limawira Wisesa?"}
-              - label: "Item"
-                name: "items"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - {label: "Judul", name: "title", widget: "string"}
-                  - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Posisi terbuka"
-            name: "openings"
-            widget: "list"
-            summary: "{{fields.title}} ({{fields.location}})"
-            fields:
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Lokasi", name: "location", widget: "string"}
-              - {label: "Tipe (mis. Full-time)", name: "type", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Bottom CTA"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Teks", name: "text", widget: "text"}
-              - {label: "Label tombol", name: "label", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
-
       # ----------------------- PELANGGAN (CUSTOMERS) -----------------------
       - file: "site/content/customers/_index.md"
         label: "Pelanggan"
@@ -420,35 +375,6 @@ collections:
               - {label: "Gambar / scan sertifikat", name: "image", widget: "image", required: false}
               - {label: "File PDF sertifikat (opsional)", name: "file", widget: "file", required: false}
 
-      # ----------------------- PROYEK (PROJECTS) -----------------------
-      - file: "site/content/projects/_index.md"
-        label: "Proyek"
-        name: "projects"
-        description: "Studi kasus / rekap proyek terpilih"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Proyek"
-            name: "projects"
-            widget: "list"
-            summary: "{{fields.title}} — {{fields.client}}"
-            fields:
-              - {label: "Judul proyek", name: "title", widget: "string"}
-              - {label: "Klien", name: "client", widget: "string"}
-              - {label: "Industri", name: "industry", widget: "string"}
-              - {label: "Tahun", name: "year", widget: "string"}
-              - {label: "Kategori solusi", name: "solution", widget: "string"}
-              - {label: "Ringkasan", name: "summary", widget: "text"}
-              - {label: "Hero image", name: "image", widget: "image", required: false}
-
       # ----------------------- SOLUTIONS (indeks) -----------------------
       - file: "site/content/solutions/_index.md"
         label: "Solutions (ID) — Halaman Indeks"
@@ -465,34 +391,6 @@ collections:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Image", name: "image", widget: "image"}
           - {label: "Intro", name: "intro", widget: "text"}
-
-      # ----------------------- INDUSTRI (INDUSTRIES) -----------------------
-      - file: "site/content/industries/_index.md"
-        label: "Industri"
-        name: "industries"
-        description: "Sektor yang kami layani"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Deskripsi", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Industri"
-            name: "industries"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - {label: "Judul", name: "title", widget: "string"}
-              - {label: "Deskripsi", name: "description", widget: "text"}
-              - label: "Ikon"
-                name: "icon"
-                widget: "select"
-                options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
 
       # ----------------------- THANK YOU (post-submit) -----------------------
       - file: "site/content/thank-you.md"
@@ -817,50 +715,6 @@ collections:
                     required: false
                     field: {label: "Option", name: "", widget: "string"}
 
-      - file: "site/content.en/career/_index.md"
-        label: "Career Page"
-        name: "career_en"
-        description: "Why join us, current openings, and application CTA"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Why join"
-            name: "why"
-            widget: "object"
-            fields:
-              - {label: "Section title", name: "title", widget: "string", default: "Why Limawira Wisesa?"}
-              - label: "Items"
-                name: "items"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - {label: "Title", name: "title", widget: "string"}
-                  - {label: "Description", name: "description", widget: "text"}
-          - label: "Open positions"
-            name: "openings"
-            widget: "list"
-            summary: "{{fields.title}} ({{fields.location}})"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Location", name: "location", widget: "string"}
-              - {label: "Type (e.g. Full-time)", name: "type", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-          - label: "Bottom CTA"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Text", name: "text", widget: "text"}
-              - {label: "Button label", name: "label", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
-
       - file: "site/content.en/customers/_index.md"
         label: "Customers Page"
         name: "customers_en"
@@ -961,34 +815,6 @@ collections:
               - {label: "Image / certificate scan", name: "image", widget: "image", required: false}
               - {label: "PDF certificate file (optional)", name: "file", widget: "file", required: false}
 
-      - file: "site/content.en/projects/_index.md"
-        label: "Projects Page"
-        name: "projects_en"
-        description: "Selected case studies / project recaps"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Projects"
-            name: "projects"
-            widget: "list"
-            summary: "{{fields.title}} — {{fields.client}}"
-            fields:
-              - {label: "Project title", name: "title", widget: "string"}
-              - {label: "Client", name: "client", widget: "string"}
-              - {label: "Industry", name: "industry", widget: "string"}
-              - {label: "Year", name: "year", widget: "string"}
-              - {label: "Solution category", name: "solution", widget: "string"}
-              - {label: "Summary", name: "summary", widget: "text"}
-              - {label: "Hero image", name: "image", widget: "image", required: false}
-
       - file: "site/content.en/solutions/_index.md"
         label: "Solutions Page (index)"
         name: "solutions-index_en"
@@ -1004,33 +830,6 @@ collections:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Image", name: "image", widget: "image"}
           - {label: "Intro", name: "intro", widget: "text"}
-
-      - file: "site/content.en/industries/_index.md"
-        label: "Industries Page"
-        name: "industries_en"
-        description: "Sectors we serve"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tagline", name: "tagline", widget: "string"}
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-          - {label: "Intro", name: "intro", widget: "text"}
-          - label: "Industries"
-            name: "industries"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - label: "Icon"
-                name: "icon"
-                widget: "select"
-                options: ["landmark", "bank", "broadcast", "heart", "building", "factory", "graduation", "lightning", "leaf", "shield"]
 
       # ----------------------- THANK YOU (post-submit) -----------------------
       - file: "site/content.en/thank-you.md"
@@ -1126,6 +925,9 @@ collections:
         picker_utc: true
       - {label: "Author", name: "author", widget: "string", required: false}
       - {label: "Intro / description", name: "description", widget: "text"}
+      - {label: "Hero image", name: "image", widget: "image", required: false}
+      - {label: "Tags (comma separated)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
+      - {label: "Body (markdown)", name: "body", widget: "markdown"}
       - {label: "Hero image", name: "image", widget: "image", required: false}
       - {label: "Tags (comma separated)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
       - {label: "Body (markdown)", name: "body", widget: "markdown"}

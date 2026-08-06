@@ -8,8 +8,8 @@ hero:
     label: Request Consultation
     url: /contact/
   secondaryCta:
-    label: View Our Projects
-    url: /projects/
+    label: View Our Solutions
+    url: /solutions/
   image: /img/home-hero.png
 quickIcons:
   title: What we do, at a glance

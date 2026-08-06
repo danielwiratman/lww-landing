@@ -25,9 +25,8 @@
         "links": [
           { "label": "Tentang Kami", "url": "/about/" },
           { "label": "Solutions", "url": "/solutions/" },
-          { "label": "Projects", "url": "/projects/" },
-          { "label": "Industries", "url": "/industries/" },
-          { "label": "Career", "url": "/career/" }
+          { "label": "Partners", "url": "/partners/" },
+          { "label": "Awards", "url": "/awards/" }
         ]
       },
       {

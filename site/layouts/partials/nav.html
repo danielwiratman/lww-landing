@@ -11,11 +11,10 @@
     <!-- Desktop nav -->
     <ul class="hidden lg:flex items-center gap-1 text-sm font-semibold text-ink">
       <li><a href="{{ .Site.Home.RelPermalink }}" class="px-3 py-2 rounded hover:text-brand transition">Home</a></li>
-      <li><a href="{{ (`/solutions/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Solutions</a></li>
-      <li><a href="{{ (`/projects/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Projects</a></li>
-      <li><a href="{{ (`/industries/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Industries</a></li>
-      <li><a href="{{ (`/about/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">About Us</a></li>
-      <li><a href="{{ (`/career/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Career</a></li>
+      <li><a href="{{ (`/about/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Profile</a></li>
+      <li><a href="{{ (`/solutions/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Solution</a></li>
+      <li><a href="{{ (`/partners/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Partner</a></li>
+      <li><a href="{{ (`/awards/` | relLangURL) }}" class="px-3 py-2 rounded hover:text-brand transition">Awards</a></li>
     </ul>
 
     <!-- Right side: language + phone + mobile menu -->
@@ -48,11 +47,10 @@
   <div class="mobile-menu-container lg:hidden border-t border-line bg-white">
     <ul class="container-x flex flex-col py-4 text-sm font-semibold text-ink">
       <li><a href="{{ .Site.Home.RelPermalink }}" class="block py-3 border-b border-line">Home</a></li>
-      <li><a href="{{ (`/solutions/` | relLangURL) }}" class="block py-3 border-b border-line">Solutions</a></li>
-      <li><a href="{{ (`/projects/` | relLangURL) }}" class="block py-3 border-b border-line">Projects</a></li>
-      <li><a href="{{ (`/industries/` | relLangURL) }}" class="block py-3 border-b border-line">Industries</a></li>
-      <li><a href="{{ (`/about/` | relLangURL) }}" class="block py-3 border-b border-line">About Us</a></li>
-      <li><a href="{{ (`/career/` | relLangURL) }}" class="block py-3 border-b border-line">Career</a></li>
+      <li><a href="{{ (`/about/` | relLangURL) }}" class="block py-3 border-b border-line">Profile</a></li>
+      <li><a href="{{ (`/solutions/` | relLangURL) }}" class="block py-3 border-b border-line">Solution</a></li>
+      <li><a href="{{ (`/partners/` | relLangURL) }}" class="block py-3 border-b border-line">Partner</a></li>
+      <li><a href="{{ (`/awards/` | relLangURL) }}" class="block py-3 border-b border-line">Awards</a></li>
       <li><a href="{{ (`/contact/` | relLangURL) }}" class="block py-3">Contact</a></li>
       <li class="pt-3">
         {{ partial "lang-switcher" . }}

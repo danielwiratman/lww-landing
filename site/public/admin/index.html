@@ -6,6 +6,29 @@
   <title>Content Manager — PT Limawira Wisesa</title>
   <link rel="icon" type="image/svg+xml" href="/img/logo-mark.svg">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // Auto-detect the current deploy URL so the "View Live" button in the
+    // Decap CMS top bar points to wherever the admin is hosted (preview
+    // deploys, custom domains, etc.) rather than a hard-coded production URL.
+    (function () {
+      if (typeof window === "undefined" || !window.location) return;
+      var origin = window.location.origin;
+      function patchConfig() {
+        if (window.CMS && window.CMS.config) {
+          window.CMS.config.display_url = origin;
+          window.CMS.config.site_url = origin;
+          return true;
+        }
+        return false;
+      }
+      if (!patchConfig()) {
+        var tries = 0;
+        var id = setInterval(function () {
+          if (patchConfig() || ++tries > 50) clearInterval(id);
+        }, 100);
+      }
+    })();
+  </script>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.4.0/dist/decap-cms.js"></script>
