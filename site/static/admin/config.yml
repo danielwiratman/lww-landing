@@ -912,9 +912,6 @@ collections:
       - {label: "Hero image", name: "image", widget: "image", required: false}
       - {label: "Tags (comma separated)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
       - {label: "Body (markdown)", name: "body", widget: "markdown"}
-      - {label: "Hero image", name: "image", widget: "image", required: false}
-      - {label: "Tags (comma separated)", name: "tags", widget: "list", required: false, field: {label: "Tag", name: "", widget: "string"}}
-      - {label: "Body (markdown)", name: "body", widget: "markdown"}
 
   # ============================================================
   # SITE SETTINGS (global, single-instance)
