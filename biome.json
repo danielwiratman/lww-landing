@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["**/public/admin/**", "**/__generated__/**", "**/.next-local-logs/**"],
+    "ignore": ["**/public/admin/**", "**/__generated__/**", "**/.next-local-logs/**", "**/.next/**"],
     "maxSize": 3145728
   },
   "formatter": {
