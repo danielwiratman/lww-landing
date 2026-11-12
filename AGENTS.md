@@ -20,6 +20,82 @@ infrastructure and critical power solutions.
 
 ---
 
+## 0. Rules for coding agents
+
+**This site is a Next.js + TinaCMS app. The CMS setup is load-bearing — a
+careless edit to it breaks the whole site, not just the CMS.**
+
+### Never touch these unless the task is explicitly about the CMS
+
+| Path                        | Why it is off-limits                                    |
+| --------------------------- | ------------------------------------------------------- |
+| `tina/config.tsx`          | Backend, media and collection wiring                    |
+| `tina/collection/*`         | The content schema — the shape of every content file    |
+| `tina/fields/*`             | Shared field definitions used by the schema             |
+| `tina/tina-lock.json`       | **Generated** compiled schema TinaCloud indexes. Commit it, never hand-edit it. |
+| `tina/__generated__/`       | **Generated** GraphQL client + types. Git-ignored.      |
+| `public/admin/`             | **Generated** Tina admin SPA. Git-ignored.              |
+| `scripts/build.mjs`, `scripts/build-local.mjs` | The build entry points (TinaCloud vs local content) |
+
+If a content field needs to change, the correct move is to add it to the
+collection in `tina/collection/<name>.ts` **and** render it in the matching
+view in `components/views/<name>-view.tsx` — then regenerate and commit
+`tina/tina-lock.json`. Never work around a missing field by hard-coding
+content in a component.
+
+### What to change for normal work
+
+| Task                       | Where                                                        |
+| -------------------------- | ------------------------------------------------------------ |
+| Edit copy / images / data  | `content/**/*.md` — Markdown + YAML front matter              |
+| Site settings, nav, footer | `content/global/global.json` and `global.en.json`            |
+| Layout, styling, sections  | `components/**`, `app/**`, `styles.css`                      |
+| Icon set                   | `components/icon.tsx` + the `iconNames` list in `tina/fields/common.ts` (both) |
+| Brand colours / fonts      | `styles.css` (`@theme` block)                               |
+
+### The golden rules
+
+1. **Never change a content file's `language` or `translationKey`** unless the
+   task is about moving a page between languages. Routing is resolved from
+   those two fields — changing one silently breaks the page.
+2. **Never rename a content file.** Filenames are cosmetic, but keeping the
+   `{translationKey}.md` / `{translationKey}.en.md` convention keeps the
+   editor's file browser readable.
+3. **Never store a language prefix in a content link.** Write `/contact/`,
+   not `/en/contact/`. `localizeHref()` adds the prefix at render time.
+4. **Never hard-code a language-specific string in a component.** Put it in
+   the content file instead, so it can be translated.
+5. **Never edit a generated file.** Run `npm run dev` to regenerate, then
+   commit `tina/tina-lock.json` if it changed.
+6. **Before pushing**, run `npm run typecheck && npm run lint`. If you changed
+   the Tina schema, also run `npm run build:local` once to confirm the schema
+   still compiles.
+
+### Safe change recipes
+
+**Change a headline on the homepage**
+→ edit `content/home/home.md` (and `content/home/home.en.md` for English).
+Nothing else. The editor can then change it from `/admin` too.
+
+**Add a new section to the About page**
+→ 1. add the field to `tina/collection/about.ts`
+→ 2. render it in `components/views/about-view.tsx`
+→ 3. `npm run dev` (regenerates `tina/tina-lock.json`), commit the lock file
+→ 4. add the value to `content/about/about.md` and `about.en.md`
+
+**Add a new solution**
+→ create it in the CMS (`/admin` → Solusi → New Solution). Both language
+versions are separate documents with the same `slug` and `translationKey`.
+The home grid and the `/solutions/` listing pick it up automatically.
+
+**Add a brand-new page type**
+→ add a collection in `tina/collection/`, a route in `app/[locale]/`, and a
+view in `components/views/`. The generic `app/[locale]/[slug]/page.tsx` route
+already handles standalone pages that need nothing but a title and a body —
+use `content/pages/` for those.
+
+---
+
 ## 1. Project structure
 
 ```
@@ -306,13 +382,22 @@ in `content/`.
 ### 6.3 Building
 
 ```bash
-npm run build        # production build against TinaCloud
+npm run build        # production build (TinaCloud when credentials are present)
 npm run build:local  # production build against the files in ./content
 ```
 
 `build:local` runs `scripts/build-local.mjs`, which boots the local content
 API, runs `next build` against it, and shuts it down again. Logs land in
 `.next-local-logs/`.
+
+`npm run build` runs `scripts/build.mjs`. With `NEXT_PUBLIC_TINA_CLIENT_ID`
+and `TINA_TOKEN` in the environment it builds against TinaCloud; without them
+it falls back to the local content files so the site still deploys (the CMS
+at `/admin` only becomes editable once the credentials are present).
+
+> The Tina CLI needs **Node 22+** (Netlify is pinned to Node 24 in
+> `netlify.toml`) and the datalayer runs on port **9100**, because 9000 is
+> commonly taken by ClickHouse.
 
 ### 6.4 Content API playground
 
@@ -357,14 +442,22 @@ Netlify's `HEAD` variable.
 
 ## 8. Forms
 
-The contact form on `/contact/` is a plain HTML form with `data-netlify="true"`
-and a hidden `form-name` field. Netlify intercepts the submission, stores it
-in the **Forms** tab and emails it to the configured address.
+The contact form on `/contact/` posts to Netlify Forms. Next.js pre-renders
+pages into a cache rather than static HTML, so Netlify cannot detect the form
+in the rendered markup. Instead:
+
+- `public/__forms.html` holds the static form definition used for deploy-time
+  detection.
+- `components/contact-form.tsx` renders the CMS-driven fields and posts the
+  payload to `/__forms.html`, then redirects to the thank-you page.
 
 To add or remove form fields, edit the `form.fields` list in
 `content/contact/contact.md` (or via the CMS). The field list is data-driven:
 `type` may be `text`, `email`, `tel`, `textarea` or `select`. A honeypot
 (`bot-field`) is already in place.
+
+If you add a field, add the matching `<input>` to `public/__forms.html` too —
+Netlify only recognises the field names it detects at deploy time.
 
 ---
 
