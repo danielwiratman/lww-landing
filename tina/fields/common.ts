@@ -71,6 +71,7 @@ export const iconNames = [
   'x',
   'chevron-left',
   'chevron-right',
+  'pause',
 ] as const;
 
 export type IconName = (typeof iconNames)[number];

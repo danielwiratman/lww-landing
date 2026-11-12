@@ -500,6 +500,31 @@ Both are loaded with `next/font` in `app/[locale]/layout.tsx`.
 If the pattern is reused 3+ times, add a component class to `styles.css`.
 Otherwise use Tailwind utilities directly.
 
+### 9.5 Prefer platform primitives
+
+Before hand-rolling something, check whether Next.js, React, CSS or the
+browser already does it. Do not add a dependency for something the platform
+covers.
+
+| Instead of | Use |
+| ---------- | ---- |
+| `<img src=...>` | `next/image` (`fill` + `sizes`, `priority` for the LCP image) |
+| `<a href="/internal">` | `next/link` with `localizeHref()` |
+| Hand-written SVG icons | `components/icon.tsx` — add the entry to `paths` **and** to `iconNames` in `tina/fields/common.ts` |
+| A carousel / slider / modal library | A small client component (`components/hero-carousel.tsx` is the reference) |
+| JS scroll or animation helpers | CSS transitions, `scroll-snap`, `@keyframes`, `prefers-reduced-motion` |
+| Manual `<picture>` format negotiation | Ship pre-optimised assets — `next.config.ts` sets `images.unoptimized`, so files are served verbatim |
+
+Images therefore have to be web-ready **before** they reach `public/img/`:
+export at ≤ 1920 px wide as WebP (`magick input.tif -auto-orient -strip
+-resize 1920x -quality 78 public/img/<name>.webp`). Browsers cannot display
+TIFF, PNG-with-alpha-over-heavy-file or raw camera originals. Keep the source
+files out of git (see `resources/hero-carousel/` in `.gitignore`).
+
+Interactive components should be small, self-contained client components with
+local state: keyboard support, `aria-*` labelling, a pause control for
+auto-advancing content, and a `prefers-reduced-motion` fallback.
+
 ---
 
 ## 10. Conventions

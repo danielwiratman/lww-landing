@@ -15,6 +15,23 @@ hero:
     label: Lihat Solusi Kami
     url: /solutions/
   image: /img/electrical-engineer.jpg
+  carousel:
+    interval: 6000
+    slides:
+      - image: /img/hero-carousel/hero-01.webp
+        caption: Your partner in Integrated Technology
+      - image: /img/hero-carousel/hero-02.webp
+        caption: Excellence Engineering Solutions
+      - image: /img/hero-carousel/hero-03.webp
+        caption: Connecting Infrastructure, Empowering Technology
+      - image: /img/hero-carousel/hero-04.webp
+        caption: Reliable Service
+      - image: /img/hero-carousel/hero-05.webp
+        caption: Where Engineering Meets Technology
+      - image: /img/hero-carousel/hero-06.webp
+        caption: Reliable Power, Trusted Service
+      - image: /img/hero-carousel/hero-07.webp
+        caption: Safety and Reliability
 quickIcons:
   title: 'Layanan kami, sekilas'
   items:

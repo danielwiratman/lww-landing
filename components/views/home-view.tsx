@@ -1,6 +1,7 @@
 'use client';
 
 import Cta from '@/components/cta';
+import HeroCarousel from '@/components/hero-carousel';
 import { Icon } from '@/components/icon';
 import Reveal from '@/components/reveal';
 import type { PartnersDoc, SolutionDoc, TinaQueryProps } from '@/lib/content';
@@ -25,6 +26,9 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
   if (!home) return null;
 
   const hero = home.hero;
+  const slides = (hero?.carousel?.slides ?? [])
+    .filter((slide): slide is NonNullable<typeof slide> => Boolean(slide?.image))
+    .map((slide) => ({ image: slide.image, caption: slide.caption, alt: slide.alt }));
   const partnerItems = (partners?.partners ?? []).filter((item): item is NonNullable<typeof item> => Boolean(item));
 
   return (
@@ -84,7 +88,9 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
             <div className='relative'>
               <div className='absolute -inset-4 bg-brand/10 rounded-2xl -rotate-3' />
               <div className='hero-image-frame absolute -inset-1 rounded-2xl' />
-              {hero?.image ? (
+              {slides.length ? (
+                <HeroCarousel slides={slides} interval={hero?.carousel?.interval} />
+              ) : hero?.image ? (
                 <img
                   src={hero.image}
                   alt='Limawira Wisesa — engineering in action'

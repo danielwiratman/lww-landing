@@ -40,3 +40,7 @@ public/admin/*
 # local build logs
 .next-local-logs/
 *.tsbuildinfo
+
+# source artwork for the hero carousel — too large for git.
+# The web-optimised derivatives live in public/img/hero-carousel/.
+resources/hero-carousel/

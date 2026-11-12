@@ -25,6 +25,31 @@ const Home: Collection = {
         { type: 'image', label: 'Gambar hero', name: 'image' },
         {
           type: 'object',
+          label: 'Carousel hero',
+          name: 'carousel',
+          fields: [
+            {
+              type: 'object',
+              label: 'Slide',
+              name: 'slides',
+              list: true,
+              ui: { itemProps: (item: any) => ({ label: item?.caption || item?.image || 'Slide' }) },
+              fields: [
+                { type: 'image', label: 'Gambar', name: 'image', required: true },
+                { type: 'string', label: 'Caption', name: 'caption' },
+                { type: 'string', label: 'Teks alternatif', name: 'alt' },
+              ],
+            },
+            {
+              type: 'number',
+              label: 'Interval slide (ms)',
+              name: 'interval',
+              ui: { description: 'Jeda antar slide dalam milidetik. Isi 0 untuk menonaktifkan auto slide.' },
+            },
+          ],
+        },
+        {
+          type: 'object',
           label: 'Tombol CTA utama',
           name: 'primaryCta',
           fields: [

@@ -237,6 +237,12 @@ const paths: Record<string, React.ReactNode> = {
   ),
   'chevron-left': <polyline points='15 18 9 12 15 6' />,
   'chevron-right': <polyline points='9 18 15 12 9 6' />,
+  pause: (
+    <>
+      <line x1='9' y1='5' x2='9' y2='19' />
+      <line x1='15' y1='5' x2='15' y2='19' />
+    </>
+  ),
 };
 
 export type IconName = keyof typeof paths;
