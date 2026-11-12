@@ -1,3 +1,42 @@
-node_modules
-dist
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# misc
 .netlify
+.DS_Store
+.env
+.env.local
+.env*.local
+.idea
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# tina
+tina/__generated__
+public/admin/*
+!public/admin/.gitignore
+
+# cloudflare
+/.open-next/
+/.wrangler/
+.dev.vars*
+
+# local build logs
+.next-local-logs/
+*.tsbuildinfo

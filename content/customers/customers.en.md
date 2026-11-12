@@ -1,0 +1,77 @@
+---
+title: Customers
+description: Organisations that trust Limawira Wisesa for their critical infrastructure.
+hero:
+  heading: Trusted by leading organisations
+  tagline: Customers
+  image: /img/customers-hero.jpg
+groups:
+  - title: Data Center
+    customers:
+      - name: Kementerian Pertanian
+        industry: Government
+        logo: /img/customers/pertanian.png
+      - name: Kementerian Keuangan (DJPb)
+        industry: Government
+        logo: /img/customers/djpb.png
+      - name: Samakta Mitra
+        industry: Technology
+        logo: /img/customers/samakta.png
+  - title: UPS Solution
+    customers:
+      - name: Taspen (Persero)
+        industry: Finance
+        logo: /img/customers/taspen.png
+      - name: BPOM
+        industry: Government
+        logo: /img/customers/bpom.png
+      - name: Bank BTN
+        industry: Banking
+        logo: /img/customers/btn.png
+      - name: JICT
+        industry: Logistics
+        logo: /img/customers/jict.jpeg
+  - title: ICT Infrastructure
+    customers:
+      - name: Kementerian Keuangan (DJBC)
+        industry: Government
+        logo: /img/customers/djbc.png
+      - name: Kementerian Dalam Negeri
+        industry: Government
+        logo: /img/customers/kemendagri.png
+      - name: Pemprov DKI Jakarta
+        industry: Government
+        logo: /img/customers/dki.png
+  - title: Mechanical & Electrical Engineering
+    customers:
+      - name: Telkom Satelit Indonesia
+        industry: Telecommunications
+        logo: /img/customers/telkom.jpeg
+      - name: Asuransi Jiwa Manulife Indonesia
+        industry: Insurance
+        logo: /img/customers/manulife.png
+      - name: Bumi Serpong Damai
+        industry: Real Estate
+        logo: /img/customers/bsde.png
+  - title: Service and Maintenance Support
+    customers:
+      - name: Astra Sedaya Finance
+        industry: Finance
+        logo: /img/customers/acc.jpeg
+      - name: Bappenas
+        industry: Government
+        logo: /img/customers/bappenas.png
+      - name: LKBN Antara
+        industry: Media
+        logo: /img/customers/antara.jpeg
+language: en
+translationKey: customers
+cta:
+  eyebrow: Join these leading organisations
+  heading: Ready to become our next success story?
+  text: ''
+  primaryCta:
+    label: Request consultation
+    url: /contact/
+---
+

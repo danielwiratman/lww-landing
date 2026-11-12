@@ -1,22 +1,24 @@
-[build.environment]
-  NETLIFY_USE_YARN = "true"
-  YARN_VERSION = "1.22.17"
-  HUGO_VERSION = "0.124.1"
-  NODE_VERSION = "20"
-
 [build]
-  command = "yarn build"
-  publish = "dist"
+  command = "npm run build"
+  publish = ".next"
 
-[context.deploy-preview]
-  command = "yarn build:preview"
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--include=optional"
 
-[dev]
-  framework = "hugo"
-  targetPort = 3000
+# Required for `tinacms build` and for Next.js to read content from TinaCloud.
+# Set these in the Netlify UI (Site settings > Environment variables):
+#
+#   NEXT_PUBLIC_TINA_CLIENT_ID = <from https://app.tina.io — project Overview tab>
+#   TINA_TOKEN                = <from https://app.tina.io — project Tokens tab>
+#
+# NEXT_PUBLIC_TINA_BRANCH is optional; it defaults to Netlify's HEAD variable.
 
 [[plugins]]
-  package = "netlify-plugin-cypress"
+  package = "@netlify/plugin-nextjs"
 
-  [plugins.inputs]
-  record = true
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Cache-Control = "public, max-age=0, must-revalidate"
