@@ -1,0 +1,2 @@
+# The Tina admin is a static SPA emitted into /public/admin by `tinacms build`.
+/admin  /admin/index.html  200

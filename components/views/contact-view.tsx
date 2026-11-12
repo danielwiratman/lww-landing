@@ -1,5 +1,6 @@
 'use client';
 
+import { ContactForm } from '@/components/contact-form';
 import { Icon } from '@/components/icon';
 import PageHeader from '@/components/page-header';
 import type { TinaQueryProps } from '@/lib/content';
@@ -78,29 +79,12 @@ export function ContactView({ tina, locale, phone }: Props) {
               {form?.heading ? <h2 className='text-2xl font-bold mb-2'>{form.heading}</h2> : null}
               {form?.intro ? <p className='text-sm text-ink-muted mb-6'>{form.intro}</p> : null}
 
-              <form name='contact' method='POST' data-netlify='true' netlify-honeypot='bot-field' action='/thank-you/' className='space-y-4'>
-                <input type='hidden' name='form-name' value='contact' />
-                <p className='hidden'>
-                  <label>
-                    Do not fill this out: <input name='bot-field' />
-                  </label>
-                </p>
-
-                <div className='grid sm:grid-cols-2 gap-4'>
-                  {(form?.fields ?? [])
-                    .filter((field): field is NonNullable<typeof field> => Boolean(field))
-                    .map((field) => (
-                      <FieldControl key={field.name} field={field} locale={locale} />
-                    ))}
-                </div>
-
-                <button type='submit' className='btn-primary mt-2'>
-                  {form?.submitLabel ?? 'Send message'} →
-                </button>
-                <p className='text-xs text-ink-muted'>
-                  By submitting this form you agree to be contacted regarding your enquiry. We never share your details with third parties.
-                </p>
-              </form>
+              <ContactForm
+                fields={(form?.fields ?? []).filter((field): field is NonNullable<typeof field> => Boolean(field))}
+                submitLabel={form?.submitLabel}
+                successMessage={form?.successMessage}
+                locale={locale}
+              />
             </div>
           </div>
 
@@ -137,60 +121,6 @@ export function ContactView({ tina, locale, phone }: Props) {
         </div>
       </section>
     </>
-  );
-}
-
-type FieldControlProps = {
-  field: {
-    name: string;
-    label: string;
-    type: string;
-    required?: boolean | null;
-    options?: Array<{ text: string } | null> | null;
-  };
-  locale: Locale;
-};
-
-function FieldControl({ field, locale }: FieldControlProps) {
-  const id = `f-${field.name}`;
-  const label = (
-    <label htmlFor={id} className='block text-sm font-semibold mb-1.5'>
-      {field.label} {field.required ? <span className='text-red-500'>*</span> : null}
-    </label>
-  );
-
-  if (field.type === 'textarea') {
-    return (
-      <div className='sm:col-span-2'>
-        {label}
-        <textarea id={id} name={field.name} rows={5} required={field.required ?? false} className='input resize-y' />
-      </div>
-    );
-  }
-
-  if (field.type === 'select') {
-    return (
-      <div className='sm:col-span-2'>
-        {label}
-        <select id={id} name={field.name} required={field.required ?? false} className='input'>
-          <option value=''>{locale === 'id' ? 'Pilih…' : 'Please select…'}</option>
-          {(field.options ?? [])
-            .filter((option): option is { text: string } => Boolean(option))
-            .map((option) => (
-              <option key={option.text} value={option.text}>
-                {option.text}
-              </option>
-            ))}
-        </select>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      {label}
-      <input id={id} type={field.type} name={field.name} required={field.required ?? false} className='input' />
-    </div>
   );
 }
 

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <!--
+      Static form definitions used by Netlify for deploy-time form detection.
+      Modern Next.js pre-renders pages into a cache instead of static HTML, so
+      Netlify cannot see the forms in the rendered markup. This file is never
+      shown to visitors; the contact form posts its payload here.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="company" type="text" />
+      <input name="phone" type="tel" />
+      <input name="topic" type="text" />
+      <input name="message" type="textarea" />
+    </form>
+  </body>
+</html>

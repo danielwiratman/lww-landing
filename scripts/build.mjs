@@ -25,7 +25,10 @@ if (fs.existsSync('.env')) {
 const hasCloudCredentials = Boolean(process.env.NEXT_PUBLIC_TINA_CLIENT_ID && process.env.TINA_TOKEN);
 
 if (hasCloudCredentials) {
-  const tina = spawnSync(process.execPath, ['node_modules/@tinacms/cli/bin/tinacms', 'build', '--datalayer-port', '9100'], { stdio: 'inherit', env: process.env });
+  const tina = spawnSync(process.execPath, ['node_modules/@tinacms/cli/bin/tinacms', 'build', '--datalayer-port', '9100'], {
+    stdio: 'inherit',
+    env: process.env,
+  });
   if (tina.status !== 0) process.exit(tina.status ?? 1);
 
   const next = spawnSync(process.execPath, ['node_modules/next/dist/bin/next', 'build'], { stdio: 'inherit', env: process.env });
