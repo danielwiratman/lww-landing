@@ -5,7 +5,7 @@
   "description": "PT Limawira Wisesa marketing site — Next.js + TinaCMS",
   "scripts": {
     "dev": "tinacms dev --datalayer-port 9100 -c \"next dev --turbopack\"",
-    "build": "tinacms build && next build",
+    "build": "node scripts/build.mjs",
     "build:local": "node scripts/build-local.mjs",
     "start": "next start",
     "lint": "biome check .",

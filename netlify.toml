@@ -3,7 +3,7 @@
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "24"
   NPM_FLAGS = "--include=optional"
 
 # Required for `tinacms build` and for Next.js to read content from TinaCloud.
