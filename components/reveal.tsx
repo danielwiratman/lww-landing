@@ -1,6 +1,6 @@
 'use client';
 
-import { type ReactNode, useEffect, useRef } from 'react';
+import { type ElementType, type ReactNode, useEffect, useRef } from 'react';
 
 /**
  * Fades a section in the first time it scrolls into view.
@@ -8,9 +8,11 @@ import { type ReactNode, useEffect, useRef } from 'react';
 export function Reveal({
   children,
   className = '',
+  as: Tag = 'div',
 }: {
   children: ReactNode;
   className?: string;
+  as?: ElementType;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,9 +39,9 @@ export function Reveal({
   }, []);
 
   return (
-    <div ref={ref} data-reveal className={className}>
+    <Tag ref={ref} data-reveal className={className}>
       {children}
-    </div>
+    </Tag>
   );
 }
 

@@ -39,7 +39,7 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
         </div>
 
         <div className='container-x relative grid lg:grid-cols-2 gap-12 items-center py-20 md:py-28'>
-          <div data-reveal>
+          <Reveal>
             {hero?.eyebrow ? (
               <div className='eyebrow mb-5 inline-flex items-center gap-3'>
                 <span className='hero-pulse relative inline-flex w-2.5 h-2.5'>
@@ -78,23 +78,25 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
                 </Link>
               ) : null}
             </div>
-          </div>
+          </Reveal>
 
-          <div className='relative' data-reveal>
-            <div className='absolute -inset-4 bg-brand/10 rounded-2xl -rotate-3' />
-            <div className='hero-image-frame absolute -inset-1 rounded-2xl' />
-            {hero?.image ? (
-              <img
-                src={hero.image}
-                alt='Limawira Wisesa — engineering in action'
-                className='relative rounded-2xl shadow-soft w-full aspect-[4/3] object-cover'
-              />
-            ) : (
-              <div className='relative rounded-2xl shadow-soft w-full aspect-[4/3] bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center text-white/40'>
-                <span className='text-sm uppercase tracking-widest'>Hero image</span>
-              </div>
-            )}
-          </div>
+          <Reveal>
+            <div className='relative'>
+              <div className='absolute -inset-4 bg-brand/10 rounded-2xl -rotate-3' />
+              <div className='hero-image-frame absolute -inset-1 rounded-2xl' />
+              {hero?.image ? (
+                <img
+                  src={hero.image}
+                  alt='Limawira Wisesa — engineering in action'
+                  className='relative rounded-2xl shadow-soft w-full aspect-[4/3] object-cover'
+                />
+              ) : (
+                <div className='relative rounded-2xl shadow-soft w-full aspect-[4/3] bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center text-white/40'>
+                  <span className='text-sm uppercase tracking-widest'>Hero image</span>
+                </div>
+              )}
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -151,7 +153,7 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
 
       {/* -------------------------- SOLUTIONS GRID ------------------------- */}
       {home.solutions ? (
-        <section className='container-x py-20 md:py-24' data-reveal>
+        <Reveal as='section' className='container-x py-20 md:py-24'>
           <div className='text-center max-w-2xl mx-auto mb-12'>
             <p className='eyebrow justify-center mb-3'>{home.solutions.eyebrow}</p>
             <h2 className='text-3xl md:text-4xl font-bold text-balance'>{home.solutions.title}</h2>
@@ -177,12 +179,12 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
               </Link>
             ))}
           </div>
-        </section>
+        </Reveal>
       ) : null}
 
       {/* -------------------------- PARTNERS STRIP ------------------------- */}
       {home.partners ? (
-        <section className='bg-cream/50 border-y border-line' data-reveal>
+        <Reveal as='section' className='bg-cream/50 border-y border-line'>
           <div className='container-x py-12'>
             <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8'>
               <div>
@@ -214,7 +216,7 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
               ))}
             </ul>
           </div>
-        </section>
+        </Reveal>
       ) : null}
 
       <Reveal>
