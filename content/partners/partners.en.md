@@ -11,9 +11,10 @@ intro: >-
   cabling, and building systems — and we are trusted by more than 1,000
   customers across industries.
 partners:
-  - name: Infor
-    category: Enterprise Software
-    logo: /img/partners/20.png
+  - name: RemingtonS
+    category: Power Protection
+    logo: /img/partners/32.png
+    featured: true
   - name: Salicru
     category: Power Solutions
     logo: /img/partners/21.png

@@ -7,6 +7,7 @@ import Reveal from '@/components/reveal';
 import type { PartnersDoc, SolutionDoc, TinaQueryProps } from '@/lib/content';
 import { type Locale, localizeHref } from '@/lib/i18n';
 import type { HomeConnectionQuery } from '@/tina/__generated__/types';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTina } from 'tinacms/dist/react';
 
@@ -30,6 +31,8 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
     .filter((slide): slide is NonNullable<typeof slide> => Boolean(slide?.image))
     .map((slide) => ({ image: slide.image, caption: slide.caption, alt: slide.alt }));
   const partnerItems = (partners?.partners ?? []).filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const featuredPartner = partnerItems.find((item) => item.featured) ?? null;
+  const otherPartners = partnerItems.filter((item) => !item.featured);
 
   return (
     <>
@@ -204,23 +207,34 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
               ) : null}
             </div>
 
-            <ul className='grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3'>
-              {partnerItems.slice(0, 8).map((partner) => (
-                <li
-                  key={partner.name}
-                  className='flex flex-col items-center justify-center gap-2 p-3 rounded-lg bg-white border border-line text-center hover:border-brand transition'
-                >
-                  {partner.logo ? (
-                    <img src={partner.logo} alt={partner.name} className='max-h-10 max-w-full object-contain' />
-                  ) : (
-                    <span className='w-10 h-10 rounded bg-brand-50 text-brand flex items-center justify-center text-xs font-bold'>
-                      {partner.name.slice(0, 2).toUpperCase()}
-                    </span>
-                  )}
-                  <span className='text-xs font-semibold text-ink-muted leading-tight'>{partner.name}</span>
-                </li>
-              ))}
-            </ul>
+            <div className='flex flex-col gap-6 lg:flex-row lg:items-center'>
+              {featuredPartner ? (
+                <div className='flex items-center gap-4 shrink-0 px-5 py-4 rounded-xl bg-white border border-brand/40'>
+                  {featuredPartner.logo ? (
+                    <div className='relative h-12 w-44'>
+                      <Image src={featuredPartner.logo} alt={featuredPartner.name} fill sizes='176px' className='object-contain' />
+                    </div>
+                  ) : null}
+                  <span className='text-lg md:text-xl font-bold text-ink'>{featuredPartner.name}</span>
+                </div>
+              ) : null}
+
+              <ul className='grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 flex-1'>
+                {otherPartners.slice(0, 7).map((partner) => (
+                  <li key={partner.name} className='flex items-center justify-center p-3 rounded-lg bg-white border border-line hover:border-brand transition'>
+                    {partner.logo ? (
+                      <div className='relative h-8 w-full'>
+                        <Image src={partner.logo} alt={partner.name} fill sizes='120px' className='object-contain' />
+                      </div>
+                    ) : (
+                      <span className='w-10 h-10 rounded bg-brand-50 text-brand flex items-center justify-center text-xs font-bold'>
+                        {partner.name.slice(0, 2).toUpperCase()}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </Reveal>
       ) : null}

@@ -11,9 +11,10 @@ intro: >-
   power, networking, cabling, dan building system. Dan kami telah dipercaya oleh
   lebih dari 1.000 pelanggan di berbagai industri.
 partners:
-  - name: Infor
-    category: Perangkat Lunak Korporat
-    logo: /img/partners/20.png
+  - name: RemingtonS
+    category: Perlindungan Daya
+    logo: /img/partners/32.png
+    featured: true
   - name: Salicru
     category: Solusi Daya
     logo: /img/partners/21.png

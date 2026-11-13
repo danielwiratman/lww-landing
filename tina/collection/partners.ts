@@ -28,6 +28,7 @@ const Partners: Collection = {
         { type: 'string', label: 'Kategori', name: 'category' },
         { type: 'image', label: 'Logo', name: 'logo' },
         { type: 'string', label: 'URL website', name: 'url' },
+        { type: 'boolean', label: 'Mitra utama (display besar di beranda)', name: 'featured' },
       ],
     },
     {
