@@ -6,6 +6,7 @@ import Reveal from '@/components/reveal';
 import type { TinaQueryProps } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { AboutConnectionQuery } from '@/tina/__generated__/types';
+import Image from 'next/image';
 import { useTina } from 'tinacms/dist/react';
 
 type Props = {
@@ -25,22 +26,60 @@ export function AboutView({ tina, locale }: Props) {
     <>
       <PageHeader image={hero?.image} eyebrow={hero?.tagline ?? 'About Us'} heading={hero?.heading ?? about.title} locale={locale} />
 
-      {hero?.image ? (
-        <section className='container-x py-12'>
-          <figure className='max-w-2xl mx-auto rounded-2xl overflow-hidden border border-line bg-white'>
-            <img src={hero.image} alt={about.heroCaption?.text ?? ''} className='w-full h-auto object-cover' />
-            {about.heroCaption?.text ? (
-              <figcaption className='px-5 py-3 text-center text-sm text-ink-muted italic border-t border-line'>{about.heroCaption.text}</figcaption>
-            ) : null}
-          </figure>
-        </section>
-      ) : null}
+      <section className='container-x py-12 md:py-16'>
+        <div className='grid lg:grid-cols-2 gap-10 lg:gap-14 items-start'>
+          <div className='flex flex-col gap-8'>
+            {about.intro ? <p className='text-lg md:text-xl text-ink-muted leading-relaxed text-pretty'>{about.intro}</p> : null}
 
-      {about.intro ? (
-        <section className='container-x max-w-3xl py-12'>
-          <p className='text-lg text-ink-muted leading-relaxed text-pretty'>{about.intro}</p>
-        </section>
-      ) : null}
+            {about.vision ? (
+              <div className='border-t border-line pt-6'>
+                <p className='eyebrow mb-2'>{about.vision.title}</p>
+                <p className='text-xl md:text-2xl font-semibold text-balance'>{about.vision.text}</p>
+              </div>
+            ) : null}
+
+            {about.mission ? (
+              <div className='border-t border-line pt-6'>
+                <p className='eyebrow mb-3'>{about.mission.title}</p>
+                <ul className='space-y-3 text-ink-muted'>
+                  {(about.mission.items ?? [])
+                    .filter((item): item is NonNullable<typeof item> => Boolean(item))
+                    .map((item) => (
+                      <li key={item.text} className='flex gap-3'>
+                        <span className='shrink-0 mt-1 w-5 h-5 rounded-full bg-brand-50 text-brand flex items-center justify-center'>
+                          <svg
+                            className='w-3 h-3'
+                            viewBox='0 0 24 24'
+                            fill='none'
+                            stroke='currentColor'
+                            strokeWidth='3'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            aria-hidden='true'
+                          >
+                            <polyline points='20 6 9 17 4 12' />
+                          </svg>
+                        </span>
+                        <span>{item.text}</span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+
+          {hero?.image ? (
+            <figure className='rounded-2xl overflow-hidden border border-line bg-white order-first lg:order-none'>
+              <div className='relative aspect-[4/3] w-full'>
+                <Image src={hero.image} alt={about.heroCaption?.text ?? ''} fill sizes='(min-width: 1024px) 50vw, 100vw' className='object-cover' />
+              </div>
+              {about.heroCaption?.text ? (
+                <figcaption className='px-5 py-3 text-center text-sm text-ink-muted italic border-t border-line'>{about.heroCaption.text}</figcaption>
+              ) : null}
+            </figure>
+          ) : null}
+        </div>
+      </section>
 
       {about.stats?.length ? (
         <section className='bg-brand text-white'>
@@ -76,47 +115,6 @@ export function AboutView({ tina, locale }: Props) {
                 </li>
               ))}
           </ol>
-        </section>
-      ) : null}
-
-      {about.vision || about.mission ? (
-        <section className='container-x py-20'>
-          <div className='grid md:grid-cols-2 gap-6'>
-            {about.vision ? (
-              <div className='card p-8'>
-                <p className='eyebrow mb-3'>{about.vision.title}</p>
-                <p className='text-2xl font-semibold text-pretty'>{about.vision.text}</p>
-              </div>
-            ) : null}
-            {about.mission ? (
-              <div className='card p-8'>
-                <p className='eyebrow mb-3'>{about.mission.title}</p>
-                <ul className='space-y-3 text-ink-muted'>
-                  {(about.mission.items ?? [])
-                    .filter((item): item is NonNullable<typeof item> => Boolean(item))
-                    .map((item) => (
-                      <li key={item.text} className='flex gap-3'>
-                        <span className='shrink-0 mt-1 w-5 h-5 rounded-full bg-brand-50 text-brand flex items-center justify-center'>
-                          <svg
-                            className='w-3 h-3'
-                            viewBox='0 0 24 24'
-                            fill='none'
-                            stroke='currentColor'
-                            strokeWidth='3'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            aria-hidden='true'
-                          >
-                            <polyline points='20 6 9 17 4 12' />
-                          </svg>
-                        </span>
-                        <span>{item.text}</span>
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
         </section>
       ) : null}
 
