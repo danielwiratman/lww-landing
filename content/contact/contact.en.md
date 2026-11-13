@@ -57,12 +57,9 @@ form:
       type: select
       required: true
       options:
-        - text: Data Center Solution
-        - text: Uninterruptible Power Supply (UPS)
-        - text: IT Infrastructure Solutions
-        - text: Mechanical & Electrical Engineering
-        - text: Service & Maintenance Support
-        - text: Other
+        - text: Technical Support
+        - text: Product Information
+        - text: Trade-in Information
     - name: message
       label: Tell us about your project
       type: textarea

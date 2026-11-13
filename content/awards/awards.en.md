@@ -39,23 +39,23 @@ certifications:
   - name: 'ISO 9001:2015'
     description: Quality Management System
     issuedBy: International
-    file: /img/awards/iso-9001-2015.pdf
+    image: /img/certifications/iso_9001_2015.webp
   - name: 'ISO 14001:2015'
     description: Environmental Management System
     issuedBy: International
-    file: /img/awards/iso-14001-2015.pdf
+    image: /img/certifications/iso_14001_2015.webp
   - name: 'ISO 45001:2018'
     description: Occupational Health & Safety
     issuedBy: International
-    file: /img/awards/iso-45001-2018.pdf
+    image: /img/certifications/iso_45001_2018.webp
   - name: 'ISO 27001:2022'
     description: Information Security Management
     issuedBy: International
-    file: /img/awards/iso-27001-2022.pdf
+    image: /img/certifications/iso_27001_2022.webp
   - name: SMK3
     description: Sistem Manajemen Keselamatan dan Kesehatan Kerja
     issuedBy: Kementerian Ketenagakerjaan RI
-    file: /img/awards/smk3.pdf
+    image: /img/certifications/smk3.webp
 language: en
 translationKey: awards
 certificationsHeading: Standards & Certifications

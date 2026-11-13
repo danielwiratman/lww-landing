@@ -6,6 +6,7 @@ import PageHeader from '@/components/page-header';
 import type { TinaQueryProps } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { AwardsConnectionQuery } from '@/tina/__generated__/types';
+import Image from 'next/image';
 import { useTina } from 'tinacms/dist/react';
 
 type Props = {
@@ -60,23 +61,18 @@ export function AwardsView({ tina, locale }: Props) {
               .filter((cert): cert is NonNullable<typeof cert> => Boolean(cert))
               .map((cert) => (
                 <li key={cert.name} className='card p-7'>
-                  <div className='w-12 h-12 rounded-md bg-brand-50 text-brand flex items-center justify-center mb-4'>
-                    <Icon name='badge' className='w-6 h-6' />
-                  </div>
+                  {cert.image ? (
+                    <div className='h-20 w-20 rounded-lg border border-line bg-white flex items-center justify-center p-2 mb-5'>
+                      <Image src={cert.image} alt={cert.name} width={72} height={72} className='h-full w-full object-contain' />
+                    </div>
+                  ) : (
+                    <div className='w-12 h-12 rounded-md bg-brand-50 text-brand flex items-center justify-center mb-4'>
+                      <Icon name='badge' className='w-6 h-6' />
+                    </div>
+                  )}
                   <h3 className='text-lg font-bold mb-1'>{cert.name}</h3>
                   {cert.description ? <p className='text-sm text-ink-muted mb-3'>{cert.description}</p> : null}
                   {cert.issuedBy ? <p className='text-xs uppercase tracking-wider text-brand font-semibold'>{cert.issuedBy}</p> : null}
-                  {cert.file ? (
-                    <a
-                      href={cert.file}
-                      target='_blank'
-                      rel='noopener'
-                      className='mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline'
-                    >
-                      View certificate
-                      <Icon name='arrow-right' className='w-4 h-4' />
-                    </a>
-                  ) : null}
                 </li>
               ))}
           </ul>

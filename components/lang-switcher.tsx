@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Flag } from './flag';
 
-export function LangSwitcher({ locale }: { locale: Locale }) {
+export function LangSwitcher({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname() || '/';
@@ -45,7 +45,7 @@ export function LangSwitcher({ locale }: { locale: Locale }) {
         <span className='lang-flag-frame'>
           <Flag code={current.flag} />
         </span>
-        <span className='hidden sm:inline leading-none'>{current.name}</span>
+        <span className={compact ? 'hidden xl:inline leading-none' : 'inline leading-none'}>{current.name}</span>
         <svg
           className='w-3.5 h-3.5 text-ink-muted group-hover:text-brand transition lang-chevron'
           viewBox='0 0 24 24'

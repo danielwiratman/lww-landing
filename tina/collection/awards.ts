@@ -45,13 +45,7 @@ const Awards: Collection = {
         { type: 'string', label: 'Nama', name: 'name', required: true },
         { type: 'string', label: 'Deskripsi', name: 'description', ui: { component: 'textarea' } },
         { type: 'string', label: 'Diterbitkan oleh', name: 'issuedBy' },
-        { type: 'image', label: 'Gambar / scan sertifikat', name: 'image' },
-        {
-          type: 'image',
-          label: 'File PDF sertifikat',
-          name: 'file',
-          accept: 'pdf',
-        },
+        { type: 'image', label: 'Logo / gambar sertifikat', name: 'image' },
       ],
     },
     {

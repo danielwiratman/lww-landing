@@ -57,12 +57,9 @@ form:
       type: select
       required: true
       options:
-        - text: Data Center Solution
-        - text: Uninterruptible Power Supply (UPS)
-        - text: IT Infrastructure Solutions
-        - text: Mechanical & Electrical Engineering
-        - text: Service & Maintenance Support
-        - text: Lainnya
+        - text: Dukungan Teknis
+        - text: Informasi Product
+        - text: Informasi Trade-in
     - name: message
       label: Ceritakan tentang proyek Anda
       type: textarea

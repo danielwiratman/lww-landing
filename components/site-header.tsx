@@ -32,33 +32,33 @@ export function SiteHeader({ global, locale }: Props) {
       <div className='container-x flex items-center justify-between h-20'>
         <Link href='/' className='flex items-center gap-3 shrink-0'>
           {}
-          <img src='/img/lww-logo.jpg' alt={global?.site?.name ?? 'PT Limawira Wisesa'} className='h-12 w-auto' />
+          <img src='/img/lww-logo.jpg' alt={global?.site?.name ?? 'PT Limawira Wisesa'} className='h-11 w-auto' />
         </Link>
 
-        <ul className='hidden lg:flex items-center gap-1 text-sm font-semibold text-ink'>
+        <ul className='hidden lg:flex items-center gap-1 text-sm font-semibold text-ink shrink-0'>
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link href={localizeHref(item.href, locale)} className='px-3 py-2 rounded hover:text-brand transition'>
+              <Link href={localizeHref(item.href, locale)} className='block px-2 py-2 rounded hover:text-brand transition whitespace-nowrap'>
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <div className='flex items-center gap-2 sm:gap-3'>
+        <div className='flex items-center gap-2 sm:gap-3 shrink-0'>
           {site?.phone ? (
-            <a href={`tel:${site.phoneRaw ?? site.phone}`} className='hidden lg:flex items-center gap-2.5 pr-3 mr-1 border-r border-line group'>
+            <a href={`tel:${site.phoneRaw ?? site.phone}`} className='hidden lg:flex items-center gap-2.5 pr-3 mr-1 border-r border-line group shrink-0'>
               <span className='grid place-items-center w-10 h-10 rounded-full bg-brand-50 text-brand group-hover:bg-brand group-hover:text-white transition-colors shrink-0'>
                 <Icon name='phone' className='w-5 h-5' />
               </span>
               <span className='hidden xl:flex flex-col leading-tight'>
                 <span className='text-[10px] uppercase tracking-[0.15em] text-ink-muted font-semibold'>{site.hotlineLabel ?? 'Hotline'}:</span>
-                <span className='text-xl font-bold text-brand tracking-tight'>{site.phone}</span>
+                <span className='text-lg font-bold text-brand tracking-tight whitespace-nowrap'>{site.phone}</span>
               </span>
             </a>
           ) : null}
 
-          <LangSwitcher locale={locale} />
+          <LangSwitcher locale={locale} compact />
 
           <button
             type='button'
