@@ -3,13 +3,16 @@ title: Mechanical & Electrical Engineering
 slug: electrical-engineering
 order: 4
 icon: bolt
+product:
+  name: Rectifier
+  image: /img/solutions/product-rectifier.webp
 shortDescription: >-
   Layanan Mechanical & Electrical Engineering untuk sistem mekanikal dan
   elektrikal.
 hero:
   heading: Mechanical & Electrical Engineering
   tagline: 'Desain, instalasi, dan commissioning sistem mekanikal & elektrikal'
-  image: /img/solutions/electrical-engineering.jpg
+  image: /img/solutions/product-rectifier.webp
 description: >-
   Limawira menyediakan layanan Mechanical & Electrical Engineering yang mencakup
   desain, instalasi, pengujian, dan commissioning sistem mekanikal serta

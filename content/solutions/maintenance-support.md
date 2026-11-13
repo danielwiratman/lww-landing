@@ -3,6 +3,9 @@ title: Service & Maintenance Support
 slug: maintenance-support
 order: 5
 icon: wrench
+product:
+  name: Service & Maintenance
+  image: /img/solutions/product-maintenance.webp
 shortDescription: >-
   Layanan pemeliharaan preventif, korektif, dan dukungan SLA untuk operasional
   optimal.
@@ -11,7 +14,7 @@ hero:
   tagline: >-
     Pemeliharaan preventif, korektif, dan dukungan SLA untuk operasional tanpa
     henti
-  image: /img/solutions/maintenance-support.jpg
+  image: /img/solutions/product-maintenance.webp
 description: >-
   Limawira menyediakan layanan Service & Maintenance Support untuk memastikan
   seluruh infrastruktur dan sistem pelanggan tetap beroperasi secara optimal.

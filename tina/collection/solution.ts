@@ -34,6 +34,18 @@ const Solution: Collection = {
       ui: { description: 'Angka lebih kecil tampil lebih dulu' },
     },
     iconField(),
+    {
+      type: 'object',
+      label: 'Produk contoh',
+      name: 'product',
+      ui: {
+        description: 'Satu produk dari katalog yang ditampilkan sebagai foto di kartu solusi di beranda.',
+      },
+      fields: [
+        { type: 'string', label: 'Nama produk', name: 'name' },
+        { type: 'image', label: 'Foto produk', name: 'image' },
+      ],
+    },
     { type: 'string', label: 'Deskripsi singkat (untuk kartu)', name: 'shortDescription', ui: { component: 'textarea' } },
     {
       type: 'object',

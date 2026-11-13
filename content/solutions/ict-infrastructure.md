@@ -3,13 +3,16 @@ title: IT Infrastructure Solutions
 slug: ict-infrastructure
 order: 3
 icon: network
+product:
+  name: Monitoring System & Sensor
+  image: /img/solutions/product-monitoring.webp
 shortDescription: >-
   Solusi IT terintegrasi — server, jaringan, cloud, dan keamanan siber untuk
   transformasi digital.
 hero:
   heading: IT Infrastructure Solutions
   tagline: 'Server, jaringan, cloud, dan keamanan siber dalam satu solusi terintegrasi'
-  image: /img/solutions/ict-infrastructure.jpg
+  image: /img/solutions/product-monitoring.webp
 description: >-
   Limawira menyediakan solusi IT yang terintegrasi untuk membantu organisasi
   membangun infrastruktur TI yang modern, aman, dan andal. Dengan pengalaman

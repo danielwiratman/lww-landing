@@ -3,13 +3,16 @@ title: Mechanical & Electrical Engineering
 slug: electrical-engineering
 order: 4
 icon: bolt
+product:
+  name: Rectifier
+  image: /img/solutions/product-rectifier.webp
 shortDescription: >-
   Mechanical & Electrical Engineering services for mechanical and electrical
   systems.
 hero:
   heading: Mechanical & Electrical Engineering
   tagline: 'Design, installation, and commissioning of mechanical & electrical systems'
-  image: /img/solutions/electrical-engineering.jpg
+  image: /img/solutions/product-rectifier.webp
 description: >-
   Limawira provides Mechanical & Electrical Engineering services covering the
   design, installation, testing, and commissioning of mechanical and electrical

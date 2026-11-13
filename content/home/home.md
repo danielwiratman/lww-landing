@@ -61,7 +61,7 @@ stats:
     value: 24/7
 solutions:
   eyebrow: Layanan kami
-  title: Solusi & Layanan Kami
+  title: Produk dan Solusi Kami
   subtitle: >-
     Solusi menyeluruh di lima area praktik — mulai dari desain dan pembangunan
     hingga pemeliharaan jangka panjang.

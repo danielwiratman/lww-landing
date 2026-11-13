@@ -3,13 +3,16 @@ title: IT Infrastructure Solutions
 slug: ict-infrastructure
 order: 3
 icon: network
+product:
+  name: Monitoring System & Sensors
+  image: /img/solutions/product-monitoring.webp
 shortDescription: >-
   Integrated IT solutions — server, networking, cloud, and cybersecurity for
   digital transformation.
 hero:
   heading: IT Infrastructure Solutions
   tagline: 'Server, networking, cloud, and cybersecurity in one integrated solution'
-  image: /img/solutions/ict-infrastructure.jpg
+  image: /img/solutions/product-monitoring.webp
 description: >-
   Limawira delivers integrated IT solutions that help organisations build
   modern, secure, and reliable IT infrastructure. With experience serving a wide

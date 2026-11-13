@@ -5,11 +5,13 @@ import Cta from '@/components/cta';
 import HeroCarousel from '@/components/hero-carousel';
 import { Icon } from '@/components/icon';
 import Reveal from '@/components/reveal';
+import SolutionCard from '@/components/solution-card';
 import type { PartnersDoc, SolutionDoc, TinaQueryProps } from '@/lib/content';
 import { type Locale, localizeHref } from '@/lib/i18n';
 import type { HomeConnectionQuery } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useTina } from 'tinacms/dist/react';
 
 type Props = {
@@ -24,6 +26,7 @@ const statIcons = ['trophy', 'box', 'users', 'shield'];
 
 export function HomeView({ tina, solutions, partners, clientNames, locale }: Props) {
   const { data } = useTina(tina);
+  const [pickedPartner, setPickedPartner] = useState<{ name: string; previous: string; index: number } | null>(null);
   const home = data.homeConnection.edges?.[0]?.node;
 
   if (!home) return null;
@@ -33,8 +36,20 @@ export function HomeView({ tina, solutions, partners, clientNames, locale }: Pro
     .filter((slide): slide is NonNullable<typeof slide> => Boolean(slide?.image))
     .map((slide) => ({ image: slide.image, caption: slide.caption, alt: slide.alt }));
   const partnerItems = (partners?.partners ?? []).filter((item): item is NonNullable<typeof item> => Boolean(item));
-  const featuredPartner = partnerItems.find((item) => item.name === partners?.featured?.name) ?? null;
-  const otherPartners = partnerItems.filter((item) => item.name !== partners?.featured?.name);
+
+  const featuredName = pickedPartner?.name ?? partners?.featured?.name ?? null;
+  const featuredPartner = partnerItems.find((item) => item.name === featuredName) ?? null;
+
+  const gridPartners = partnerItems.filter((item) => item.name !== featuredName);
+  if (pickedPartner) {
+    const previous = partnerItems.find((item) => item.name === pickedPartner.previous);
+    const previousIndex = previous ? gridPartners.findIndex((item) => item.name === previous.name) : -1;
+    if (previous && previousIndex >= 0) {
+      gridPartners.splice(previousIndex, 1);
+      gridPartners.splice(Math.min(pickedPartner.index, gridPartners.length), 0, previous);
+    }
+  }
+  const visiblePartners = gridPartners.slice(0, 7);
 
   return (
     <>
@@ -173,21 +188,12 @@ export function HomeView({ tina, solutions, partners, clientNames, locale }: Pro
 
           <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {solutions.map((solution) => (
-              <Link
+              <SolutionCard
                 key={solution.id}
+                solution={solution}
                 href={localizeHref(`/solutions/${solution.slug}/`, locale)}
-                className='group card p-7 hover:border-brand hover:-translate-y-1 transition-all'
-              >
-                <div className='w-14 h-14 rounded-lg bg-brand-50 text-brand flex items-center justify-center mb-5 group-hover:bg-brand group-hover:text-white transition'>
-                  <Icon name={solution.icon} />
-                </div>
-                <h3 className='text-lg font-bold mb-2 group-hover:text-brand transition'>{solution.title}</h3>
-                <p className='text-sm text-ink-muted leading-relaxed'>{solution.shortDescription}</p>
-                <p className='mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand'>
-                  Learn more
-                  <Icon name='arrow-right' className='w-4 h-4' />
-                </p>
-              </Link>
+                learnMoreLabel={locale === 'id' ? 'Pelajari lebih lanjut' : 'Learn more'}
+              />
             ))}
           </div>
         </Reveal>
@@ -222,17 +228,23 @@ export function HomeView({ tina, solutions, partners, clientNames, locale }: Pro
               ) : null}
 
               <ul className='grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3'>
-                {otherPartners.slice(0, 7).map((partner) => (
-                  <li key={partner.name} className='flex items-center justify-center p-3 rounded-lg bg-white border border-line hover:border-brand transition'>
-                    {partner.logo ? (
-                      <div className='relative h-8 w-full'>
-                        <Image src={partner.logo} alt={partner.name} fill sizes='120px' className='object-contain' />
-                      </div>
-                    ) : (
-                      <span className='w-10 h-10 rounded bg-brand-50 text-brand flex items-center justify-center text-xs font-bold'>
-                        {partner.name.slice(0, 2).toUpperCase()}
-                      </span>
-                    )}
+                {visiblePartners.map((partner, index) => (
+                  <li key={partner.name}>
+                    <button
+                      type='button'
+                      onClick={() => setPickedPartner({ name: partner.name, previous: featuredName ?? partner.name, index })}
+                      className='w-full h-full flex items-center justify-center p-3 rounded-lg bg-white border border-line hover:border-brand transition cursor-pointer'
+                    >
+                      {partner.logo ? (
+                        <div className='relative h-8 w-full'>
+                          <Image src={partner.logo} alt={partner.name} fill sizes='120px' className='object-contain' />
+                        </div>
+                      ) : (
+                        <span className='w-10 h-10 rounded bg-brand-50 text-brand flex items-center justify-center text-xs font-bold'>
+                          {partner.name.slice(0, 2).toUpperCase()}
+                        </span>
+                      )}
+                    </button>
                   </li>
                 ))}
               </ul>

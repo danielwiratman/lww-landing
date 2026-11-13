@@ -3,13 +3,16 @@ title: Data Center Solution
 slug: data-center
 order: 1
 icon: server
+product:
+  name: Data Center Infrastructure
+  image: /img/solutions/product-data-center.webp
 shortDescription: End-to-end data center infrastructure for greenfield builds and modernisation.
 hero:
   heading: Data Center Solution
   tagline: >-
     End-to-end data center infrastructure for greenfield builds and
     modernisation
-  image: /img/solutions/data-center.jpg
+  image: /img/solutions/product-data-center.webp
 description: >-
   Limawira delivers end-to-end Data Center solutions — from consultation,
   design, procurement, and installation to commissioning — to support both

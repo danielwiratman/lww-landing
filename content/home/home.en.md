@@ -61,7 +61,7 @@ stats:
     value: 24/7
 solutions:
   eyebrow: What we do
-  title: Our Solutions & Services
+  title: Our Products & Solutions
   subtitle: >-
     End-to-end solutions across five practice areas — from design and build to
     long-term maintenance.

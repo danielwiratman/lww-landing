@@ -3,13 +3,16 @@ title: Uninterruptible Power Supply (UPS)
 slug: ups-solution
 order: 2
 icon: battery
+product:
+  name: Remingtons UPS
+  image: /img/solutions/product-ups.webp
 shortDescription: >-
   Remingtons UPS solutions that keep critical infrastructure running through any
   power disturbance.
 hero:
   heading: Uninterruptible Power Supply (UPS)
   tagline: Remingtons UPS — protecting critical operations from power disturbances
-  image: /img/solutions/ups-solution.jpg
+  image: /img/solutions/product-ups.webp
 description: >-
   Specifically, Limawira's flagship UPS product is Remingtons — an
   Uninterruptible Power Supply system engineered to maintain continuity of

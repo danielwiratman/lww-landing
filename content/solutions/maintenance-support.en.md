@@ -3,13 +3,16 @@ title: Service & Maintenance Support
 slug: maintenance-support
 order: 5
 icon: wrench
+product:
+  name: Service & Maintenance
+  image: /img/solutions/product-maintenance.webp
 shortDescription: >-
   Preventive, corrective, and SLA-based maintenance support for optimal
   operations.
 hero:
   heading: Service & Maintenance Support
   tagline: 'Preventive, corrective, and SLA-backed support for uninterrupted operations'
-  image: /img/solutions/maintenance-support.jpg
+  image: /img/solutions/product-maintenance.webp
 description: >-
   Limawira provides Service & Maintenance Support to keep your entire
   infrastructure and systems running at their best. Our services cover

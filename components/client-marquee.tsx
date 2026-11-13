@@ -1,26 +1,18 @@
 /**
- * Vertical ticker: five horizontal rows scrolling at the same speed.
- * Odd rows scroll right-to-left, even rows left-to-right.
+ * Horizontal ticker: rows scroll in alternating directions — the first row
+ * travels left, the second right.
  */
-export function ClientMarquee({ items }: { items: string[] }) {
+export function ClientMarquee({ items, rows = 2 }: { items: string[]; rows?: number }) {
   if (!items.length) return null;
 
-  const rowCount = 5;
-  const total = items.length;
-  const perRow = Math.ceil(total / rowCount);
+  const rowCount = Math.max(1, Math.min(rows, items.length));
+  const perRow = Math.ceil(items.length / rowCount);
 
-  const rows = Array.from({ length: rowCount }, (_, row) => {
-    const offset = row * perRow;
-    const slice: string[] = [];
-    for (let i = offset; i < offset + perRow; i += 1) {
-      slice.push(items[i % total]);
-    }
-    return slice;
-  });
+  const chunks = Array.from({ length: rowCount }, (_, row) => items.slice(row * perRow, row * perRow + perRow)).filter((chunk) => chunk.length > 0);
 
   return (
     <div className='client-marquee' role='list' aria-label='Client list'>
-      {rows.map((row, rowIndex) => (
+      {chunks.map((row, rowIndex) => (
         <div key={rowIndex} className={`client-marquee-row ${rowIndex % 2 === 1 ? 'client-marquee-row-reverse' : ''}`}>
           <div className='client-marquee-track'>
             {[...row, ...row].map((name, index) => (
