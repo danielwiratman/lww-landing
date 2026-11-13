@@ -1,10 +1,10 @@
 ---
-title: Solutions & Services
+title: Products & Solutions
 description: >-
   Five core practice areas covering the full lifecycle of digital infrastructure
   and critical power systems.
 hero:
-  heading: Solutions & Services
+  heading: Products & Solutions
   tagline: What we do
   image: /img/solutions-hero.jpg
 intro: >-
@@ -12,6 +12,11 @@ intro: >-
   critical power systems — from design and build to long-term maintenance. Each
   engagement is led by certified engineers and backed by 24/7 nationwide
   support.
+catalogHeading: Product Catalog
+catalogIntro: >-
+  Thirteen product lines covering critical power, power quality, data centre
+  infrastructure, monitoring and service & maintenance — click a product to
+  see its full specifications and download the datasheet.
 language: en
 translationKey: solution-listing
 cta:

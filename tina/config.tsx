@@ -10,6 +10,7 @@ import Page from './collection/page';
 import Partners from './collection/partners';
 import Post from './collection/post';
 import PostListing from './collection/post-listing';
+import Product from './collection/product';
 import Solution from './collection/solution';
 import SolutionListing from './collection/solution-listing';
 
@@ -33,6 +34,6 @@ export default defineConfig({
     outputFolder: 'admin',
   },
   schema: {
-    collections: [Global, Home, About, Contact, Customers, Partners, Awards, SolutionListing, Solution, PostListing, Post, Page],
+    collections: [Global, Home, About, Contact, Customers, Partners, Awards, SolutionListing, Solution, Product, PostListing, Post, Page],
   },
 });

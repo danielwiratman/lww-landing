@@ -20,6 +20,8 @@ import type {
   PostListingConnectionQuery,
   PostListingQuery,
   PostQuery,
+  ProductConnectionQuery,
+  ProductQuery,
   SolutionConnectionQuery,
   SolutionListingConnectionQuery,
   SolutionListingQuery,
@@ -43,6 +45,7 @@ export type CustomersDoc = NonNullable<CustomersQuery['customers']>;
 export type PartnersDoc = NonNullable<PartnersQuery['partners']>;
 export type AwardsDoc = NonNullable<AwardsQuery['awards']>;
 export type SolutionDoc = NonNullable<SolutionQuery['solution']>;
+export type ProductDoc = NonNullable<ProductQuery['product']>;
 export type SolutionListingDoc = NonNullable<SolutionListingQuery['solutionListing']>;
 export type PostDoc = NonNullable<PostQuery['post']>;
 export type PostListingDoc = NonNullable<PostListingQuery['postListing']>;
@@ -142,6 +145,15 @@ export async function getAwards(locale: Locale) {
     res,
     doc: res.data.awardsConnection.edges?.[0]?.node ?? null,
   };
+}
+
+/** All product lines for a locale, ordered by their `order` field. */
+export async function getProducts(locale: Locale) {
+  const res = await client.queries.productConnection({
+    filter: { language: { eq: locale } },
+  });
+  const docs = (res.data.productConnection.edges ?? []).map((edge) => edge?.node).filter((node): node is ProductDoc => Boolean(node));
+  return { res, docs: [...docs].sort((a, b) => a.order - b.order) };
 }
 
 export async function getSolutionListing(locale: Locale) {

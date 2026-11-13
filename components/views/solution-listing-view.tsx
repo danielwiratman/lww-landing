@@ -2,8 +2,9 @@
 
 import Cta from '@/components/cta';
 import PageHeader from '@/components/page-header';
+import ProductCatalog from '@/components/product-catalog';
 import SolutionCard from '@/components/solution-card';
-import type { SolutionDoc, TinaQueryProps } from '@/lib/content';
+import type { ProductDoc, SolutionDoc, TinaQueryProps } from '@/lib/content';
 import { type Locale, localizeHref } from '@/lib/i18n';
 import type { SolutionListingConnectionQuery } from '@/tina/__generated__/types';
 import { useTina } from 'tinacms/dist/react';
@@ -11,10 +12,11 @@ import { useTina } from 'tinacms/dist/react';
 type Props = {
   tina: TinaQueryProps<SolutionListingConnectionQuery>;
   solutions: SolutionDoc[];
+  products: ProductDoc[];
   locale: Locale;
 };
 
-export function SolutionListingView({ tina, solutions, locale }: Props) {
+export function SolutionListingView({ tina, solutions, products, locale }: Props) {
   const { data } = useTina(tina);
   const page = data.solutionListingConnection.edges?.[0]?.node;
 
@@ -52,6 +54,8 @@ export function SolutionListingView({ tina, solutions, locale }: Props) {
           </ul>
         </section>
       ) : null}
+
+      <ProductCatalog products={products} heading={page.catalogHeading} intro={page.catalogIntro} locale={locale} />
 
       <Cta cta={page.cta} locale={locale} />
     </>

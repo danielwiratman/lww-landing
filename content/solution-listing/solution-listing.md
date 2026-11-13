@@ -1,10 +1,10 @@
 ---
-title: Solusi & Layanan
+title: Produk & Solusi
 description: >-
   Lima area praktik utama yang mencakup siklus hidup lengkap infrastruktur
   digital dan sistem critical power.
 hero:
-  heading: Solusi & Layanan
+  heading: Produk & Solusi
   tagline: Layanan kami
   image: /img/solutions-hero.jpg
 intro: >-
@@ -12,6 +12,11 @@ intro: >-
   sistem critical power — mulai dari desain dan pembangunan hingga pemeliharaan
   jangka panjang. Setiap pengerjaan dipimpin oleh engineer bersertifikat dan
   didukung oleh layanan nationwide 24/7.
+catalogHeading: Product Catalog
+catalogIntro: >-
+  Tiga belas lini produk dari critical power, power quality, infrastruktur
+  data center, monitoring, hingga service & maintenance — klik nama produk
+  untuk melihat spesifikasi lengkap dan mengunduh datasheet.
 language: id
 translationKey: solution-listing
 cta:

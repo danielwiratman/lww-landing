@@ -155,6 +155,7 @@ use `content/pages/` for those.
 │   ├── awards/awards.md, awards.en.md
 │   ├── solution-listing/solution-listing.md, .en.md
 │   ├── solutions/<slug>.md, <slug>.en.md
+│   ├── products/<slug>.md, <slug>.en.md
 │   ├── post-listing/post-listing.md, .en.md
 │   ├── posts/<slug>.md, <slug>.en.md
 │   └── pages/thank-you.md, thank-you.en.md
@@ -164,7 +165,7 @@ use `content/pages/` for those.
 │   ├── collection/                # one file per collection
 │   │   ├── global.ts  home.ts  about.ts  contact.ts
 │   │   ├── customers.ts  partners.ts  awards.ts
-│   │   ├── solution-listing.ts  solution.ts
+│   │   ├── solution-listing.ts  solution.ts  product.ts
 │   │   ├── post-listing.ts  post.ts  page.ts
 │   ├── fields/common.ts           # shared field definitions + helpers
 │   └── tina-lock.json              # compiled schema — COMMIT THIS
@@ -179,6 +180,7 @@ use `content/pages/` for those.
 │   └── favicon.svg, manifest.json, browserconfig.xml
 │
 ├── scripts/build-local.mjs       # credential-free local production build
+├── scripts/import-products.mjs   # company-profile pack → content/products
 ├── styles.css                    # Tailwind v4 entry + design tokens
 ├── middleware.ts                 # locale prefix routing
 ├── next.config.ts
@@ -245,6 +247,7 @@ Consequences:
 | `awards`           | `content/awards`          | md     | `awards.md`, `awards.en.md`   |
 | `solutionListing`  | `content/solution-listing`| md     | listing hero + CTA            |
 | `solution`         | `content/solutions`       | md     | one per solution              |
+| `product`          | `content/products`        | md     | one per product line          |
 | `postListing`      | `content/post-listing`    | md     | blog index hero               |
 | `post`             | `content/posts`           | md     | one per article               |
 | `page`             | `content/pages`           | md     | standalone pages (thank-you) |
@@ -280,7 +283,31 @@ instead (see `tina/collection/page.ts` and `app/[locale]/[slug]/page.tsx`).
 3. Add the English version with the **same `slug`** and `translationKey`.
 4. `content/solutions/<slug>.md` and `<slug>.en.md` are created for you.
 
-### 3.6 Icon and flag catalogues
+### 3.6 The product catalogue
+
+The "Product Catalog" section of `/solutions/` is fed by the `product`
+collection — one document per product line, in `content/products/`.
+
+The source of truth is the company-profile pack in
+`resources/compro/03-products/` (plus `04-service-maintenance/` for product
+13). That folder is **git-ignored**, so the catalogue is imported into the CMS
+rather than read at build time:
+
+```bash
+node scripts/import-products.mjs
+```
+
+The script normalises the heterogeneous pack JSON into one uniform document
+(title, slug, order, category, brand, description, features, specs, images,
+datasheet), converts the photography to WebP under `public/img/products/`,
+extracts the matching product page of the company profile into
+`public/img/products/datasheets/`, and writes both language versions. Commit
+the content **and** the assets together.
+
+Editors can change every field afterwards — the import is a starting point,
+not a read-only mirror.
+
+### 3.7 Icon and flag catalogues
 
 - **Icons** are inline SVG in `components/icon.tsx`. Add a new entry to the
   `paths` map to extend. The CMS "Ikon" dropdown enumerates the same names via
@@ -565,7 +592,8 @@ auto-advancing content, and a `prefers-reduced-motion` fallback.
 ## 12. Known gaps
 
 - [ ] Real hero / solution images (the templates fall back to a coloured
-      block when an image is missing).
+      block when an image is missing). The product catalogue has real
+      photography and per-product datasheets.
 - [ ] Real customer logos for every partner listed in the CMS.
 - [ ] Blog posts: the collection and routes are ready, but no articles have
       been published yet.

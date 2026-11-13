@@ -17,6 +17,8 @@ const SolutionListing: Collection = {
     { type: 'string', label: 'Deskripsi (SEO)', name: 'description', ui: { component: 'textarea' } },
     heroField,
     { type: 'string', label: 'Intro', name: 'intro', ui: { component: 'textarea' } },
+    { type: 'string', label: 'Judul seksi katalog produk', name: 'catalogHeading' },
+    { type: 'string', label: 'Intro katalog produk', name: 'catalogIntro', ui: { component: 'textarea' } },
     {
       type: 'object',
       label: 'CTA',

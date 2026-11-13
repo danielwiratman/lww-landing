@@ -1,5 +1,5 @@
 import SolutionListingView from '@/components/views/solution-listing-view';
-import { getSolutionListing, getSolutions, toTinaProps } from '@/lib/content';
+import { getProducts, getSolutionListing, getSolutions, toTinaProps } from '@/lib/content';
 import { isLocale, localePath, locales } from '@/lib/i18n';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -17,7 +17,7 @@ export async function generateMetadata({
   const path = '/solutions/';
   const languages = Object.fromEntries(locales.map((code) => [code === 'id' ? 'id-ID' : 'en', localePath(code, path)]));
   return {
-    title: doc?.title ?? 'Solutions & Services',
+    title: doc?.title ?? 'Produk & Solusi',
     description: doc?.description ?? undefined,
     alternates: { canonical: localePath(locale, path), languages },
   };
@@ -31,8 +31,8 @@ export default async function SolutionsPage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  const [{ doc, res }, solutions] = await Promise.all([getSolutionListing(locale), getSolutions(locale)]);
+  const [{ doc, res }, solutions, products] = await Promise.all([getSolutionListing(locale), getSolutions(locale), getProducts(locale)]);
   if (!doc) notFound();
 
-  return <SolutionListingView tina={toTinaProps(res)} solutions={solutions.docs} locale={locale} />;
+  return <SolutionListingView tina={toTinaProps(res)} solutions={solutions.docs} products={products.docs} locale={locale} />;
 }
