@@ -1,8 +1,8 @@
 ---
-title: "Battery"
+title: "Batteries"
 slug: "battery"
 order: 9
-category: "Critical Power"
+category: "Critical Power Systems"
 description: "Salah satu komponen utama pada UPS yang sangat vital adalah penyimpanan energi cadangan yaitu Battery. Selain digunakan pada UPS, battery juga digunakan pada Rectifier sistem telekomunikasi, data center dan penerangan dengan sistem tenaga surya"
 features:
   - "Valve Regulator Lead-acid Batteries"

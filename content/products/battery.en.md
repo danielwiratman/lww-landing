@@ -1,8 +1,8 @@
 ---
-title: "Battery"
+title: "Batteries"
 slug: "battery"
 order: 9
-category: "Critical Power"
+category: "Critical Power Systems"
 description: "One of the most vital components of a UPS is the battery — the storage of backup energy. Besides the UPS, batteries are also used in telecommunication rectifiers, data centres, and in solar-powered and emergency-lighting systems."
 features:
   - "Valve Regulator Lead-acid Batteries"

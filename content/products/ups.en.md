@@ -2,7 +2,7 @@
 title: "Uninterruptible Power Supply (UPS)"
 slug: "ups"
 order: 1
-category: "Critical Power"
+category: "Critical Power Systems"
 brand: "Remingtons (flagship, own brand)"
 description: "An Uninterruptible Power Supply (UPS) is a device that stores electrical power so it can be used when the mains supply fails. It also performs several other functions, such as stabilising voltage and filtering various electrical disturbances, plus other specific functions."
 features:

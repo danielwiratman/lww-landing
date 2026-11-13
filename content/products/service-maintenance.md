@@ -2,7 +2,7 @@
 title: "Service & Maintenance Support"
 slug: "service-maintenance"
 order: 13
-category: "Service"
+category: "Services"
 description: "Limawira menyediakan layanan Service & Maintenance Support untuk memastikan seluruh infrastruktur dan sistem pelanggan tetap beroperasi secara optimal. Layanan kami mencakup preventive maintenance, corrective maintenance, troubleshooting, emergency support, health check, penggantian suku cadang, serta kontrak pemeliharaan berkala dengan SLA yang disesuaikan dengan kebutuhan pelanggan."
 specs:
   - label: "Preventive Maintenance"
@@ -18,12 +18,12 @@ specs:
   - label: "Dokumentasi Sistem Kelistrikan"
     value: "Kegiatan yang dilakukan berupa survey, pencatatan, labeling, dan pemetaan terhadap sistem kelistrikan. Hal ini bertujuan untuk memudahkan pelaksanaan trouble shooting, pengembangan kapasitas listrik dan pemeliharaan. — Survey → Recording → Labeling → Drawing → Reporting"
 images:
+  - image: "/img/products/service-maintenance/maintenance-in-data-center.webp"
+    caption: "Technicians performing maintenance in a data centre"
   - image: "/img/products/service-maintenance/diagram-power-audit-and-documentation-flow.webp"
     caption: "Power Quality Audit flow and electrical-system documentation flow"
   - image: "/img/products/service-maintenance/engineer-with-power-analyzer.webp"
     caption: "Engineer carrying out a power-quality audit"
-  - image: "/img/products/service-maintenance/maintenance-in-data-center.webp"
-    caption: "Technicians performing maintenance in a data centre"
 datasheet: "/img/products/datasheets/service-maintenance.pdf"
 language: id
 translationKey: service-maintenance

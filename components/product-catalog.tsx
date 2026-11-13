@@ -13,7 +13,7 @@ type Props = {
   locale: Locale;
 };
 
-const CATEGORY_ORDER = ['Critical Power', 'Power Quality', 'Solution', 'Service'];
+const CATEGORY_ORDER = ['Critical Power Systems', 'Power Quality & Conditioning', 'Monitoring & Management', 'Data Center Infrastructure', 'Services'];
 
 export function ProductCatalog({ products, heading, intro, locale }: Props) {
   const [active, setActive] = useState<ProductDoc | null>(null);
@@ -45,23 +45,39 @@ export function ProductCatalog({ products, heading, intro, locale }: Props) {
         {groups.map((group) => (
           <div key={group.category}>
             <h3 className='text-sm font-semibold uppercase tracking-[0.15em] text-brand mb-4'>{group.category}</h3>
-            <ul className='grid sm:grid-cols-2 lg:grid-cols-4 gap-3'>
-              {group.items.map((product) => (
-                <li key={product.id}>
-                  <button
-                    type='button'
-                    onClick={() => setActive(product)}
-                    className='group w-full h-full text-left card px-5 py-4 hover:border-brand hover:-translate-y-0.5 transition-all flex flex-col gap-1'
-                  >
-                    <span className='font-semibold text-ink group-hover:text-brand transition'>{product.title}</span>
-                    {product.brand ? <span className='text-xs text-ink-muted'>{product.brand}</span> : null}
-                    <span className='mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand opacity-0 group-hover:opacity-100 transition'>
-                      {locale === 'id' ? 'Spesifikasi' : 'Specifications'}
-                      <Icon name='arrow-right' className='w-3.5 h-3.5' />
-                    </span>
-                  </button>
-                </li>
-              ))}
+            <ul className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+              {group.items.map((product) => {
+                const cover = (product.images ?? []).find((image) => Boolean(image?.image));
+                return (
+                  <li key={product.id}>
+                    <button
+                      type='button'
+                      onClick={() => setActive(product)}
+                      className='group w-full h-full text-left card overflow-hidden hover:border-brand hover:-translate-y-1 transition-all flex flex-col'
+                    >
+                      <span className='relative block aspect-[4/3] w-full bg-white border-b border-line overflow-hidden'>
+                        {cover?.image ? (
+                          <Image
+                            src={cover.image}
+                            alt={cover.caption ?? product.title}
+                            fill
+                            sizes='(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw'
+                            className='object-contain p-3 transition group-hover:scale-[1.04]'
+                          />
+                        ) : null}
+                      </span>
+                      <span className='p-5 flex flex-col flex-1'>
+                        <span className='font-semibold text-ink group-hover:text-brand transition'>{product.title}</span>
+                        {product.brand ? <span className='text-xs text-ink-muted mt-1'>{product.brand}</span> : null}
+                        <span className='mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand opacity-0 group-hover:opacity-100 transition'>
+                          {locale === 'id' ? 'Spesifikasi' : 'Specifications'}
+                          <Icon name='arrow-right' className='w-3.5 h-3.5' />
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

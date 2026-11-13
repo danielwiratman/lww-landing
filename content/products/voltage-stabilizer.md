@@ -2,7 +2,7 @@
 title: "Automatic Voltage Regulator (AVR) / Voltage Stabilizer"
 slug: "voltage-stabilizer"
 order: 3
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 description: "AVR atau Stabilizer adalah produk elektronik yang digunakan untuk menstabilkan tegangan listrik."
 features:
   - "Output Power Factor = 1"

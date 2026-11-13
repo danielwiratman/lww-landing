@@ -2,7 +2,7 @@
 title: "Harmonic Filter"
 slug: "harmonic-filter"
 order: 6
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 brand: "AFQ / Optivar family"
 description: "The Harmonic Filter corrects harmonic distortion — the damage to the current and voltage waveform. Harmonics are disturbances in the power distribution system caused by distorted current and voltage waveforms. Their sources are non-linear loads such as UPS, induction motors, battery chargers, computers and printers."
 features:

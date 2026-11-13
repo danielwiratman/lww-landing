@@ -2,7 +2,7 @@
 title: "Energy Monitoring"
 slug: "energy-monitoring"
 order: 7
-category: "Power Quality"
+category: "Monitoring & Management"
 description: "Untuk mengetahui dan memantau daya listrik yang sedang digunakan, diperlukan perangkat energy monitoring. Perangkat ini berbentuk piranti lunak dan piranti keras dimana piranti keras dipasang pada perangkat yang akan dimonitor, sedangkan piranti lunak dipasang pada komputer yang digunakan untuk menampilkan dan mengumpulkan data dari piranti keras yang telah dipasang."
 features:
   - "Converter unit (RS-485 bus to the meters)"
@@ -21,6 +21,8 @@ specs:
   - label: "Buses"
     value: "RS-485, ETHERNET"
 images:
+  - image: "/img/products/energy-monitoring/engineer-with-power-analyzer.webp"
+    caption: "Engineer taking power-quality measurements"
   - image: "/img/products/energy-monitoring/diagram-energy-monitoring-architecture.webp"
     caption: "Energy monitoring architecture: converter"
   - image: "/img/products/energy-monitoring/converter-unit.webp"
@@ -31,8 +33,6 @@ images:
     caption: "SCADA system server"
   - image: "/img/products/energy-monitoring/icons-measured-parameters.webp"
     caption: "Measured parameter icon set"
-  - image: "/img/products/energy-monitoring/engineer-with-power-analyzer.webp"
-    caption: "Engineer taking power-quality measurements"
 datasheet: "/img/products/datasheets/energy-monitoring.pdf"
 language: id
 translationKey: energy-monitoring

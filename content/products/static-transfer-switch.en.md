@@ -2,7 +2,7 @@
 title: "Static Transfer Switch (STS)"
 slug: "static-transfer-switch"
 order: 4
-category: "Critical Power"
+category: "Critical Power Systems"
 description: "The STS connects the main power supply to the backup supply with a transfer time of under 1 ms, so load continuity is maintained. It is used for highly critical loads (for example data centres, control equipment and similar)."
 features:
   - "True solid state, Break-Before-Make transfer"

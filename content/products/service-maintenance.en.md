@@ -2,7 +2,7 @@
 title: "Service & Maintenance Support"
 slug: "service-maintenance"
 order: 13
-category: "Service"
+category: "Services"
 description: "Limawira provides Service & Maintenance Support to keep the customer's entire infrastructure and systems operating optimally. The service covers preventive maintenance, corrective maintenance, troubleshooting, emergency support, health checks, spare-part replacement, and periodic maintenance contracts with SLAs tailored to the customer's needs."
 specs:
   - label: "Preventive Maintenance"
@@ -18,12 +18,12 @@ specs:
   - label: "Electrical System Documentation"
     value: "Survey, recording, labeling and mapping of the electrical system, to make troubleshooting, electrical capacity development and maintenance easier. — Survey → Recording → Labeling → Drawing → Reporting"
 images:
+  - image: "/img/products/service-maintenance/maintenance-in-data-center.webp"
+    caption: "Technicians performing maintenance in a data centre"
   - image: "/img/products/service-maintenance/diagram-power-audit-and-documentation-flow.webp"
     caption: "Power Quality Audit flow and electrical-system documentation flow"
   - image: "/img/products/service-maintenance/engineer-with-power-analyzer.webp"
     caption: "Engineer carrying out a power-quality audit"
-  - image: "/img/products/service-maintenance/maintenance-in-data-center.webp"
-    caption: "Technicians performing maintenance in a data centre"
 datasheet: "/img/products/datasheets/service-maintenance.pdf"
 language: en
 translationKey: service-maintenance

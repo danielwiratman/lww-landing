@@ -2,7 +2,7 @@
 title: "Isolation Transformer"
 slug: "isolation-transformer"
 order: 5
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 brand: "Remingtons TQ.7101 (shown in profile)"
 description: "Beberapa perangkat elektronik, terlebih perangkat komputer dan jaringan data, sangat sensitif terhadap kualitas catu dayanya, termasuk gangguan pada tegangan yang timbul pada jalur netral dan grounding. Isolation Transformer adalah solusi terbaik untuk mengatasi tegangan antara netral dan grounding yang tinggi."
 features:

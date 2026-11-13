@@ -1,8 +1,8 @@
 ---
-title: "Battery Analysis & Care System (BACS)"
+title: "Battery Monitoring & Management — BACS"
 slug: "battery-analysis-care-system"
 order: 12
-category: "Solution"
+category: "Monitoring & Management"
 description: "The Battery Analysis & Care System (BACS) is a monitoring, charging-voltage-balancing and alarming system for batteries. BACS records the condition of the battery periodically and at the same time extends battery service life."
 features:
   - "Battery Management System with equalizing/balancing, charging voltage control and remote monitoring"

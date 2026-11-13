@@ -30,7 +30,44 @@ const CONTENT_DIR = path.join(ROOT, 'content/products');
 const IMAGE_DIR = path.join(ROOT, 'public/img/products');
 const DATASHEET_DIR = path.join(IMAGE_DIR, 'datasheets');
 
-const CATEGORY_ORDER = ['Critical Power', 'Power Quality', 'Solution', 'Service'];
+const CATEGORY_ORDER = ['Critical Power Systems', 'Power Quality & Conditioning', 'Monitoring & Management', 'Data Center Infrastructure', 'Services'];
+
+/**
+ * The catalogue is grouped by our own product families — the pack's categories
+ * are too coarse for a product catalogue.
+ */
+const CATEGORIES = {
+  ups: 'Critical Power Systems',
+  rectifier: 'Critical Power Systems',
+  'static-transfer-switch': 'Critical Power Systems',
+  battery: 'Critical Power Systems',
+  'voltage-stabilizer': 'Power Quality & Conditioning',
+  'isolation-transformer': 'Power Quality & Conditioning',
+  'harmonic-filter': 'Power Quality & Conditioning',
+  'capacitor-bank': 'Power Quality & Conditioning',
+  'energy-monitoring': 'Monitoring & Management',
+  'monitoring-system': 'Monitoring & Management',
+  'battery-analysis-care-system': 'Monitoring & Management',
+  'data-center-infrastructure': 'Data Center Infrastructure',
+  'service-maintenance': 'Services',
+};
+
+/** Product names as they read in the catalogue. */
+const TITLES = {
+  rectifier: { id: 'Rectifier / DC Power System', en: 'Rectifier / DC Power System' },
+  battery: { id: 'Batteries', en: 'Batteries' },
+  'monitoring-system': { id: 'Environmental / Sensor Monitoring System', en: 'Environmental / Sensor Monitoring System' },
+  'battery-analysis-care-system': { id: 'Battery Monitoring & Management — BACS', en: 'Battery Monitoring & Management — BACS' },
+  'data-center-infrastructure': { id: 'Data Center Infrastructure Design & Installation', en: 'Data Center Infrastructure Design & Installation' },
+};
+
+/** The image that represents the product on the catalogue card (first image). */
+const COVER_IMAGES = {
+  'energy-monitoring': 'engineer-with-power-analyzer.jpg',
+  'data-center-infrastructure': 'data-center-cold-aisle.jpg',
+  'monitoring-system': 'environment-sensor-wld2.png',
+  'service-maintenance': 'maintenance-in-data-center.jpg',
+};
 
 /** Human labels for the spec keys used by the pack. */
 const SPEC_LABELS = {
@@ -240,6 +277,7 @@ function copyImage(source, target) {
 
 function extractDatasheet(page, target) {
   if (!CAN_GS || !fs.existsSync(PROFILE_PDF)) return null;
+  if (fs.existsSync(target)) return `/img/products/datasheets/${path.basename(target)}`;
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const result = spawnSync(
     'gs',
@@ -287,6 +325,12 @@ function main() {
       images.push({ path: `/img/products/${slug}/${base}.webp`, caption: image.caption });
     }
 
+    const cover = COVER_IMAGES[product.id];
+    if (cover) {
+      const index = images.findIndex((image) => image.path.endsWith(`/${cover.replace(/\.[^.]+$/, '')}.webp`));
+      if (index > 0) images.unshift(images.splice(index, 1)[0]);
+    }
+
     const datasheet = extractDatasheet(product.pdf_page, path.join(DATASHEET_DIR, `${slug}.pdf`));
 
     const enriched = { ...product, slug };
@@ -306,6 +350,8 @@ function main() {
 
       const document = {
         ...enriched,
+        name: TITLES[product.id] ?? product.name,
+        category: { id: CATEGORIES[product.id] ?? product.category.id, en: CATEGORIES[product.id] ?? product.category.en },
         description: enriched.description,
         specs: rows(specRows),
         assets: { images, datasheet },
@@ -318,7 +364,7 @@ function main() {
     console.log(`${slug}: ${images.length} image(s)${datasheet ? ' + datasheet' : ''}`);
   }
 
-  const categories = [...new Set(pack.products.map((product) => product.category.id))];
+  const categories = [...new Set(pack.products.map((product) => CATEGORIES[product.id] ?? product.category.id))];
   const ordered = [
     ...CATEGORY_ORDER.filter((category) => categories.includes(category)),
     ...categories.filter((category) => !CATEGORY_ORDER.includes(category)),

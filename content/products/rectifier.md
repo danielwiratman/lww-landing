@@ -1,8 +1,8 @@
 ---
-title: "Rectifier"
+title: "Rectifier / DC Power System"
 slug: "rectifier"
 order: 2
-category: "Critical Power"
+category: "Critical Power Systems"
 description: "RECTIFIER adalah suatu alat penyearah gelombang listrik. Dengan teknologi yang semakin berkembang, perangkat ini dilengkapi dengan berbagai macam fitur seperti fungsi kontrol dan monitoring serta alarm yang dapat membantu dalam operasional dan pemeliharaan."
 features:
   - "Control panel with LCD display"

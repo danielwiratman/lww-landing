@@ -2,7 +2,7 @@
 title: "Energy Monitoring"
 slug: "energy-monitoring"
 order: 7
-category: "Power Quality"
+category: "Monitoring & Management"
 description: "To measure and monitor the electrical power being consumed you need an energy-monitoring system. It consists of hardware and software: the hardware is installed on the equipment to be monitored, while the software runs on the computer used to display and collect data from that hardware."
 features:
   - "Converter unit (RS-485 bus to the meters)"
@@ -21,6 +21,8 @@ specs:
   - label: "Buses"
     value: "RS-485, ETHERNET"
 images:
+  - image: "/img/products/energy-monitoring/engineer-with-power-analyzer.webp"
+    caption: "Engineer taking power-quality measurements"
   - image: "/img/products/energy-monitoring/diagram-energy-monitoring-architecture.webp"
     caption: "SCADA"
   - image: "/img/products/energy-monitoring/converter-unit.webp"
@@ -31,8 +33,6 @@ images:
     caption: "SCADA system server"
   - image: "/img/products/energy-monitoring/icons-measured-parameters.webp"
     caption: "Measured parameter icon set"
-  - image: "/img/products/energy-monitoring/engineer-with-power-analyzer.webp"
-    caption: "Engineer taking power-quality measurements"
 datasheet: "/img/products/datasheets/energy-monitoring.pdf"
 language: en
 translationKey: energy-monitoring

@@ -2,7 +2,7 @@
 title: "Uninterruptible Power Supply (UPS)"
 slug: "ups"
 order: 1
-category: "Critical Power"
+category: "Critical Power Systems"
 brand: "Remingtons (flagship, own brand)"
 description: "Uninterruptible Power Supply (UPS) adalah suatu alat penyimpan daya listrik yang dapat digunakan saat terjadi mati listrik dari sumber utama. UPS juga memiliki banyak fungsi lain, seperti menstabilkan tegangan listrik, filter dari beberapa gangguan listrik dan beberapa fungsi spesifik lainnya."
 features:

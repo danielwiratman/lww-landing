@@ -2,7 +2,7 @@
 title: "Harmonic Filter"
 slug: "harmonic-filter"
 order: 6
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 brand: "AFQ / Optivar family"
 description: "Harmonic Filter digunakan untuk memperbaiki distorsi harmonik (kerusakan pada bentuk gelombang arus dan tegangan). Harmonik adalah gangguan yang terjadi pada sistem distribusi tenaga listrik akibat terjadinya distorsi gelombang arus dan tegangan. Sumber harmonik adalah beban non linear seperti UPS, motor induksi, battery charger, komputer, printer, dll."
 features:

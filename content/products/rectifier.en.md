@@ -1,8 +1,8 @@
 ---
-title: "Rectifier"
+title: "Rectifier / DC Power System"
 slug: "rectifier"
 order: 2
-category: "Critical Power"
+category: "Critical Power Systems"
 description: "A rectifier is a device that converts alternating current into direct current. As the technology matures, the device is equipped with various features such as control and monitoring functions and alarms that assist operation and maintenance."
 features:
   - "Control panel with LCD display"

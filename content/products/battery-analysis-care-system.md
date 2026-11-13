@@ -1,8 +1,8 @@
 ---
-title: "Battery Analysis & Care System (BACS)"
+title: "Battery Monitoring & Management — BACS"
 slug: "battery-analysis-care-system"
 order: 12
-category: "Solution"
+category: "Monitoring & Management"
 description: "Battery Analysis & Care System (BACS) adalah sistem pemantau, penyeimbang tegangan charging, dan alarm untuk baterai. BACS dapat mencatat kondisi baterai secara berkala dan sekaligus berfungsi memperpanjang masa pakai baterai."
 features:
   - "Battery Management System with equalizing/balancing, charging voltage control and remote monitoring"

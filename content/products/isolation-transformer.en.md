@@ -2,7 +2,7 @@
 title: "Isolation Transformer"
 slug: "isolation-transformer"
 order: 5
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 brand: "Remingtons TQ.7101 (shown in profile)"
 description: "Many electronic devices — computers and data-network equipment in particular — are highly sensitive to power quality, including disturbances on the neutral and grounding paths. The Isolation Transformer is the best solution for high neutral-to-ground voltage."
 features:

@@ -2,7 +2,7 @@
 title: "Capacitor Bank"
 slug: "capacitor-bank"
 order: 8
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 brand: "Optivar / AFQ family"
 description: "Capacitor Bank digunakan untuk memperbaiki faktor daya, sehingga dapat menghindari denda akibat kelebihan pemakaian daya reaktif (kVArh). Selain itu capacitor bank dapat mengurangi daya semu sehingga memungkinkan peningkatan kapasitas instalasi listrik, mengurangi penurunan tegangan dan mengurangi tingkat kerugian listrik di seluruh sistem kelistrikan."
 features:

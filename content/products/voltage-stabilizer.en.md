@@ -2,7 +2,7 @@
 title: "Automatic Voltage Regulator (AVR) / Voltage Stabilizer"
 slug: "voltage-stabilizer"
 order: 3
-category: "Power Quality"
+category: "Power Quality & Conditioning"
 description: "The AVR (Automatic Voltage Regulator) or Stabiliser is an electronic product used to stabilise mains voltage."
 features:
   - "Output Power Factor = 1"

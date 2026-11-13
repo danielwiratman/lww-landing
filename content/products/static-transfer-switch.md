@@ -2,7 +2,7 @@
 title: "Static Transfer Switch (STS)"
 slug: "static-transfer-switch"
 order: 4
-category: "Critical Power"
+category: "Critical Power Systems"
 description: "STS berfungsi sebagai penghubung antara catu daya utama dan catu daya cadangan, dengan waktu transfer yang sangat cepat hingga <1ms sehingga kontinuitas beban akan tetap terjaga. Peralatan ini digunakan untuk beban yang sangat kritis (contoh: datacenter, peralatan kontrol, dsb)."
 features:
   - "True solid state, Break-Before-Make transfer"
