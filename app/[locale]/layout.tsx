@@ -68,7 +68,7 @@ export default async function LocaleLayout({
         <SiteHeader global={doc} locale={locale} />
         <main id='main'>{children}</main>
         <SiteFooter global={doc} locale={locale} />
-        <WhatsAppButton number={doc?.site?.whatsapp} />
+        <WhatsAppButton number={doc?.site?.whatsapp} label={doc?.site?.whatsappLabel} />
       </body>
     </html>
   );

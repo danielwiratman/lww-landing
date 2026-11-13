@@ -4,6 +4,7 @@ import type { GlobalDoc } from '@/lib/content';
 import { type Locale, localizeHref } from '@/lib/i18n';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Icon } from './icon';
 import LangSwitcher from './lang-switcher';
 
 type Props = {
@@ -14,6 +15,7 @@ type Props = {
 export function SiteHeader({ global, locale }: Props) {
   const [open, setOpen] = useState(false);
   const items = global?.nav?.items ?? [];
+  const site = global?.site;
 
   useEffect(() => {
     const onResize = () => {
@@ -44,6 +46,18 @@ export function SiteHeader({ global, locale }: Props) {
         </ul>
 
         <div className='flex items-center gap-2 sm:gap-3'>
+          {site?.phone ? (
+            <a href={`tel:${site.phoneRaw ?? site.phone}`} className='hidden lg:flex items-center gap-2.5 pr-3 mr-1 border-r border-line group'>
+              <span className='grid place-items-center w-10 h-10 rounded-full bg-brand-50 text-brand group-hover:bg-brand group-hover:text-white transition-colors shrink-0'>
+                <Icon name='phone' className='w-5 h-5' />
+              </span>
+              <span className='hidden xl:flex flex-col leading-tight'>
+                <span className='text-[10px] uppercase tracking-[0.15em] text-ink-muted font-semibold'>{site.hotlineLabel ?? 'Hotline'}:</span>
+                <span className='text-xl font-bold text-brand tracking-tight'>{site.phone}</span>
+              </span>
+            </a>
+          ) : null}
+
           <LangSwitcher locale={locale} />
 
           <button
@@ -98,6 +112,15 @@ export function SiteHeader({ global, locale }: Props) {
               </Link>
             </li>
           ))}
+          {site?.phone ? (
+            <li className='pt-3'>
+              <a href={`tel:${site.phoneRaw ?? site.phone}`} className='flex items-center gap-3 text-brand'>
+                <Icon name='phone' className='w-5 h-5 shrink-0' />
+                <span className='text-xs uppercase tracking-[0.15em] text-ink-muted font-semibold'>{site.hotlineLabel ?? 'Hotline'}:</span>
+                <span className='text-base font-bold'>{site.phone}</span>
+              </a>
+            </li>
+          ) : null}
           <li className='pt-3'>
             <LangSwitcher locale={locale} />
           </li>

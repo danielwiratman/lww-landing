@@ -41,6 +41,6 @@ public/admin/*
 .next-local-logs/
 *.tsbuildinfo
 
-# source artwork for the hero carousel — too large for git.
-# The web-optimised derivatives live in public/img/hero-carousel/.
-resources/hero-carousel/
+# source material (artwork, briefs, certificates) — not used by the site.
+# The web-optimised derivatives live in public/img/.
+resources/

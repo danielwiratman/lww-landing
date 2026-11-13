@@ -36,11 +36,23 @@ const Global: Collection = {
         },
         {
           type: 'string',
+          label: 'Label hotline di header',
+          name: 'hotlineLabel',
+          ui: { description: 'Contoh: Hotline' },
+        },
+        {
+          type: 'string',
           label: 'Nomor WhatsApp (tanpa +)',
           name: 'whatsapp',
           ui: { description: 'Contoh: 6281234567890 — dipakai untuk wa.me link' },
         },
         { type: 'string', label: 'Tampilan WhatsApp', name: 'whatsappDisplay' },
+        {
+          type: 'string',
+          label: 'Teks tombol WhatsApp melayang',
+          name: 'whatsappLabel',
+          ui: { description: 'Contoh: Kami siap membantu Anda' },
+        },
         { type: 'string', label: 'Email', name: 'email' },
         { type: 'string', label: 'Alamat', name: 'address' },
       ],
