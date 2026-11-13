@@ -24,7 +24,7 @@ cta:
     label: Ajukan konsultasi
     url: /contact/
   secondaryCta:
-    label: Telepon (62-21) 4788 2000
+    label: Telepon (021) 4788 2000
     url: 'tel:+622147882000'
 ---
 

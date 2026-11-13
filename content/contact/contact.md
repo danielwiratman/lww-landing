@@ -15,7 +15,7 @@ channels:
     url: 'https://maps.google.com/?q=Graha+Mas+Pemuda+Blok+AA+Jakarta+Timur'
   - icon: phone
     label: Telepon kami
-    value: (62-21) 4788 2000
+    value: (021) 4788 2000
     url: 'tel:+622147882000'
   - icon: whatsapp
     label: WhatsApp

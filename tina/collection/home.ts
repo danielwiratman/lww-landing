@@ -132,6 +132,16 @@ const Home: Collection = {
         },
       ],
     },
+    {
+      type: 'object',
+      label: 'Strip pelanggan (running text)',
+      name: 'clients',
+      ui: { description: 'Daftar nama pelanggan diambil dari Pengaturan Situs → Daftar klien.' },
+      fields: [
+        { type: 'string', label: 'Judul', name: 'title' },
+        { type: 'string', label: 'Subjudul', name: 'subtitle', ui: { component: 'textarea' } },
+      ],
+    },
     ctaField,
   ],
 };

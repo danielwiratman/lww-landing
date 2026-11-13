@@ -103,7 +103,7 @@ cta:
     label: Contact us
     url: /contact/
   secondaryCta:
-    label: Call (62-21) 4788 2000
+    label: Call (021) 4788 2000
     url: 'tel:+622147882000'
 language: en
 translationKey: about

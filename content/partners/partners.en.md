@@ -10,11 +10,12 @@ intro: >-
   solutions to our customers. Our partner ecosystem spans power, networking,
   cabling, and building systems — and we are trusted by more than 1,000
   customers across industries.
+featured:
+  name: RemingtonS
 partners:
   - name: RemingtonS
     category: Power Protection
     logo: /img/partners/32.png
-    featured: true
   - name: Salicru
     category: Power Solutions
     logo: /img/partners/21.png

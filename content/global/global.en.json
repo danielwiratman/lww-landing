@@ -6,7 +6,7 @@
     "tagline": "Enterprise Digital Infrastructure & Critical Power Solutions",
     "shortDescription": "An experienced system integrator delivering reliable, efficient and sustainable IT, electrical and power solutions.",
     "since": "1985",
-    "phone": "(62-21) 4788 2000",
+    "phone": "(021) 4788 2000",
     "phoneRaw": "+622147882000",
     "hotlineLabel": "Hotline",
     "whatsapp": "6281234567890",
@@ -143,85 +143,64 @@
   "clients": {
     "items": [
       {
-        "name": "Kementerian Pertanian"
+        "name": "Kementerian Dalam Negeri"
       },
       {
-        "name": "Kementerian Keuangan (DJPb)"
+        "name": "Direktorat Jenderal Bea dan Cukai"
       },
       {
-        "name": "Samakta Mitra"
+        "name": "Direktorat Jenderal Perbendaharaan"
       },
       {
         "name": "Taspen (Persero)"
       },
       {
-        "name": "BPOM"
-      },
-      {
-        "name": "Bank BTN"
-      },
-      {
-        "name": "JICT"
-      },
-      {
-        "name": "Kementerian Keuangan (DJBC)"
-      },
-      {
-        "name": "Kementerian Dalam Negeri"
-      },
-      {
-        "name": "Pemprov DKI Jakarta"
-      },
-      {
-        "name": "Telkom Satelit Indonesia"
-      },
-      {
-        "name": "Manulife Indonesia"
+        "name": "Sugi Jaya Teknologi"
       },
       {
         "name": "Bumi Serpong Damai"
       },
       {
+        "name": "Telkom Satelit Indonesia (TELKOMSAT)"
+      },
+      {
+        "name": "Kementerian Pertanian"
+      },
+      {
+        "name": "Jakarta International Container Terminal (JICT)"
+      },
+      {
+        "name": "PLN (Persero)"
+      },
+      {
+        "name": "Badan Pengelola Dana Perkebunan Kelapa Sawit (BPDPKS)"
+      },
+      {
+        "name": "Buana Finance Tbk."
+      },
+      {
+        "name": "Bank Pembangunan Daerah Jawa Barat dan Banten Tbk."
+      },
+      {
+        "name": "United Tractors Tbk."
+      },
+      {
+        "name": "LKBN ANTARA"
+      },
+      {
         "name": "Astra Sedaya Finance"
       },
       {
-        "name": "Bappenas"
+        "name": "Balai Besar Pengawas Obat dan Makanan"
       },
       {
-        "name": "LKBN Antara"
+        "name": "Asuransi Jiwa Manulife Indonesia"
       },
       {
-        "name": "RemingtonS"
+        "name": "Media Nusantara Citra TBK"
       },
       {
-        "name": "Salicru"
-      },
-      {
-        "name": "Circutor"
-      },
-      {
-        "name": "Generex"
-      },
-      {
-        "name": "Hoppecke"
-      },
-      {
-        "name": "Juniper Networks"
-      },
-      {
-        "name": "F5"
-      },
-      {
-        "name": "Avaya"
-      },
-      {
-        "name": "Palo Alto Networks"
-      },
-      {
-        "name": "Dell"
-      },
-      {
-        "name": "Huawei"
+        "name": "Duta Visual Nusantara Tivi Tujuh"
       }
     ]
   }

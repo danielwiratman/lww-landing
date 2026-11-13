@@ -66,13 +66,18 @@ solutions:
     Solusi menyeluruh di lima area praktik — mulai dari desain dan pembangunan
     hingga pemeliharaan jangka panjang.
 partners:
-  title: Mitra & Pelanggan Kami
+  title: Mitra Kami
   subtitle: >-
     Bermitra dengan pemimpin teknologi yang diakui secara global dan melayani
     pelanggan di berbagai industri.
   cta:
     label: Lihat semua mitra & pelanggan
     url: /partners/
+clients:
+  title: Pelanggan Kami
+  subtitle: >-
+    Di dipercaya oleh instansi pemerintah, badan usaha, dan perusahaan nasional
+    di seluruh Indonesia.
 cta:
   eyebrow: Siap memulai?
   title: Ceritakan proyek Anda kepada kami.
@@ -83,7 +88,7 @@ cta:
     label: Ajukan konsultasi
     url: /contact/
   secondaryCta:
-    label: Telepon (62-21) 4788 2000
+    label: Telepon (021) 4788 2000
     url: 'tel:+622147882000'
 language: id
 translationKey: home

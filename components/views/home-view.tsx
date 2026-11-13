@@ -1,5 +1,6 @@
 'use client';
 
+import ClientMarquee from '@/components/client-marquee';
 import Cta from '@/components/cta';
 import HeroCarousel from '@/components/hero-carousel';
 import { Icon } from '@/components/icon';
@@ -15,12 +16,13 @@ type Props = {
   tina: TinaQueryProps<HomeConnectionQuery>;
   solutions: SolutionDoc[];
   partners: PartnersDoc | null;
+  clientNames: string[];
   locale: Locale;
 };
 
 const statIcons = ['trophy', 'box', 'users', 'shield'];
 
-export function HomeView({ tina, solutions, partners, locale }: Props) {
+export function HomeView({ tina, solutions, partners, clientNames, locale }: Props) {
   const { data } = useTina(tina);
   const home = data.homeConnection.edges?.[0]?.node;
 
@@ -31,8 +33,8 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
     .filter((slide): slide is NonNullable<typeof slide> => Boolean(slide?.image))
     .map((slide) => ({ image: slide.image, caption: slide.caption, alt: slide.alt }));
   const partnerItems = (partners?.partners ?? []).filter((item): item is NonNullable<typeof item> => Boolean(item));
-  const featuredPartner = partnerItems.find((item) => item.featured) ?? null;
-  const otherPartners = partnerItems.filter((item) => !item.featured);
+  const featuredPartner = partnerItems.find((item) => item.name === partners?.featured?.name) ?? null;
+  const otherPartners = partnerItems.filter((item) => item.name !== partners?.featured?.name);
 
   return (
     <>
@@ -207,9 +209,9 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
               ) : null}
             </div>
 
-            <div className='flex flex-col gap-6 lg:flex-row lg:items-center'>
+            <div className='flex flex-col gap-6'>
               {featuredPartner ? (
-                <div className='flex items-center gap-4 shrink-0 px-5 py-4 rounded-xl bg-white border border-brand/40'>
+                <div className='flex items-center gap-4 px-5 py-4 rounded-xl bg-white border border-brand/40'>
                   {featuredPartner.logo ? (
                     <div className='relative h-12 w-44'>
                       <Image src={featuredPartner.logo} alt={featuredPartner.name} fill sizes='176px' className='object-contain' />
@@ -219,7 +221,7 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
                 </div>
               ) : null}
 
-              <ul className='grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 flex-1'>
+              <ul className='grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3'>
                 {otherPartners.slice(0, 7).map((partner) => (
                   <li key={partner.name} className='flex items-center justify-center p-3 rounded-lg bg-white border border-line hover:border-brand transition'>
                     {partner.logo ? (
@@ -237,6 +239,19 @@ export function HomeView({ tina, solutions, partners, locale }: Props) {
             </div>
           </div>
         </Reveal>
+      ) : null}
+
+      {/* --------------------------- CLIENTS MARQUEE ----------------------- */}
+      {home.clients && clientNames.length ? (
+        <section className='bg-brand text-white overflow-hidden'>
+          <div className='container-x pt-14 pb-10'>
+            <h2 className='text-2xl md:text-3xl font-bold text-balance'>{home.clients.title}</h2>
+            {home.clients.subtitle ? <p className='mt-2 text-brand-100/90 max-w-2xl'>{home.clients.subtitle}</p> : null}
+          </div>
+          <div className='pb-14'>
+            <ClientMarquee items={clientNames} />
+          </div>
+        </section>
       ) : null}
 
       <Reveal>

@@ -9,12 +9,13 @@ intro: >-
   Kami bermitra dengan pemimpin teknologi yang diakui secara global untuk
   menghadirkan solusi terbaik bagi pelanggan kami. Ekosistem mitra kami mencakup
   power, networking, cabling, dan building system. Dan kami telah dipercaya oleh
-  lebih dari 1.000 pelanggan di berbagai industri.
+  lebih dari 1.000   pelanggan di berbagai industri.
+featured:
+  name: RemingtonS
 partners:
   - name: RemingtonS
     category: Perlindungan Daya
     logo: /img/partners/32.png
-    featured: true
   - name: Salicru
     category: Solusi Daya
     logo: /img/partners/21.png

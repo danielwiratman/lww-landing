@@ -1,4 +1,5 @@
 import type { Collection } from 'tinacms';
+import FeaturedPartnerField from '../../components/tina/featured-partner-field';
 import { ctaField, filenameUi, heroField, languageField, routerFor, translationKeyField } from '../fields/common';
 
 const Partners: Collection = {
@@ -19,6 +20,16 @@ const Partners: Collection = {
     { type: 'string', label: 'Intro', name: 'intro', ui: { component: 'textarea' } },
     {
       type: 'object',
+      label: 'Mitra utama (featured)',
+      name: 'featured',
+      ui: {
+        component: FeaturedPartnerField as any,
+        description: 'Mitra yang ditampilkan lebih besar di beranda. Klik logonya untuk memilih.',
+      },
+      fields: [{ type: 'string', label: 'Nama mitra', name: 'name' }],
+    },
+    {
+      type: 'object',
       label: 'Mitra',
       name: 'partners',
       list: true,
@@ -28,7 +39,6 @@ const Partners: Collection = {
         { type: 'string', label: 'Kategori', name: 'category' },
         { type: 'image', label: 'Logo', name: 'logo' },
         { type: 'string', label: 'URL website', name: 'url' },
-        { type: 'boolean', label: 'Mitra utama (display besar di beranda)', name: 'featured' },
       ],
     },
     {

@@ -66,11 +66,16 @@ solutions:
     End-to-end solutions across five practice areas — from design and build to
     long-term maintenance.
 partners:
-  title: Our Partners & Clients
+  title: Our Partners
   subtitle: Working with globally recognised technology leaders and customers.
   cta:
     label: See all partners & clients
     url: /partners/
+clients:
+  title: Our Clients
+  subtitle: >-
+    Trusted by government agencies, businesses, and national companies across
+    Indonesia.
 cta:
   eyebrow: Ready to start?
   title: Tell us about your project.
@@ -81,7 +86,7 @@ cta:
     label: Request consultation
     url: /contact/
   secondaryCta:
-    label: Call (62-21) 4788 2000
+    label: Call (021) 4788 2000
     url: 'tel:+622147882000'
 language: en
 translationKey: home
